@@ -1,0 +1,75 @@
+import type { CultureYearInput } from "@/lib/content/schema";
+
+/** 2005 — CULTURAL CONTEXT (general history, not personal). */
+export const culture2005: CultureYearInput = {
+  year: 2005,
+  headline: "The year the internet learned to play video.",
+  blurb:
+    "YouTube uploaded its first clip in April, Google Maps went live, and Web 2.0 arrived as a phrase. Living rooms got the Xbox 360 in November while the Motorola RAZR and the iPod nano turned gadgets into fashion.",
+  design:
+    "Windows XP's rolling green hills, glossy blue title bars, and beveled buttons. On the web, reflective logos and tabbed navigation with rounded corners.",
+  internet: [
+    { label: "YouTube launches", kind: "site", icon: "video", note: "\"Me at the zoo\" was uploaded in April." },
+    { label: "Google Maps", kind: "site", icon: "map", note: "Draggable maps in a browser felt like magic." },
+    { label: "MySpace", kind: "site", icon: "globe", note: "Custom profile pages and Top 8 friends." },
+    { label: "Reddit is founded", kind: "site", icon: "chat" },
+    { label: "Club Penguin", kind: "site", icon: "snow", note: "Launched in October; a kids' MMO in a browser." },
+    { label: "Neopets and RuneScape", kind: "site", icon: "globe", note: "Browser games with whole economies." },
+    { label: "AIM away messages", kind: "app", icon: "chat", note: "Instant messaging and buddy lists ruled the family PC." },
+    { label: "Firefox 1.5", kind: "app", icon: "globe", note: "Tabs and pop-up blocking for everyone." },
+  ],
+  tech: [
+    { label: "Xbox 360", kind: "console", icon: "xbox", note: "Launched in November with Xbox Live built in." },
+    { label: "iPod nano", kind: "device", icon: "ipod", note: "Flash storage, pencil-thin, colour screen." },
+    { label: "iPod with video", kind: "device", icon: "ipod", note: "TV shows on a 2.5-inch screen." },
+    { label: "Motorola RAZR V3", kind: "phone", icon: "flip-phone", note: "The flip phone everyone wanted." },
+    { label: "PlayStation Portable", kind: "console", icon: "psp", note: "Arrived in North America in March." },
+    { label: "Windows XP", kind: "computer", icon: "desktop", note: "Four years old and still on almost every desk." },
+    { label: "Digital point-and-shoot cameras", kind: "device", icon: "camera", note: "Orange date stamps in the corner." },
+    { label: "Mac mini", kind: "computer", icon: "desktop" },
+  ],
+  games: [
+    { label: "Nintendogs", kind: "game", icon: "ds", note: "The DS found its audience." },
+    { label: "Mario Kart DS", kind: "game", icon: "ds", note: "Online play on a handheld." },
+    { label: "Guitar Hero", kind: "game", icon: "controller", note: "A plastic guitar in the living room." },
+    { label: "World of Warcraft", kind: "game", icon: "desktop", note: "Its first full year." },
+    { label: "Lego Star Wars", kind: "game", icon: "lego" },
+    { label: "Pokémon Emerald", kind: "game", icon: "controller" },
+    { label: "Resident Evil 4 and Shadow of the Colossus", kind: "game", icon: "playstation" },
+  ],
+  onScreen: [
+    { label: "Avatar: The Last Airbender premieres", kind: "show", icon: "tv" },
+    { label: "The Office (US) premieres", kind: "show", icon: "tv" },
+    { label: "Lost", kind: "show", icon: "tv", note: "Everyone had a theory." },
+    { label: "Star Wars: Revenge of the Sith", kind: "movie", icon: "film" },
+    { label: "Harry Potter and the Goblet of Fire", kind: "movie", icon: "film" },
+    { label: "Madagascar", kind: "movie", icon: "film" },
+    { label: "Batman Begins", kind: "movie", icon: "film" },
+    { label: "Lazy Sunday", kind: "youtube", icon: "video", note: "An SNL sketch became one of YouTube's first viral hits in December." },
+  ],
+  music: [
+    { id: "c2005-hollaback", title: "Hollaback Girl", artist: "Gwen Stefani" },
+    { id: "c2005-golddigger", title: "Gold Digger", artist: "Kanye West ft. Jamie Foxx" },
+    { id: "c2005-webelong", title: "We Belong Together", artist: "Mariah Carey" },
+    { id: "c2005-sinceu", title: "Since U Been Gone", artist: "Kelly Clarkson" },
+    { id: "c2005-boulevard", title: "Boulevard of Broken Dreams", artist: "Green Day" },
+    { id: "c2005-brightside", title: "Mr. Brightside", artist: "The Killers" },
+  ],
+  culture: [
+    { label: "Web 2.0", kind: "trend", icon: "globe", note: "Reflections, gradients, and beta badges on everything." },
+    { label: "Livestrong bracelets", kind: "fashion", icon: "star" },
+    { label: "Crocs go mainstream", kind: "fashion", icon: "toy" },
+    { label: "Numa Numa", kind: "meme", icon: "video", note: "A webcam lip-sync seen by millions before YouTube existed." },
+    { label: "Webkinz", kind: "toy", icon: "toy", note: "A plush toy with a secret code for an online world." },
+    { label: "Burned CDs and mix CDs", kind: "trend", icon: "cd", note: "Sharpie labels and 80-minute limits." },
+    { label: "Ringtones as a business", kind: "trend", icon: "flip-phone" },
+  ],
+  capsule: [
+    { label: "Flip phone", icon: "flip-phone" },
+    { label: "iPod nano", icon: "ipod" },
+    { label: "Burned CD", icon: "cd" },
+    { label: "CRT monitor", icon: "crt" },
+    { label: "Point-and-shoot", icon: "camera" },
+    { label: "DS cartridge", icon: "ds" },
+  ],
+};

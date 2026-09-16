@@ -1,0 +1,56 @@
+/* Pixel-cloud sky, POW lettering, and the pixel utilities used by the frame and the game. */
+@layer components {
+  .sky {
+    background-color: var(--os-desktop);
+    background-image:
+      linear-gradient(180deg, color-mix(in srgb, var(--os-desktop) 70%, #fff) 0%, var(--os-desktop) 35%, var(--os-desktop-deep) 100%);
+  }
+  .sky-clouds, .sky-clouds-far {
+    position: absolute; inset: 0; pointer-events: none;
+    background-repeat: repeat;
+    image-rendering: pixelated;
+  }
+  .sky-clouds-far {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='160' shape-rendering='crispEdges'><g fill='%23ffffff' fill-opacity='0.55'><rect x='24' y='40' width='48' height='8'/><rect x='32' y='32' width='24' height='8'/><rect x='16' y='48' width='64' height='8'/><rect x='150' y='110' width='40' height='8'/><rect x='142' y='118' width='56' height='8'/><rect x='158' y='102' width='16' height='8'/></g></svg>");
+    background-size: 240px 160px;
+    opacity: 0.8;
+    animation: clouds-far 160s linear infinite;
+  }
+  .sky-clouds {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='220' shape-rendering='crispEdges'><g fill='%23ffffff'><rect x='40' y='60' width='96' height='12'/><rect x='52' y='48' width='48' height='12'/><rect x='64' y='36' width='24' height='12'/><rect x='28' y='72' width='120' height='12'/><rect x='40' y='84' width='96' height='12'/><rect x='200' y='150' width='72' height='12'/><rect x='212' y='138' width='36' height='12'/><rect x='188' y='162' width='96' height='12'/><rect x='200' y='174' width='72' height='12'/></g><g fill='%23bcdcff'><rect x='40' y='96' width='96' height='6'/><rect x='200' y='186' width='72' height='6'/></g></svg>");
+    background-size: 320px 220px;
+    animation: clouds-near 110s linear infinite;
+  }
+  @keyframes clouds-far { from { background-position: 0 0; } to { background-position: 240px 0; } }
+  @keyframes clouds-near { from { background-position: 0 0; } to { background-position: 320px 0; } }
+  @media (prefers-reduced-motion: reduce) { .sky-clouds, .sky-clouds-far { animation: none; } }
+
+  /* POW: chunky pixel display lettering with a hard shadow. Display sizes only (≥ 20px). */
+  .pow {
+    font-family: var(--font-pixelify);
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    line-height: 0.95;
+    text-shadow: 3px 3px 0 var(--pow-shadow, rgba(0, 0, 0, 0.55));
+  }
+  .pow-outline {
+    paint-order: stroke fill;
+    -webkit-text-stroke: 1.5px var(--pow-stroke, #000);
+  }
+  .pow-sm { font-family: var(--font-pixelify); font-weight: 700; text-shadow: 2px 2px 0 var(--pow-shadow, rgba(0, 0, 0, 0.45)); }
+  .pixel-font { font-family: var(--font-pixelify); }
+  .pixelated { image-rendering: pixelated; }
+
+  @keyframes window-open {
+    0% { transform: scale(0.35); opacity: 0; }
+    60% { transform: scale(1.01); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  .window-open { animation: window-open 420ms var(--ease-out-quart) both; transform-origin: 50% 40%; }
+  @keyframes window-minimize {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: translateY(40vh) scale(0.1); opacity: 0; }
+  }
+  .window-minimize { animation: window-minimize 380ms var(--ease-in-out-quint) both; transform-origin: 50% 100%; }
+  @media (prefers-reduced-motion: reduce) { .window-open, .window-minimize { animation: none; } }
+}

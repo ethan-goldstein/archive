@@ -1,0 +1,75 @@
+import type { CultureYearInput } from "@/lib/content/schema";
+
+/** 2007 — CULTURAL CONTEXT (general history, not personal). */
+export const culture2007: CultureYearInput = {
+  year: 2007,
+  headline: "A phone, an iPod, and an internet communicator.",
+  blurb:
+    "The iPhone launched in June and the iPod touch followed in September, while Vista's glass interface reached home PCs. Halo 3, Rock Band, and Modern Warfare made this a landmark year for consoles, and the last Harry Potter book arrived in July.",
+  design:
+    "Windows Vista Aero: translucent glass, glowing buttons, and reflections. The iPhone's skeuomorphic icons set the template for the next five years.",
+  internet: [
+    { label: "Tumblr launches", kind: "site", icon: "blog", note: "Founded in February." },
+    { label: "Netflix starts streaming", kind: "site", icon: "stream", note: "Watch Instantly, alongside the DVD mailers." },
+    { label: "Google Street View", kind: "site", icon: "map" },
+    { label: "Facebook Platform", kind: "site", icon: "globe", note: "Apps, pokes, and quizzes inside Facebook." },
+    { label: "Rickrolling", kind: "meme", icon: "video", note: "The bait-and-switch link became a tradition." },
+    { label: "Hulu announced", kind: "site", icon: "stream" },
+    { label: "Chocolate Rain and Charlie Bit My Finger", kind: "youtube", icon: "video", note: "YouTube's second wave of viral videos." },
+  ],
+  tech: [
+    { label: "iPhone", kind: "phone", icon: "iphone", note: "Launched June 29 with a 3.5-inch multi-touch screen." },
+    { label: "iPod touch", kind: "device", icon: "ipod-touch", note: "The iPhone without the phone." },
+    { label: "Windows Vista for consumers", kind: "computer", icon: "window" },
+    { label: "Amazon Kindle", kind: "device", icon: "book", note: "First generation, November." },
+    { label: "Xbox 360 Elite", kind: "console", icon: "xbox" },
+    { label: "Wii Remote wrist strap recall era", kind: "console", icon: "wii", note: "Silicone jackets for everyone." },
+    { label: "Nintendo DS dominates", kind: "console", icon: "ds" },
+    { label: "Flip Video camcorder", kind: "device", icon: "camcorder", note: "A pocket camcorder with a flip-out USB plug." },
+  ],
+  games: [
+    { label: "Halo 3", kind: "game", icon: "xbox", note: "\"Finish the fight\" — September." },
+    { label: "Call of Duty 4: Modern Warfare", kind: "game", icon: "controller" },
+    { label: "Rock Band", kind: "game", icon: "controller", note: "Drums, guitar, mic, and a living room band." },
+    { label: "Guitar Hero III", kind: "game", icon: "controller" },
+    { label: "Super Mario Galaxy", kind: "game", icon: "wii" },
+    { label: "Portal and The Orange Box", kind: "game", icon: "desktop", note: "The cake is a lie." },
+    { label: "Pokémon Diamond and Pearl (US)", kind: "game", icon: "ds" },
+    { label: "BioShock, Mass Effect, Assassin's Creed", kind: "game", icon: "xbox" },
+  ],
+  onScreen: [
+    { label: "Harry Potter and the Deathly Hallows (book)", kind: "book", icon: "book", note: "Midnight release, July 21." },
+    { label: "Transformers", kind: "movie", icon: "film" },
+    { label: "Ratatouille", kind: "movie", icon: "film" },
+    { label: "Spider-Man 3 and Shrek the Third", kind: "movie", icon: "film" },
+    { label: "iCarly premieres", kind: "show", icon: "tv" },
+    { label: "Phineas and Ferb (preview)", kind: "show", icon: "tv", note: "Full series in 2008." },
+    { label: "Wizards of Waverly Place premieres", kind: "show", icon: "tv" },
+    { label: "Leave Britney Alone", kind: "youtube", icon: "video" },
+  ],
+  music: [
+    { id: "c2007-umbrella", title: "Umbrella", artist: "Rihanna ft. Jay-Z" },
+    { id: "c2007-crankthat", title: "Crank That (Soulja Boy)", artist: "Soulja Boy Tell 'Em" },
+    { id: "c2007-delilah", title: "Hey There Delilah", artist: "Plain White T's" },
+    { id: "c2007-stronger", title: "Stronger", artist: "Kanye West" },
+    { id: "c2007-biggirls", title: "Big Girls Don't Cry", artist: "Fergie" },
+    { id: "c2007-irreplaceable", title: "Irreplaceable", artist: "Beyoncé" },
+  ],
+  culture: [
+    { label: "iPhone launch lines", kind: "event", icon: "iphone" },
+    { label: "Soulja Boy dance", kind: "trend", icon: "music", note: "Learned from a YouTube tutorial." },
+    { label: "LOLcats", kind: "meme", icon: "smile", note: "I Can Has Cheezburger launched in January." },
+    { label: "Dramatic Chipmunk", kind: "meme", icon: "video" },
+    { label: "Silly Putty and Bakugan", kind: "toy", icon: "toy", note: "Bakugan launched in the US this year." },
+    { label: "Skinny jeans and studded belts", kind: "fashion", icon: "star" },
+    { label: "Facebook status updates", kind: "trend", icon: "chat", note: "\"is\" was still hard-coded into every status." },
+  ],
+  capsule: [
+    { label: "First iPhone", icon: "iphone" },
+    { label: "iPod touch", icon: "ipod-touch" },
+    { label: "Rock Band drums", icon: "controller" },
+    { label: "Flip camcorder", icon: "camcorder" },
+    { label: "Deathly Hallows", icon: "book" },
+    { label: "Vista glass", icon: "window" },
+  ],
+};

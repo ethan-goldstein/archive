@@ -1,0 +1,35 @@
+/* 2017–2020 · The Streaming Years. Charcoal, neon green, everything in a queue. */
+html:has([data-era="dark"]), html[data-era="dark"] {
+  --bg: #121212;
+  --bg-deep: #000000;
+  --fg: #f2f2f2;
+  --fg-muted: #a7a7a7;
+  --surface: #1b1b1b;
+  --surface-fg: #f2f2f2;
+  --surface-fg-muted: #a7a7a7;
+  --surface-border: #2a2a2a;
+  --accent: #1ed760;
+  --accent-2: #b388ff;
+  --accent-fg: #071a0d;
+  --glow: #4dffa0;
+  --chrome-a: #242424;
+  --chrome-b: #1b1b1b;
+  --chrome-fg: #f2f2f2;
+  --border: #2a2a2a;
+
+  --radius-era: 12px;
+  --radius-sm: 6px;
+  --shadow-era: 0 10px 30px -14px rgba(0, 0, 0, 0.9);
+  --wallpaper:
+    radial-gradient(60% 40% at 10% 0%, rgba(30, 215, 96, 0.14), transparent 60%),
+    radial-gradient(50% 40% at 100% 20%, rgba(179, 136, 255, 0.12), transparent 60%),
+    linear-gradient(180deg, #181818 0%, #121212 40%, #0a0a0a 100%);
+  --chrome-gradient: linear-gradient(180deg, #242424, #1b1b1b);
+  --numeral-family: var(--font-sans);
+  --numeral-weight: 500;
+  --numeral-tracking: -0.05em;
+  --fx-scanlines: 0;
+  --fx-grain: 0.03;
+  --fx-vignette: 0.25;
+  --fx-gloss: 0;
+}

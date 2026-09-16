@@ -5,22 +5,43 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "prebuild": "npm run check:content",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "check:content": "tsx scripts/check-content.ts",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "photos": "node scripts/photos.mjs",
+    "og": "node scripts/og.mjs"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
+    "d3-geo": "^3.1.1",
+    "fuse.js": "^7.5.0",
+    "motion": "^13.1.1",
     "next": "16.3.4",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "topojson-client": "^3.1.0",
+    "us-atlas": "^3.0.1",
+    "world-atlas": "^2.0.2",
+    "zod": "^4.5.4"
   },
   "devDependencies": {
+    "@playwright/test": "^1.62.1",
     "@tailwindcss/postcss": "^4",
+    "@types/d3-geo": "^3.1.1",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/topojson-client": "^3.1.5",
     "eslint": "^9",
     "eslint-config-next": "16.3.4",
+    "sharp": "^0.35.4",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "tsx": "^4.23.13",
+    "typescript": "^5",
+    "vitest": "^4.1.11"
   }
 }

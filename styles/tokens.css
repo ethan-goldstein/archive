@@ -1,0 +1,78 @@
+/*
+ * Design tokens. Every era redefines the same names (see styles/eras/*.css);
+ * components only ever reference tokens, never era colours directly.
+ * Colour tokens are registered with @property so era changes interpolate.
+ */
+@property --bg { syntax: "<color>"; inherits: true; initial-value: #0a0a0b; }
+@property --bg-deep { syntax: "<color>"; inherits: true; initial-value: #050506; }
+@property --fg { syntax: "<color>"; inherits: true; initial-value: #fafafa; }
+@property --fg-muted { syntax: "<color>"; inherits: true; initial-value: #9a9aa3; }
+@property --surface { syntax: "<color>"; inherits: true; initial-value: #141416; }
+@property --surface-fg { syntax: "<color>"; inherits: true; initial-value: #fafafa; }
+@property --surface-fg-muted { syntax: "<color>"; inherits: true; initial-value: #9a9aa3; }
+@property --surface-border { syntax: "<color>"; inherits: true; initial-value: #2a2a2e; }
+@property --accent { syntax: "<color>"; inherits: true; initial-value: #7cb7ff; }
+@property --accent-2 { syntax: "<color>"; inherits: true; initial-value: #d0d0d8; }
+@property --accent-fg { syntax: "<color>"; inherits: true; initial-value: #0a0a0b; }
+@property --glow { syntax: "<color>"; inherits: true; initial-value: #9cc8ff; }
+@property --chrome-a { syntax: "<color>"; inherits: true; initial-value: #2a2a2e; }
+@property --chrome-b { syntax: "<color>"; inherits: true; initial-value: #141416; }
+@property --chrome-fg { syntax: "<color>"; inherits: true; initial-value: #fafafa; }
+@property --border { syntax: "<color>"; inherits: true; initial-value: #2a2a2e; }
+
+:root {
+  /* Non-colour tokens; overridden per era */
+  --radius-era: 16px;
+  --radius-sm: 6px;
+  --radius-pill: 999px;
+  --shadow-era: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 20px 50px -20px rgba(0, 0, 0, 0.6);
+  --wallpaper: radial-gradient(120% 80% at 50% 0%, #17171a 0%, #0a0a0b 60%);
+  --chrome-gradient: linear-gradient(180deg, var(--chrome-a), var(--chrome-b));
+  --surface-blur: 0px;
+  --numeral-family: var(--font-serif);
+  --numeral-weight: 400;
+  --numeral-style: normal;
+  --numeral-tracking: -0.04em;
+  --fx-scanlines: 0;
+  --fx-grain: 0;
+  --fx-vignette: 0;
+  --fx-gloss: 0;
+
+  /* Motion */
+  --dur-fast: 150ms;
+  --dur-base: 300ms;
+  --dur-slow: 600ms;
+  --dur-cinematic: 1000ms;
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out-quint: cubic-bezier(0.83, 0, 0.17, 1);
+  --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Layout */
+  --topbar-h: 64px;
+  --strip-h: 56px;
+  --tabbar-h: 64px;
+  --player-h: 64px;
+  --measure: 68ch;
+
+  transition:
+    --bg var(--dur-slow) var(--ease-in-out-quint),
+    --bg-deep var(--dur-slow) var(--ease-in-out-quint),
+    --fg var(--dur-slow) var(--ease-in-out-quint),
+    --fg-muted var(--dur-slow) var(--ease-in-out-quint),
+    --surface var(--dur-slow) var(--ease-in-out-quint),
+    --surface-fg var(--dur-slow) var(--ease-in-out-quint),
+    --surface-fg-muted var(--dur-slow) var(--ease-in-out-quint),
+    --surface-border var(--dur-slow) var(--ease-in-out-quint),
+    --accent var(--dur-slow) var(--ease-in-out-quint),
+    --accent-2 var(--dur-slow) var(--ease-in-out-quint),
+    --accent-fg var(--dur-slow) var(--ease-in-out-quint),
+    --glow var(--dur-slow) var(--ease-in-out-quint),
+    --chrome-a var(--dur-slow) var(--ease-in-out-quint),
+    --chrome-b var(--dur-slow) var(--ease-in-out-quint),
+    --chrome-fg var(--dur-slow) var(--ease-in-out-quint),
+    --border var(--dur-slow) var(--ease-in-out-quint);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { transition: none; }
+}

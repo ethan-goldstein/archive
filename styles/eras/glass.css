@@ -1,0 +1,36 @@
+/* 2021–2026 · The Glass Years. Black, graphite, white, and quiet depth. */
+html:has([data-era="glass"]), html[data-era="glass"] {
+  --bg: #0a0a0b;
+  --bg-deep: #000000;
+  --fg: #fafafa;
+  --fg-muted: #9a9aa3;
+  --surface: rgba(255, 255, 255, 0.06);
+  --surface-fg: #fafafa;
+  --surface-fg-muted: #a3a3ac;
+  --surface-border: rgba(255, 255, 255, 0.12);
+  --accent: #7cb7ff;
+  --accent-2: #d0d0d8;
+  --accent-fg: #0a0a0b;
+  --glow: #9cc8ff;
+  --chrome-a: rgba(255, 255, 255, 0.1);
+  --chrome-b: rgba(255, 255, 255, 0.02);
+  --chrome-fg: #fafafa;
+  --border: rgba(255, 255, 255, 0.12);
+
+  --radius-era: 18px;
+  --radius-sm: 8px;
+  --shadow-era: 0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 30px 60px -30px rgba(0, 0, 0, 0.8);
+  --wallpaper:
+    radial-gradient(80% 50% at 50% -10%, rgba(124, 183, 255, 0.16), transparent 60%),
+    radial-gradient(40% 30% at 90% 90%, rgba(255, 255, 255, 0.05), transparent 60%),
+    linear-gradient(180deg, #121214 0%, #0a0a0b 50%, #000000 100%);
+  --chrome-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
+  --surface-blur: 24px;
+  --numeral-family: var(--font-serif);
+  --numeral-weight: 400;
+  --numeral-tracking: -0.03em;
+  --fx-scanlines: 0;
+  --fx-grain: 0.05;
+  --fx-vignette: 0.3;
+  --fx-gloss: 0;
+}

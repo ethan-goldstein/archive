@@ -1,0 +1,76 @@
+import type { CultureYearInput } from "@/lib/content/schema";
+
+/** 2009 — CULTURAL CONTEXT (general history, not personal). */
+export const culture2009: CultureYearInput = {
+  year: 2009,
+  headline: "Like.",
+  blurb:
+    "Facebook added the Like button, Twitter went mainstream, and Windows 7 replaced Vista in October. Minecraft's first public build appeared in May, Angry Birds launched in December, and Avatar closed the year as the biggest film ever.",
+  design:
+    "Windows 7 Aero glass with a bigger taskbar; iPhone OS 3 and its glossy, skeuomorphic app icons. Gradients on everything, chrome on the buttons.",
+  internet: [
+    { label: "The Facebook Like button", kind: "site", icon: "heart", note: "Introduced in February." },
+    { label: "Twitter goes mainstream", kind: "site", icon: "bird", note: "Ashton Kutcher raced CNN to a million followers." },
+    { label: "FarmVille", kind: "game", icon: "leaf", note: "Facebook gaming at its peak." },
+    { label: "Minecraft (Classic)", kind: "game", icon: "lego", note: "Markus Persson's first public version, May 17." },
+    { label: "Bing launches", kind: "site", icon: "search" },
+    { label: "Google Wave", kind: "app", icon: "cloud", note: "Invite-only and gone within a year." },
+    { label: "Keyboard Cat and David After Dentist", kind: "meme", icon: "video" },
+    { label: "Fred, Smosh, Nigahiga", kind: "youtube", icon: "video", note: "The first YouTube subscriber race." },
+  ],
+  tech: [
+    { label: "Windows 7", kind: "computer", icon: "window", note: "Released October 22." },
+    { label: "iPhone 3GS", kind: "phone", icon: "iphone", note: "Video recording and a compass." },
+    { label: "iPod touch (3rd gen) and nano with a camera", kind: "device", icon: "ipod-touch" },
+    { label: "Nintendo DSi", kind: "console", icon: "ds", note: "Two cameras and the DSi Shop." },
+    { label: "Motorola Droid", kind: "phone", icon: "phone", note: "\"Droid does\" — Android's first hit in the US." },
+    { label: "Palm Pre", kind: "phone", icon: "phone" },
+    { label: "Kindle 2", kind: "device", icon: "book" },
+    { label: "Zune HD", kind: "device", icon: "ipod" },
+  ],
+  games: [
+    { label: "Call of Duty: Modern Warfare 2", kind: "game", icon: "controller" },
+    { label: "Wii Sports Resort", kind: "game", icon: "wii", note: "With Wii MotionPlus." },
+    { label: "New Super Mario Bros. Wii", kind: "game", icon: "wii" },
+    { label: "Angry Birds", kind: "game", icon: "iphone", note: "Launched in December." },
+    { label: "Doodle Jump", kind: "game", icon: "iphone" },
+    { label: "Pokémon Platinum (US)", kind: "game", icon: "ds" },
+    { label: "Uncharted 2, Batman: Arkham Asylum, Assassin's Creed II", kind: "game", icon: "playstation" },
+    { label: "Left 4 Dead 2 and Borderlands", kind: "game", icon: "xbox" },
+  ],
+  onScreen: [
+    { label: "Avatar", kind: "movie", icon: "film", note: "3D glasses, December." },
+    { label: "Up", kind: "movie", icon: "film" },
+    { label: "Harry Potter and the Half-Blood Prince", kind: "movie", icon: "film" },
+    { label: "Star Trek", kind: "movie", icon: "rocket" },
+    { label: "Glee premieres", kind: "show", icon: "tv" },
+    { label: "Modern Family and Parks and Recreation premiere", kind: "show", icon: "tv" },
+    { label: "Community premieres", kind: "show", icon: "tv" },
+    { label: "Susan Boyle", kind: "youtube", icon: "video", note: "Britain's Got Talent, watched everywhere." },
+  ],
+  music: [
+    { id: "c2009-boomboompow", title: "Boom Boom Pow", artist: "The Black Eyed Peas" },
+    { id: "c2009-pokerface", title: "Poker Face", artist: "Lady Gaga" },
+    { id: "c2009-gottafeeling", title: "I Gotta Feeling", artist: "The Black Eyed Peas" },
+    { id: "c2009-partyusa", title: "Party in the U.S.A.", artist: "Miley Cyrus" },
+    { id: "c2009-fireflies", title: "Fireflies", artist: "Owl City" },
+    { id: "c2009-empirestate", title: "Empire State of Mind", artist: "Jay-Z ft. Alicia Keys" },
+  ],
+  culture: [
+    { label: "Michael Jackson dies", kind: "event", icon: "music", note: "June 25; the internet slowed down." },
+    { label: "Kanye interrupts Taylor Swift", kind: "event", icon: "mic", note: "\"I'ma let you finish.\"" },
+    { label: "Silly Bandz appear", kind: "toy", icon: "toy", note: "The craze peaked in 2010." },
+    { label: "Zhu Zhu Pets", kind: "toy", icon: "toy", note: "The holiday's sold-out toy." },
+    { label: "Fail!", kind: "slang", icon: "smile" },
+    { label: "Auto-Tune everywhere", kind: "trend", icon: "mic" },
+    { label: "Snuggie", kind: "product", icon: "gift" },
+  ],
+  capsule: [
+    { label: "Like button", icon: "heart" },
+    { label: "Windows 7", icon: "window" },
+    { label: "Angry Birds", icon: "iphone" },
+    { label: "DSi", icon: "ds" },
+    { label: "3D glasses", icon: "film" },
+    { label: "Droid", icon: "phone" },
+  ],
+};

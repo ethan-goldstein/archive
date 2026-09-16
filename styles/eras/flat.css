@@ -1,0 +1,35 @@
+/* 2013–2016 · The Flat Years. Navy dashboards, white cards, colour that never stopped. */
+html:has([data-era="flat"]), html[data-era="flat"] {
+  --bg: #24344d;
+  --bg-deep: #182337;
+  --fg: #ffffff;
+  --fg-muted: #b7c3d6;
+  --surface: #ffffff;
+  --surface-fg: #1b2433;
+  --surface-fg-muted: #5b6676;
+  --surface-border: #e3e7ee;
+  --accent: #e0405c;
+  --accent-2: #ff9f43;
+  --accent-fg: #ffffff;
+  --glow: #ff8fa3;
+  --chrome-a: #e0405c;
+  --chrome-b: #ff9f43;
+  --chrome-fg: #ffffff;
+  --border: rgba(255, 255, 255, 0.18);
+
+  --radius-era: 4px;
+  --radius-sm: 3px;
+  --shadow-era: 0 1px 2px rgba(0, 0, 0, 0.18), 0 8px 24px -12px rgba(0, 0, 0, 0.35);
+  --wallpaper:
+    linear-gradient(135deg, rgba(224, 64, 92, 0.18) 0%, transparent 40%),
+    linear-gradient(315deg, rgba(255, 159, 67, 0.14) 0%, transparent 40%),
+    linear-gradient(180deg, #2b3d59 0%, #24344d 100%);
+  --chrome-gradient: linear-gradient(90deg, #e0405c, #ff9f43);
+  --numeral-family: var(--font-sans);
+  --numeral-weight: 900;
+  --numeral-tracking: -0.06em;
+  --fx-scanlines: 0;
+  --fx-grain: 0;
+  --fx-vignette: 0.1;
+  --fx-gloss: 0;
+}

@@ -1,0 +1,76 @@
+import type { CultureYearInput } from "@/lib/content/schema";
+
+/** 2008 — CULTURAL CONTEXT (general history, not personal). */
+export const culture2008: CultureYearInput = {
+  year: 2008,
+  headline: "There's an app for that.",
+  blurb:
+    "The App Store opened in July, Android shipped on the T-Mobile G1 in October, and Google Chrome appeared in September. Mario Kart Wii and Super Smash Bros. Brawl filled living rooms, Spotify launched in Europe, and The Dark Knight owned the summer.",
+  design:
+    "Glossy buttons and badge-shaped icons everywhere. The App Store made rounded-square icons with a shine the default look of software.",
+  internet: [
+    { label: "The App Store opens", kind: "app", icon: "iphone", note: "500 apps on day one." },
+    { label: "Google Chrome", kind: "app", icon: "globe", note: "Announced with a comic book." },
+    { label: "Spotify launches (Europe)", kind: "app", icon: "music", note: "US arrival came in 2011." },
+    { label: "Hulu opens to the public", kind: "site", icon: "stream" },
+    { label: "Facebook Chat", kind: "site", icon: "chat" },
+    { label: "FAIL Blog and the Rickroll peak", kind: "meme", icon: "smile", note: "YouTube rickrolled every featured video on April Fools'." },
+    { label: "Bitcoin whitepaper", kind: "site", icon: "key", note: "Published in October by \"Satoshi Nakamoto\"." },
+    { label: "Twitter at the DNC and RNC", kind: "site", icon: "bird", note: "Live-tweeting entered the vocabulary." },
+  ],
+  tech: [
+    { label: "iPhone 3G", kind: "phone", icon: "iphone", note: "Faster data, GPS, and the App Store." },
+    { label: "T-Mobile G1", kind: "phone", icon: "phone", note: "The first Android phone, with a slide-out keyboard." },
+    { label: "MacBook Air", kind: "computer", icon: "laptop", note: "Pulled out of a manila envelope on stage." },
+    { label: "Netbooks", kind: "computer", icon: "laptop", note: "Tiny, cheap laptops like the Eee PC." },
+    { label: "Wii Fit and the Balance Board", kind: "console", icon: "wii" },
+    { label: "Flip Mino", kind: "device", icon: "camcorder" },
+    { label: "Blu-ray wins", kind: "device", icon: "cd", note: "HD DVD gave up in February." },
+    { label: "Xbox 360 New Experience", kind: "console", icon: "xbox", note: "Avatars arrived on the dashboard." },
+  ],
+  games: [
+    { label: "Mario Kart Wii", kind: "game", icon: "wii", note: "With the plastic Wii Wheel." },
+    { label: "Super Smash Bros. Brawl", kind: "game", icon: "wii" },
+    { label: "Grand Theft Auto IV", kind: "game", icon: "xbox" },
+    { label: "Fallout 3", kind: "game", icon: "xbox" },
+    { label: "LittleBigPlanet", kind: "game", icon: "playstation" },
+    { label: "Rock Band 2 and Guitar Hero World Tour", kind: "game", icon: "controller" },
+    { label: "Spore", kind: "game", icon: "desktop" },
+    { label: "Left 4 Dead and Dead Space", kind: "game", icon: "controller" },
+  ],
+  onScreen: [
+    { label: "The Dark Knight", kind: "movie", icon: "film" },
+    { label: "Iron Man", kind: "movie", icon: "film", note: "The Marvel Cinematic Universe begins." },
+    { label: "WALL-E", kind: "movie", icon: "film" },
+    { label: "Kung Fu Panda", kind: "movie", icon: "film" },
+    { label: "Twilight", kind: "movie", icon: "film" },
+    { label: "Phineas and Ferb (full series)", kind: "show", icon: "tv" },
+    { label: "Breaking Bad premieres", kind: "show", icon: "tv" },
+    { label: "Fred and Smosh", kind: "youtube", icon: "video", note: "YouTube's first homegrown stars." },
+  ],
+  music: [
+    { id: "c2008-low", title: "Low", artist: "Flo Rida ft. T-Pain" },
+    { id: "c2008-vivalavida", title: "Viva la Vida", artist: "Coldplay" },
+    { id: "c2008-singleladies", title: "Single Ladies (Put a Ring on It)", artist: "Beyoncé" },
+    { id: "c2008-bleedinglove", title: "Bleeding Love", artist: "Leona Lewis" },
+    { id: "c2008-kissedagirl", title: "I Kissed a Girl", artist: "Katy Perry" },
+    { id: "c2008-disturbia", title: "Disturbia", artist: "Rihanna" },
+  ],
+  culture: [
+    { label: "Beijing Olympics", kind: "event", icon: "trophy", note: "Michael Phelps won eight gold medals." },
+    { label: "A historic US election", kind: "event", icon: "flag", note: "November 4." },
+    { label: "Single Ladies dance", kind: "trend", icon: "music" },
+    { label: "Wii Fit in every den", kind: "trend", icon: "wii" },
+    { label: "Facebook \"25 Random Things\"", kind: "meme", icon: "chat", note: "Peaked in early 2009." },
+    { label: "Bakugan and Pokémon cards", kind: "toy", icon: "toy" },
+    { label: "Jonas Brothers and Camp Rock", kind: "trend", icon: "music" },
+  ],
+  capsule: [
+    { label: "App Store icon", icon: "iphone" },
+    { label: "Wii Wheel", icon: "wii" },
+    { label: "Netbook", icon: "laptop" },
+    { label: "MacBook Air envelope", icon: "mail" },
+    { label: "Chrome logo", icon: "globe" },
+    { label: "Batman mask", icon: "film" },
+  ],
+};
