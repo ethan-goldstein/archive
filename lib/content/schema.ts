@@ -124,6 +124,10 @@ export const TrackSchema = z.object({
   /** true = Ethan's own pick; false = cultural chart context */
   personal: z.boolean().default(false),
   note: z.string().optional(),
+  /** Lifetime play count from the Music app, when the track came from `npm run music`. */
+  plays: z.number().int().nonnegative().optional(),
+  /** Files the track under a season's chapter; without it, music lives in winter. */
+  season: z.enum(["winter", "spring", "summer", "fall"]).optional(),
   tags: Tags,
 });
 export type Track = z.infer<typeof TrackSchema>;

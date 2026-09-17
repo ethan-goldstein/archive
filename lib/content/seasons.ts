@@ -73,7 +73,9 @@ export function sliceSeasons(data: YearData): Record<Season, SeasonSlice> {
   const photos = splitBySeason<Photo>(p.photos, (x) => x.takenAt, "spread");
   const videos = splitBySeason<Video>(p.videos, (x) => x.takenAt, "summer");
   const milestones = splitBySeason<Milestone>(p.milestones, (m) => m.date, "fall");
-  const music: Record<Season, Entry<Track>[]> = { winter: p.music, spring: [], summer: [], fall: [] };
+  // Music lives in winter unless a track names its season (the fall and summer playlists do).
+  const music: Record<Season, Entry<Track>[]> = { winter: [], spring: [], summer: [], fall: [] };
+  for (const t of p.music) music[!isPlaceholder(t) && t.season ? t.season : "winter"].push(t);
   const out = {} as Record<Season, SeasonSlice>;
   for (const s of SEASONS) {
     const personal = { ...p, memories: memories[s], photos: photos[s], videos: videos[s], milestones: milestones[s], music: music[s] };

@@ -65,8 +65,8 @@ test.describe("search", () => {
     const input = page.getByRole("dialog", { name: "Search the archive" }).getByRole("textbox");
     await expect(input).toBeFocused();
     await input.fill("Skyrim");
-    await expect(page.getByRole("option").first()).toContainText("Skyrim");
-    await page.keyboard.press("Enter");
+    // Personal songs now share the index, so pick the result by name instead of assuming it ranks first.
+    await page.getByRole("option", { name: /Skyrim/ }).first().click();
     await expect(page).toHaveURL(/\/year\/2011#games$/);
   });
 });
@@ -139,8 +139,8 @@ test.describe("seasons", () => {
     await page.goto("/year/2015");
     const ids = await page.locator("[data-chapter]").evaluateAll((els) => els.map((e) => (e as HTMLElement).dataset.chapter));
     expect(ids).toEqual(["title", "winter", "spring", "summer", "fall", "world"]);
-    await expect(page.getByRole("heading", { level: 2, name: "Winter" })).toBeAttached();
-    await expect(page.getByRole("heading", { level: 2, name: "Fall" })).toBeAttached();
+    await expect(page.getByRole("heading", { level: 2, name: "Winter", exact: true })).toBeAttached();
+    await expect(page.getByRole("heading", { level: 2, name: "Fall", exact: true })).toBeAttached();
     await expect(page.locator("main")).toHaveAttribute("data-era", "flat");
     await page.keyboard.press("ArrowRight");
     await page.keyboard.press("ArrowRight");
@@ -199,7 +199,7 @@ test.describe("reduced motion", () => {
   test("a year page renders its chapters without smooth scrolling", async ({ page }) => {
     await page.goto("/year/2019");
     await expect(page.locator("html")).not.toHaveClass(/lenis/);
-    await expect(page.getByRole("heading", { level: 2, name: "Summer" })).toBeAttached();
+    await expect(page.getByRole("heading", { level: 2, name: "Summer", exact: true })).toBeAttached();
     await noHorizontalOverflow(page);
   });
 });

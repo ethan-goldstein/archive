@@ -13,6 +13,7 @@
     "test": "vitest run",
     "test:e2e": "playwright test",
     "photos": "node scripts/photos.mjs",
+    "music": "node scripts/music.mjs",
     "og": "node scripts/og.mjs"
   },
   "dependencies": {

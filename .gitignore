@@ -46,3 +46,6 @@ next-env.d.ts
 # playwright
 /test-results/
 /playwright-report/
+
+# local photo staging: reviewed by Ethan before anything is published
+.staging-photos/

@@ -25,6 +25,7 @@ export function SeasonChapter({ slice }: { slice: SeasonSlice }) {
   const p = data.personal;
   const has = (k: "memories" | "photos" | "videos" | "milestones") => p[k].length > 0;
   const fragment = data.mode === "fragment";
+  const hasMusic = p.music.some((t) => !("placeholder" in t));
   const birthday = season === "winter" ? `Turns ${data.age} on February 10` : null;
 
   return (
@@ -55,6 +56,7 @@ export function SeasonChapter({ slice }: { slice: SeasonSlice }) {
             {has("photos") || has("videos") ? <div className="md:col-span-2 lg:col-span-12"><PhotoRoll data={data} /></div> : null}
             {has("memories") ? <div className="md:col-span-1 lg:col-span-6"><Memories data={data} fragment={fragment} /></div> : null}
             <div className="md:col-span-1 lg:col-span-6"><OnMyScreen data={data} /></div>
+            {hasMusic ? <div className="md:col-span-2 lg:col-span-6"><NowPlaying data={data} season="summer" /></div> : null}
             <div className="md:col-span-2 lg:col-span-6"><Tech data={data} /></div>
             {has("milestones") ? <div className="md:col-span-2 lg:col-span-6"><Milestones data={data} /></div> : null}
           </>
@@ -63,6 +65,7 @@ export function SeasonChapter({ slice }: { slice: SeasonSlice }) {
             {has("memories") ? <div className="md:col-span-1 lg:col-span-7"><Memories data={data} fragment={fragment} /></div> : null}
             {has("milestones") ? <div className="md:col-span-1 lg:col-span-5"><Milestones data={data} /></div> : null}
             {has("photos") || has("videos") ? <div className="md:col-span-2 lg:col-span-7"><PhotoRoll data={data} /></div> : null}
+            {hasMusic ? <div className="md:col-span-1 lg:col-span-7"><NowPlaying data={data} season="fall" /></div> : null}
             <div className="md:col-span-1 lg:col-span-5"><TimeCapsule data={data} large={fragment} /></div>
             <div className="md:col-span-1 lg:col-span-12"><Internet data={data} /></div>
           </>

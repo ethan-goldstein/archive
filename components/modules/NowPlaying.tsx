@@ -67,13 +67,20 @@ export function TrackRow({ track, queue, dense = false }: { track: Track; queue:
   );
 }
 
-export function NowPlaying({ data }: { data: YearData }) {
+const SEASON_TITLE = { summer: "On repeat that summer", fall: "The fall rotation", winter: "Winter rotation", spring: "Spring rotation" } as const;
+
+/**
+ * `season` renders the short personal list for a season chapter (no charts, its own id).
+ * Without it this is the year's main list: most played first, then what was on the charts.
+ */
+export function NowPlaying({ data, season }: { data: YearData; season?: keyof typeof SEASON_TITLE }) {
   const { real, placeholders } = partition<Track>(data.personal.music);
-  const charts = data.culture.music;
+  const charts = season ? [] : data.culture.music;
+  const fromLibrary = real.some((t) => t.plays !== undefined);
 
   return (
-    <Surface id="music" title="Now Playing" icon="music" aside={`${data.year}`}>
-      <GroupLabel>My tracks</GroupLabel>
+    <Surface id={season ? `music-${season}` : "music"} title={season ? SEASON_TITLE[season] : "Now Playing"} icon="music" aside={season ? "from my playlists" : `${data.year}`}>
+      <GroupLabel>{season ? "Most played" : fromLibrary ? `Most played, of what I added in ${data.year}` : "My tracks"}</GroupLabel>
       <div className="mb-4 divide-y divide-surface-border">
         {data.personal.music.map((t, i) =>
           isPlaceholder(t) ? (
