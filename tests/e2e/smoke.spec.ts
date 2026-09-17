@@ -90,12 +90,12 @@ test.describe("navigation", () => {
   test("one clean nav on every route, and search opens by click", async ({ page }) => {
     for (const path of ["/", "/year/2012", "/timeline", "/map", "/stats", "/about", "/backyard"]) {
       await page.goto(path);
-      await expect(page.getByRole("link", { name: /Ethan Goldstein, archive home/ })).toBeVisible();
+      await expect(page.getByRole("banner").getByRole("link", { name: /Ethan Goldstein/ })).toBeVisible();
       await expect(page.locator(".os-window, .os-title, .sky")).toHaveCount(path === "/backyard" ? await page.locator(".os-window, .os-title").count() : 0);
     }
     await page.goto("/year/2012");
     await hydrated(page);
-    await page.getByRole("button", { name: "Search the archive" }).click();
+    await page.getByRole("banner").getByRole("button", { name: "Search" }).click();
     await expect(page.getByRole("dialog", { name: "Search the archive" }).getByRole("textbox")).toBeFocused();
   });
 });
@@ -129,7 +129,7 @@ test.describe("memory map", () => {
   test("pins Potomac and links to 2005", async ({ page }) => {
     await page.goto("/map");
     await expect(page.getByRole("img", { name: /Shady Grove Hospital/ })).toBeVisible();
-    await page.getByRole("link", { name: "2005" }).first().click();
+    await page.getByRole("link", { name: "2005", exact: true }).first().click();
     await expect(page).toHaveURL(/\/year\/2005$/);
   });
 });

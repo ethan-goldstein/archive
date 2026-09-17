@@ -28,7 +28,7 @@ export function TopNav() {
   return (
     <header className="site-nav sticky top-0 z-40 h-[var(--nav-h)]">
       <div className="mx-auto flex h-full max-w-[1400px] items-center gap-4 px-4 md:px-8">
-        <Link href="/" className="flex items-baseline gap-2" aria-label={`${profile.name}, archive home`}>
+        <Link href="/" className="flex items-baseline gap-2">
           <span className="wordmark">{profile.name}</span>
           <span className="label-mono hidden text-fg-muted sm:inline">2005—2026</span>
         </Link>
@@ -43,10 +43,10 @@ export function TopNav() {
           })}
         </nav>
         <div className="ml-auto flex items-center gap-1">
-          <button type="button" onClick={() => uiStore.openPalette()} className="nav-tool" aria-label="Search the archive">
+          <button type="button" onClick={() => uiStore.openPalette()} className="nav-tool">
             <Icon name="search" size={16} />
-            <span className="hidden lg:inline">Search</span>
-            <kbd className="kbd hidden lg:inline">⌘K</kbd>
+            <span className="sr-only lg:not-sr-only">Search</span>
+            <kbd className="kbd hidden lg:inline" aria-hidden="true">⌘K</kbd>
           </button>
           <button type="button" onClick={toggleSound} className="nav-tool" aria-pressed={sound} aria-label={sound ? "Mute sound" : "Turn sound on"}>
             <Icon name={sound ? "volume" : "mute"} size={16} />

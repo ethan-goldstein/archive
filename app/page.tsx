@@ -64,7 +64,6 @@ export default function Home() {
                       <li key={y.year}>
                         <YearLink
                           year={y.year}
-                          label={`${y.year}, ${y.ageLabel}, ${y.lifeStage}`}
                           className={`yc yc-${era.id}`}
                         >
                           <span className="yc-art" aria-hidden="true" style={{ ["--c1" as string]: era.palette.bg, ["--c2" as string]: era.palette.accent, ["--c3" as string]: era.palette.accent2, ["--k" as string]: list.length > 1 ? i / (list.length - 1) : 0 }}>
@@ -72,7 +71,7 @@ export default function Home() {
                           </span>
                           <span className="yc-body">
                             <span className="yc-year">{y.year}</span>
-                            <span className="yc-meta">{y.ageLabel} · {y.lifeStage}</span>
+                            <span className="yc-meta">{y.ageLabel === y.lifeStage ? y.ageLabel : `${y.ageLabel} · ${y.lifeStage}`}</span>
                             {place ? <span className="yc-place">{place}</span> : null}
                           </span>
                         </YearLink>

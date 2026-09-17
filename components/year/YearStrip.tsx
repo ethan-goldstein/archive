@@ -40,7 +40,7 @@ export function YearStrip({ year, onSelect }: Props) {
         {ERAS.map((e) => (
           <div
             key={e.id}
-            className={cn("label-mono truncate border-l border-border px-2 pt-2 text-[9px]", year >= e.from && year <= e.to ? "text-fg" : "text-fg-muted/70")}
+            className={cn("label-mono truncate border-l border-border px-2 pt-2 text-[10px]", year >= e.from && year <= e.to ? "text-fg" : "text-fg-muted")}
             style={{ gridColumn: `span ${e.to - e.from + 1}` }}
           >
             {e.name}
