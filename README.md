@@ -108,6 +108,15 @@ Set `showPlaceholders: false` there to hide every remaining slot on the public s
 `interests`, `onMyScreen`, and `tech` take `{ label, kind, note?, icon?, url? }`. Icon names are listed in `lib/content/schema.ts` (`ICON_NAMES`).
 `capsule` objects (`{ label, icon, personal: true }`) appear in the Time Capsule shelf next to the era's objects.
 
+## Privacy on the public site
+
+Two rules keep the archive shareable without giving away too much:
+
+- **Friends are first names only.** "Josh and Max, the twins" is fine; surnames stay out of the repo.
+- **Street names, never house numbers.** "Paddock Lane, Cold Spring" is the most specific a home address gets.
+
+The map pins in `content/places.ts` are neighbourhood- and school-level coordinates, not front doors. The one exact date published is the birthday, which Ethan chose to show.
+
 ## Potomac Sandlot (the game)
 
 Draft seven kids from an original neighbourhood cast, then play three or six innings against the CPU (three difficulty levels) or a friend on the same keyboard.

@@ -1,7 +1,6 @@
 /**
- * MEMORY MAP — places tied to Ethan's life. Only real places go in `places`.
- * Coordinates are decimal degrees. `from`/`to` are years; omit `to` for "still".
- * Placeholders describe what could go here and never become pins.
+ * MEMORY MAP — places tied to Ethan's life. Street names only, no house numbers (public site).
+ * Coordinates are approximate neighbourhood/school locations from public map data.
  */
 export type PlaceKind = "home" | "school" | "trip" | "family" | "other";
 
@@ -18,14 +17,20 @@ export interface Place {
 }
 
 export const places: Place[] = [
-  { id: "potomac", label: "Potomac, Maryland", short: "Potomac, MD", lat: 39.018, lng: -77.208, from: 2005, kind: "home", note: "Born here, February 10, 2005." },
+  { id: "shady-grove", label: "Shady Grove Hospital", short: "Shady Grove", lat: 39.11, lng: -77.183, from: 2005, to: 2005, kind: "other", note: "Born here, February 10, 2005." },
+  { id: "olney", label: "Olney, Maryland", short: "Olney", lat: 39.153, lng: -77.067, from: 2005, to: 2008, kind: "home", note: "The first house." },
+  { id: "wooden-bridge", label: "Wooden Bridge Road, Cold Spring, Potomac", short: "Cold Spring", lat: 39.047, lng: -77.19, from: 2009, to: 2013, kind: "home", note: "A massive basement, a pool, and Fenway." },
+  { id: "paddock", label: "Paddock Lane, Cold Spring, Potomac", short: "Paddock Ln", lat: 39.05, lng: -77.186, from: 2014, to: 2025, kind: "home", note: "Same neighbourhood, from 4th grade until I was 20." },
+  { id: "cold-spring-es", label: "Cold Spring Elementary School", short: "Cold Spring ES", lat: 39.047, lng: -77.187, from: 2010, to: 2016, kind: "school", note: "Kindergarten through 5th grade." },
+  { id: "cabin-john-ms", label: "Cabin John Middle School", short: "Cabin John MS", lat: 39.038, lng: -77.145, from: 2016, to: 2019, kind: "school", note: "6th through 8th." },
+  { id: "wootton-hs", label: "Wootton High School", short: "Wootton", lat: 39.061, lng: -77.18, from: 2019, to: 2023, kind: "school", note: "Class of 2023. Baseball." },
+  { id: "south-carolina", label: "College, South Carolina", short: "South Carolina", lat: 33.99, lng: -81.03, from: 2023, to: 2027, kind: "school", note: "2023 to 2027. City and school to confirm." },
 ];
 
 /** EDIT: turn these into real entries above. */
 export const placePlaceholders: { hint: string; kind: PlaceKind }[] = [
-  { hint: "The house or neighbourhood you grew up in, if different from Potomac.", kind: "home" },
-  { hint: "Your schools, with the years you were there.", kind: "school" },
+  { hint: "The Baseball Zone (Chris's dad's place): where is it? Add the town and it becomes a pin.", kind: "other" },
+  { hint: "The synagogue where you did preschool.", kind: "school" },
   { hint: "A trip you still think about.", kind: "trip" },
   { hint: "Where family lives and you spent holidays.", kind: "family" },
-  { hint: "College, or wherever 2023 onward happened.", kind: "school" },
 ];

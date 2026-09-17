@@ -124,7 +124,14 @@ export const kids: Kid[] = [
  *   batting: 7, power: 6, speed: 7, pitching: 5, fielding: 7, trait: "clutch",
  *   look: { skin: 0, hair: 1, hairColor: "#3d2b1f", size: "medium", accessory: "cap" }, personal: true },
  */
-export const personalSlots: Kid[] = [];
+export const personalSlots: Kid[] = [
+  {
+    id: "ethan", name: "Ethan Goldstein", nickname: "E", age: 15,
+    bio: "Potomac, MD. Trained every day at The Baseball Zone with Antonio, Josh, Chris and Zane. EDIT: set your real stats.",
+    batting: 6, power: 6, speed: 6, pitching: 6, fielding: 6, trait: "clutch",
+    look: { skin: 0, hair: 1, hairColor: "#3d2b1f", size: "medium", accessory: "cap" }, personal: true,
+  },
+];
 
 export function allKids(): Kid[] {
   return [...personalSlots.map((k) => ({ ...k, personal: true })), ...kids];
