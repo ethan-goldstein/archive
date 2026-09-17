@@ -1,5 +1,10 @@
 import { test, expect, type Page } from "@playwright/test";
 
+/** Hydration marker: SettingsSync stamps data-sound on <html> from its first effect on every page. */
+async function hydrated(page: Page) {
+  await page.locator("html[data-sound]").waitFor({ timeout: 15_000 });
+}
+
 async function noHorizontalOverflow(page: Page) {
   const { sw, cw } = await page.evaluate(() => ({
     sw: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth),
@@ -55,6 +60,7 @@ test.describe("year system", () => {
 test.describe("search", () => {
   test("the palette finds a cultural item and navigates", async ({ page }) => {
     await page.goto("/year/2010");
+    await hydrated(page);
     await page.keyboard.press("ControlOrMeta+k");
     const input = page.getByRole("dialog", { name: "Search the archive" }).getByRole("textbox");
     await expect(input).toBeFocused();
@@ -68,6 +74,7 @@ test.describe("search", () => {
 test.describe("intro", () => {
   test("no audio plays before a gesture and enter leads to 2005", async ({ page }) => {
     await page.goto("/");
+    await hydrated(page);
     const playing = await page.evaluate(() => Array.from(document.querySelectorAll("audio")).some((a) => !a.paused));
     expect(playing).toBe(false);
     await page.keyboard.press("Space");
@@ -142,6 +149,7 @@ test.describe("draggable windows", () => {
   test("a window moves when its title bar is dragged in the xp era", async ({ page }, testInfo) => {
     test.skip(testInfo.project.name !== "desktop", "desktop only");
     await page.goto("/year/2006");
+    await hydrated(page);
     const win = page.locator("#photos");
     await win.scrollIntoViewIfNeeded();
     await page.waitForTimeout(300);
