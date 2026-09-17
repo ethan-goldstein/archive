@@ -1,6 +1,5 @@
 "use client";
 
-import { usePath } from "@/lib/hooks/usePath";
 import { AnimatePresence, motion } from "motion/react";
 import { Artwork } from "./Artwork";
 import { YouTubeHost } from "./YouTubeHost";
@@ -13,15 +12,13 @@ import { spring } from "@/lib/motion";
 /** The persistent mini player. Appears once something is queued; tap to open the drawer. */
 export function PlayerBar() {
   const p = usePlayer();
-  const pathname = usePath();
   const track = p.queue[p.index];
-  if (pathname === "/") return null;
 
   return (
     <AnimatePresence>
       {track ? (
         <motion.div
-          className="fixed inset-x-0 bottom-[calc(var(--tabbar-h)+env(safe-area-inset-bottom))] z-[60] md:bottom-[var(--status-h)]"
+          className="fixed inset-x-0 bottom-[calc(var(--tabbar-h)+env(safe-area-inset-bottom))] z-[60] md:bottom-0"
           initial={{ y: 80 }}
           animate={{ y: 0 }}
           exit={{ y: 80 }}

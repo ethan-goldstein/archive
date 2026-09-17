@@ -3,6 +3,7 @@ import { isPlaceholder } from "@/lib/content/placeholders";
 import { eraForYear } from "@/lib/content/eras";
 import type { YearData } from "@/lib/content/schema";
 import { turnsLabel } from "@/lib/content/age";
+import { QUALITY } from "@/lib/content/quality";
 
 export function YearHeader({ data }: { data: YearData }) {
   const era = eraForYear(data.year);
@@ -10,7 +11,7 @@ export function YearHeader({ data }: { data: YearData }) {
     <header className="grid grid-cols-1 gap-6 md:grid-cols-12 md:items-end">
       <div className="md:col-span-7">
         <p className="label-mono m-0 mb-2 text-fg-muted">
-          {era.name} · {era.tagline}
+          {era.from}–{era.to} · rendered at {QUALITY[era.id].label}
         </p>
         <h1 className="numeral m-0 text-[clamp(96px,22vw,220px)]" aria-label={`${data.year}`}>
           {data.year}

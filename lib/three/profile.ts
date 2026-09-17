@@ -32,7 +32,7 @@ export interface RenderProfile {
 }
 
 const BASE: Record<EraId, Omit<RenderProfile, "era" | "techLevel" | "eraT">> = {
-  xp: { pixelSize: 6, posterize: 6, material: "flat", bloom: 0, grain: 0, vignette: 0, dof: false, chroma: 0, fogDensity: 0.03, shadows: false, particles: 0.4, saturation: 1.05, antialias: false },
+  xp: { pixelSize: 6, posterize: 9, material: "flat", bloom: 0, grain: 0, vignette: 0, dof: false, chroma: 0, fogDensity: 0.03, shadows: false, particles: 0.4, saturation: 1.05, antialias: false },
   aero: { pixelSize: 2, posterize: 0, material: "gloss", bloom: 0.5, grain: 0, vignette: 0.2, dof: false, chroma: 0, fogDensity: 0.025, shadows: false, particles: 0.7, saturation: 1.15, antialias: false },
   flat: { pixelSize: 0, posterize: 0, material: "pastel", bloom: 0, grain: 0, vignette: 0, dof: false, chroma: 0, fogDensity: 0.012, shadows: false, particles: 0.8, saturation: 1.2, antialias: true },
   dark: { pixelSize: 0, posterize: 0, material: "pbr", bloom: 0.7, grain: 0.18, vignette: 0.45, dof: false, chroma: 0, fogDensity: 0.03, shadows: false, particles: 1, saturation: 0.9, antialias: true },

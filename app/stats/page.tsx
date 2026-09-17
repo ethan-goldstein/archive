@@ -69,7 +69,7 @@ export default function StatsPage() {
               <ul className="m-0 grid list-none gap-3 p-0 sm:grid-cols-5">
                 {s.byEra.map((e) => (
                   <li key={e.id} className="rounded-[var(--radius-sm)] border border-surface-border p-3">
-                    <p className="m-0 font-pixelify text-[15px] font-bold">{e.name}</p>
+                    <p className="m-0 text-[15px] font-semibold">{e.name}</p>
                     <p className="label-mono m-0 text-surface-fg-muted">{e.from}–{e.to}</p>
                     <p className="m-0 mt-2 text-[13px]">{e.personal} personal · {e.culture} cultural · {e.slots} slots</p>
                   </li>

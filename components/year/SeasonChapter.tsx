@@ -31,7 +31,7 @@ export function SeasonChapter({ slice }: { slice: SeasonSlice }) {
     <Chapter id={season} season={season} className="chapter-season">
       <header className="chapter-head">
         <p className="label-mono m-0">{meta.months}{birthday ? ` · ${birthday}` : ""}</p>
-        <h2 className="pow m-0 font-display text-[clamp(56px,11vw,140px)] leading-[0.9]">{meta.label}</h2>
+        <h2 className="season-title">{meta.label}</h2>
         <p className="m-0 max-w-[48ch] font-serif text-[clamp(18px,2vw,24px)] leading-snug">{meta.beat}</p>
       </header>
       <div className={cn("grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-12", quiet && !profile.showPlaceholders && "hidden")}>

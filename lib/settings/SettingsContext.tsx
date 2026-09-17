@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useSyncExternalStore } from "react";
-import { settingsStore, type OsSkin, type Settings } from "./store";
+import { settingsStore, type Settings } from "./store";
 import { playerStore } from "@/lib/player/store";
 
 export function useSettings() {
@@ -15,11 +15,8 @@ export function useSettings() {
     ...settings,
     setSound: (v: boolean) => set({ sound: v }),
     setEffects: (v: boolean) => set({ effects: v }),
-    markEntered: () => set({ entered: true }),
     toggleSound: () => set({ sound: !settings.sound }),
     toggleEffects: () => set({ effects: !settings.effects }),
-    setOs: (os: OsSkin) => set({ os }),
-    toggleOs: () => set({ os: settings.os === "auto" ? "win" : settings.os === "win" ? "mac" : "auto" }),
   };
 }
 

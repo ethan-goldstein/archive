@@ -35,7 +35,7 @@ export function Fall() {
         <pointLight ref={lantern} color="#ff8c2a" intensity={6} distance={16} decay={2} />
       </group>
       <Tree position={[-12, 0, -2]} canopy="#e8642c" height={7} />
-      <Tree position={[11, 0, 0]} canopy="#f2a33a" height={6} />
+      <Tree position={[17, 0, -3]} canopy="#f2a33a" height={6} />
       <Tree position={[-9, 0, -16]} canopy="#c9401d" height={5} />
       <Tree position={[18, 0, -10]} canopy="#f6c453" height={6.5} />
       <Tree position={[-20, 0, -12]} canopy="#8a2f1b" height={7} />

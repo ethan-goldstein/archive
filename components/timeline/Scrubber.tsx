@@ -16,7 +16,6 @@ import type { Photo } from "@/lib/content/schema";
 import { asset } from "@/lib/basePath";
 import { TimelineRoad } from "./TimelineRoad";
 import { timelineStore } from "@/lib/scroll/timelineStore";
-import { frameStore, frameForYear } from "@/lib/browser/frame";
 
 const stops = ERAS.map((e) => (e.from + e.to) / 2);
 const pick = (k: keyof (typeof ERAS)[number]["palette"]) => ERAS.map((e) => e.palette[k]);
@@ -89,8 +88,6 @@ export function Scrubber({ initialYear = FIRST_YEAR }: { initialYear?: number })
   const data = getYear(year);
   const era = eraForYear(year);
   const photos = data.personal.photos;
-
-  useEffect(() => { frameStore.set(frameForYear(year)); }, [year]);
 
   return (
     <EraProvider era={era.id}>
@@ -178,7 +175,7 @@ export function Scrubber({ initialYear = FIRST_YEAR }: { initialYear?: number })
               </div>
             </div>
             <div className="flex justify-end md:col-span-4">
-              <button type="button" onClick={open} className="btn-era text-[13px] uppercase tracking-[0.14em]">
+              <button type="button" onClick={open} className="btn-era">
                 <Icon name="folder" size={14} />
                 Open {year}
               </button>

@@ -26,7 +26,7 @@ test.describe("routes", () => {
   test("years outside the archive 404", async ({ page }) => {
     const res = await page.goto("/year/2004");
     expect(res?.status()).toBe(404);
-    await expect(page.getByText("moved or deleted")).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Nothing is filed here." })).toBeVisible();
   });
 });
 
@@ -71,43 +71,32 @@ test.describe("search", () => {
   });
 });
 
-test.describe("intro", () => {
-  test("no audio plays before a gesture and enter leads to 2005", async ({ page }) => {
+test.describe("hub", () => {
+  test("opens straight onto all 22 years, with no gate and no audio", async ({ page }) => {
     await page.goto("/");
     await hydrated(page);
+    await expect(page.getByRole("heading", { level: 1, name: "Ethan Goldstein" })).toBeVisible();
+    await expect(page.getByRole("button", { name: /enter/i })).toHaveCount(0);
+    await expect(page.locator("a.yc")).toHaveCount(22);
     const playing = await page.evaluate(() => Array.from(document.querySelectorAll("audio")).some((a) => !a.paused));
     expect(playing).toBe(false);
-    await page.keyboard.press("Space");
-    await page.getByRole("button", { name: /enter the archive/i }).click();
-    await expect(page).toHaveURL(/\/year\/2005$/);
+    await page.locator("a.yc", { hasText: "2013" }).click();
+    await expect(page).toHaveURL(/\/year\/2013$/);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("2013");
   });
 });
 
-test.describe("browser frame", () => {
-  test("menu bar opens by keyboard and the OS toggle flips the skin", async ({ page }, testInfo) => {
-    test.skip(testInfo.project.name === "phone", "desktop chrome only");
+test.describe("navigation", () => {
+  test("one clean nav on every route, and search opens by click", async ({ page }) => {
+    for (const path of ["/", "/year/2012", "/timeline", "/map", "/stats", "/about", "/backyard"]) {
+      await page.goto(path);
+      await expect(page.getByRole("link", { name: /Ethan Goldstein, archive home/ })).toBeVisible();
+      await expect(page.locator(".os-window, .os-title, .sky")).toHaveCount(path === "/backyard" ? await page.locator(".os-window, .os-title").count() : 0);
+    }
     await page.goto("/year/2012");
-    await page.getByRole("menuitem", { name: "View" }).click();
-    await expect(page.getByRole("menu", { name: "View" })).toBeVisible();
-    await page.keyboard.press("Escape");
-    await expect(page.getByRole("menu", { name: "View" })).toHaveCount(0);
-    await expect(page.locator("html")).toHaveAttribute("data-frame", "aero");
-    await page.getByRole("button", { name: /Auto UI/ }).click();
-    await expect(page.locator("html")).toHaveAttribute("data-frame", "xp");
-    await expect(page.locator("html")).toHaveAttribute("data-os", "win");
-    await page.getByRole("button", { name: /Win 98/ }).click();
-    await expect(page.locator("html")).toHaveAttribute("data-os", "mac");
-    await page.getByRole("button", { name: /Mac OS/ }).click();
-    await expect(page.locator("html")).toHaveAttribute("data-frame", "aero");
-  });
-
-  test("the address bar navigates to a typed year", async ({ page }) => {
-    await page.goto("/year/2012");
-    const address = page.getByRole("textbox", { name: "Address" });
-    await address.fill("2019");
-    await address.press("Enter");
-    await expect(page).toHaveURL(/\/year\/2019$/);
-    await expect(page.getByRole("heading", { level: 1 })).toHaveText("2019");
+    await hydrated(page);
+    await page.getByRole("button", { name: "Search the archive" }).click();
+    await expect(page.getByRole("dialog", { name: "Search the archive" }).getByRole("textbox")).toBeFocused();
   });
 });
 
@@ -145,47 +134,51 @@ test.describe("memory map", () => {
   });
 });
 
-test.describe("draggable windows", () => {
-  test("a window moves when its title bar is dragged in the xp era", async ({ page }, testInfo) => {
-    test.skip(testInfo.project.name !== "desktop", "desktop only");
-    await page.goto("/year/2006");
-    await hydrated(page);
-    const win = page.locator("#photos");
-    await win.scrollIntoViewIfNeeded();
-    await page.waitForTimeout(300);
-    const chrome = win.locator(".surface-chrome");
-    const before = await win.boundingBox();
-    const box = await chrome.boundingBox();
-    await page.mouse.move(box!.x + 40, box!.y + box!.height / 2);
-    await page.mouse.down();
-    await page.mouse.move(box!.x + 140, box!.y + 80, { steps: 8 });
-    await page.mouse.up();
-    const after = await win.boundingBox();
-    expect(Math.abs(after!.x - before!.x)).toBeGreaterThan(50);
-  });
-});
-
-test.describe("seasons and frames", () => {
-  test("a year scrolls through its chapters in order and the frame follows the era", async ({ page }) => {
+test.describe("seasons", () => {
+  test("a year scrolls through its chapters in order and the era follows the year", async ({ page }) => {
     await page.goto("/year/2015");
     const ids = await page.locator("[data-chapter]").evaluateAll((els) => els.map((e) => (e as HTMLElement).dataset.chapter));
     expect(ids).toEqual(["title", "winter", "spring", "summer", "fall", "world"]);
     await expect(page.getByRole("heading", { level: 2, name: "Winter" })).toBeAttached();
     await expect(page.getByRole("heading", { level: 2, name: "Fall" })).toBeAttached();
-    await expect(page.locator("html")).toHaveAttribute("data-frame", "flat");
+    await expect(page.locator("main")).toHaveAttribute("data-era", "flat");
     await page.keyboard.press("ArrowRight");
     await page.keyboard.press("ArrowRight");
     await expect(page).toHaveURL(/\/year\/2017$/);
-    await expect(page.locator("html")).toHaveAttribute("data-frame", "dark");
+    await expect(page.locator("main")).toHaveAttribute("data-era", "dark");
     await noHorizontalOverflow(page);
   });
 
-  test("2026 drops the window chrome for the spatial capsule", async ({ page }) => {
-    await page.goto("/year/2026");
-    await expect(page.locator("html")).toHaveAttribute("data-frame", "spatial");
-    await expect(page.locator(".os-window .os-title")).toBeHidden();
-    await expect(page.getByRole("textbox", { name: "Address" })).toBeVisible();
-    await noHorizontalOverflow(page);
+  test("a year change lands at the top and stays there", async ({ page }) => {
+    await page.goto("/year/2014");
+    await hydrated(page);
+    await page.mouse.move(400, 500);
+    await page.mouse.wheel(0, 2400);
+    await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(600);
+    await page.keyboard.press("ArrowRight");
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("2015");
+    await expect.poll(() => page.evaluate(() => Math.round(window.scrollY))).toBe(0);
+    await page.waitForTimeout(700); // long enough for a fighting smooth scroll to snap back, if there were one
+    expect(await page.evaluate(() => Math.round(window.scrollY))).toBe(0);
+    await expect(page.locator(".year-wash")).toHaveCount(0);
+  });
+
+  test("nothing blurs or blends over the 3D canvas", async ({ page }) => {
+    for (const year of [2010, 2024]) {
+      await page.goto(`/year/${year}`);
+      const bad = await page.evaluate(() => {
+        const out: string[] = [];
+        for (const el of Array.from(document.querySelectorAll<HTMLElement>("main *, header, .fx-layer"))) {
+          const cs = getComputedStyle(el);
+          const bf = cs.backdropFilter || (cs as unknown as Record<string, string>).webkitBackdropFilter;
+          if (bf && bf !== "none") out.push(`backdrop-filter on .${el.className}`);
+          if (cs.mixBlendMode !== "normal" && el.getBoundingClientRect().width > 600) out.push(`blend on .${el.className}`);
+          if (cs.backgroundAttachment.includes("fixed")) out.push(`fixed background on .${el.className}`);
+        }
+        return out;
+      });
+      expect(bad, `year ${year}`).toEqual([]);
+    }
   });
 
   test("the 3D layer mounts behind the year and the page still works without it", async ({ page }) => {

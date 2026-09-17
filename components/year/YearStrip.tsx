@@ -33,7 +33,7 @@ export function YearStrip({ year, onSelect }: Props) {
 
   return (
     <div
-      className="sticky top-[var(--chrome-h)] z-30 border-b border-border"
+      className="sticky top-[var(--nav-h)] z-30 border-b border-border"
       style={{ background: "color-mix(in srgb, var(--bg-deep) 94%, transparent)" }}
     >
       <div className="hidden lg:grid lg:grid-cols-[repeat(22,minmax(0,1fr))] lg:px-6" aria-hidden="true">

@@ -11,7 +11,7 @@ import { spring } from "@/lib/motion";
 export function Toaster() {
   const { toasts } = useUi();
   return (
-    <div className="pointer-events-none fixed bottom-[calc(var(--player-h)+var(--tabbar-h)+16px)] right-4 z-50 flex w-[min(320px,calc(100vw-32px))] flex-col gap-2 md:bottom-[calc(var(--player-h)+var(--status-h)+16px)]" aria-live="polite">
+    <div className="pointer-events-none fixed bottom-[calc(var(--player-h)+var(--tabbar-h)+16px)] right-4 z-50 flex w-[min(320px,calc(100vw-32px))] flex-col gap-2 md:bottom-[calc(var(--player-h)+16px)]" aria-live="polite">
       <AnimatePresence>
         {toasts.map((t) => (
           <motion.div
@@ -28,7 +28,6 @@ export function Toaster() {
               <button type="button" onClick={() => uiStore.dismiss(t.id)} className="ml-auto opacity-70 hover:opacity-100" aria-label="Dismiss">
                 <Icon name="close" size={12} />
               </button>
-              <div className="dots" aria-hidden="true"><i /><i /><i /></div>
             </div>
             {t.body ? <div className="surface-body !py-3 text-[13px]">{t.body}</div> : null}
           </motion.div>

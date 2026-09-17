@@ -17,6 +17,13 @@ function inUS(lat: number, lng: number) {
 }
 
 /** Server-rendered SVG map: the US (Albers) when every place is in it, otherwise the world. Pins come from content/places.ts. */
+type Pin = { xy: [number, number]; short: string };
+/** The first pin of a tight cluster speaks for all of them: "Olney +6". */
+function clusterLabel(p: Pin, pins: Pin[]): string {
+  const near = pins.filter((q) => q !== p && Math.hypot(q.xy[0] - p.xy[0], q.xy[1] - p.xy[1]) < 60).length;
+  return near ? `${p.short} +${near}` : p.short;
+}
+
 export function MemoryMap() {
   const useUS = places.every((p) => inUS(p.lat, p.lng));
   const topo = (useUS ? usTopo : worldTopo) as unknown as Topology;
@@ -35,20 +42,22 @@ export function MemoryMap() {
           <Icon name="map" size={14} />
           <h2 className="surface-title m-0 font-semibold">{useUS ? "United States" : "The world"}</h2>
           <div className="ml-auto text-[11px] opacity-80">{pins.length} pin{pins.length === 1 ? "" : "s"}</div>
-          <div className="dots" aria-hidden="true"><i /><i /><i /></div>
         </div>
         <div className="surface-body !p-2">
           <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`Map with ${pins.length} places: ${pins.map((p) => p.label).join(", ")}`} className="block h-auto w-full" style={{ shapeRendering: "crispEdges" }}>
             <path d={path(fc) ?? ""} fill="color-mix(in srgb, var(--surface-fg) 10%, transparent)" stroke="none" />
             <path d={path(borders) ?? ""} fill="none" stroke="color-mix(in srgb, var(--surface-fg) 28%, transparent)" strokeWidth={1} />
-            {pins.map((p) => (
+            {pins.map((p, i) => {
+              const crowded = pins.slice(0, i).some((q) => Math.hypot(q.xy[0] - p.xy[0], q.xy[1] - p.xy[1]) < 60);
+              return (
               <g key={p.id} transform={`translate(${p.xy[0]}, ${p.xy[1]})`}>
                 <circle r={18} fill="var(--accent)" opacity={0.18} />
                 <path d="M0 -14 L8 -6 L0 6 L-8 -6 Z" fill="var(--accent)" stroke="var(--surface-fg)" strokeWidth={2} />
                 <rect x={-2} y={4} width={4} height={6} fill="var(--surface-fg)" />
-                <text x={p.xy[0] > W * 0.7 ? -14 : 14} y={-4} textAnchor={p.xy[0] > W * 0.7 ? "end" : "start"} fontFamily="var(--font-pixelify)" fontWeight={700} fontSize={22} fill="var(--surface-fg)" stroke="var(--surface)" strokeWidth={4} paintOrder="stroke">{p.short}</text>
+                <text x={p.xy[0] > W * 0.7 ? -14 : 14} y={-4} textAnchor={p.xy[0] > W * 0.7 ? "end" : "start"} fontFamily="var(--font-sans)" fontWeight={600} fontSize={20} fill="var(--surface-fg)" stroke="var(--surface)" strokeWidth={4} paintOrder="stroke">{crowded ? "" : clusterLabel(p, pins)}</text>
               </g>
-            ))}
+              );
+            })}
           </svg>
         </div>
       </div>
@@ -57,7 +66,6 @@ export function MemoryMap() {
           <div className="surface-chrome">
             <Icon name="pin" size={14} />
             <h2 className="surface-title m-0 font-semibold">Places</h2>
-            <div className="dots" aria-hidden="true"><i /><i /><i /></div>
           </div>
           <ul className="surface-body m-0 flex list-none flex-col gap-3 p-0 !pt-4">
             {pins.map((p) => (

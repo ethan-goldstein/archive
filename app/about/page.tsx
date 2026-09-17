@@ -14,15 +14,15 @@ export default function AboutPage() {
 
   return (
     <main data-era="glass" className="mx-auto w-full max-w-[880px] flex-1 px-4 pb-[calc(var(--tabbar-h)+32px)] pt-8 md:px-8 md:pb-16">
-      <p className="label-mono m-0 mb-2 text-fg-muted">About this computer</p>
+      <p className="label-mono m-0 mb-2 text-fg-muted">About</p>
       <h1 className="numeral m-0 text-[clamp(40px,8vw,80px)]">An archive of growing up</h1>
       <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-12">
         <div className="md:col-span-7">
           <Surface title="What this is" icon="info">
             <p className="measure m-0 text-[15px] leading-relaxed">
               A personal time capsule for {profile.name}, born February 10, 2005 in {profile.birthplace.label}. One folder per year from 2005 to 2026:
-              memories, photos, music, hobbies, the devices in the house, and the internet as it was. The interface ages with the years,
-              from glossy desktop windows to frosted glass.
+              memories, photos, music, hobbies, the devices in the house, and the internet as it was. The site is clean throughout, but every year is rendered at the quality of its time:
+              pixelated and blunt in 2005, cinematic by 2026.
             </p>
             <p className="measure m-0 mt-3 text-[15px] leading-relaxed text-surface-fg-muted">
               Personal content and cultural context are kept separate on purpose. Cultural notes describe the world that year, not what Ethan did.
@@ -31,14 +31,14 @@ export default function AboutPage() {
           </Surface>
         </div>
         <div className="md:col-span-5">
-          <Surface title="System info" icon="desktop">
+          <Surface title="By the numbers" icon="star">
             <dl className="m-0 grid grid-cols-2 gap-x-4 gap-y-3 text-[13px]">
               <dt className="label-mono text-surface-fg-muted">Years</dt><dd className="m-0">{years.length}</dd>
               <dt className="label-mono text-surface-fg-muted">Cultural notes</dt><dd className="m-0">{culture}</dd>
               <dt className="label-mono text-surface-fg-muted">Slots to fill</dt><dd className="m-0">{slots}</dd>
               <dt className="label-mono text-surface-fg-muted">Eras</dt><dd className="m-0">5</dd>
-              <dt className="label-mono text-surface-fg-muted">Built with</dt><dd className="m-0">Next.js, Motion, Tailwind</dd>
-              <dt className="label-mono text-surface-fg-muted">Fonts</dt><dd className="m-0">Geist, Instrument Serif, Silkscreen</dd>
+              <dt className="label-mono text-surface-fg-muted">Built with</dt><dd className="m-0">Next.js, three.js, Lenis, Tailwind</dd>
+              <dt className="label-mono text-surface-fg-muted">Fonts</dt><dd className="m-0">Geist, Instrument Serif</dd>
             </dl>
           </Surface>
         </div>
@@ -59,7 +59,7 @@ export default function AboutPage() {
               Every year has a file at <code className="font-mono text-[12px]">content/personal/&lt;year&gt;.ts</code>. Replace a placeholder with a memory, a photo, a track, or a milestone and it appears in the right place with the right era styling.
               Cultural context lives in <code className="font-mono text-[12px]">content/culture/</code>. Life-stage labels and the birthplace live in <code className="font-mono text-[12px]">content/profile.ts</code>.
             </p>
-            <Link href="/year/2005" className="btn-era mt-4">Open 2005</Link>
+            <Link href="/" className="btn-era mt-4">All years</Link>
           </Surface>
         </div>
       </div>

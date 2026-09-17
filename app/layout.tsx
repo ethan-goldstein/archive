@@ -5,13 +5,10 @@ import { Providers } from "@/components/shell/Providers";
 import { EffectsLayer } from "@/components/shell/EffectsLayer";
 import { BottomTabs } from "@/components/shell/BottomTabs";
 import { Toaster } from "@/components/shell/Toaster";
-import { Screensaver } from "@/components/shell/Screensaver";
 import { Konami } from "@/components/shell/Konami";
 import { ScrollProvider } from "@/components/shell/ScrollProvider";
-import { Desktop } from "@/components/browser/Desktop";
-import { BrowserWindow } from "@/components/browser/BrowserWindow";
-import { MenuSheet } from "@/components/browser/MenuSheet";
-import { RetroDialog } from "@/components/browser/RetroDialog";
+import { TopNav } from "@/components/shell/TopNav";
+import { Dialog } from "@/components/shell/Dialog";
 import { PlayerBar } from "@/components/player/PlayerBar";
 import { PlayerDrawer } from "@/components/player/PlayerDrawer";
 import { CommandPalette } from "@/components/search/CommandPalette";
@@ -21,8 +18,9 @@ import { site } from "@/content/site";
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"], display: "swap" });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"], display: "swap" });
 const instrumentSerif = Instrument_Serif({ variable: "--font-instrument-serif", subsets: ["latin"], weight: "400", style: ["normal", "italic"], display: "swap" });
-const silkscreen = Silkscreen({ variable: "--font-silkscreen", subsets: ["latin"], weight: "400", display: "swap" });
-const pixelify = Pixelify_Sans({ variable: "--font-pixelify-sans", subsets: ["latin"], weight: ["400", "500", "600", "700"], display: "swap" });
+// The two pixel faces exist only for the 8-bit game at /backyard; never preloaded, so no other page downloads them.
+const silkscreen = Silkscreen({ variable: "--font-silkscreen", subsets: ["latin"], weight: "400", display: "swap", preload: false });
+const pixelify = Pixelify_Sans({ variable: "--font-pixelify-sans", subsets: ["latin"], weight: ["400", "500", "600", "700"], display: "swap", preload: false });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
@@ -35,7 +33,7 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-export const viewport: Viewport = { themeColor: "#3aa0ff", width: "device-width", initialScale: 1, viewportFit: "cover" };
+export const viewport: Viewport = { themeColor: "#0a0a0b", width: "device-width", initialScale: 1, viewportFit: "cover" };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
@@ -49,19 +47,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <a href="#content" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-[var(--radius-sm)] focus:bg-accent focus:px-3 focus:py-2 focus:text-accent-fg">
             Skip to content
           </a>
-          <Desktop />
-          <BrowserWindow>
-            <div id="content" className="flex flex-1 flex-col">{children}</div>
-          </BrowserWindow>
+          <TopNav />
+          <div id="content" className="page-canvas flex flex-1 flex-col">{children}</div>
           <BottomTabs />
-          <MenuSheet />
           <PlayerBar />
           <PlayerDrawer />
           <CommandPalette />
           <Lightbox />
-          <RetroDialog />
+          <Dialog />
           <Toaster />
-          <Screensaver />
           <Konami />
           <ScrollProvider />
           <EffectsLayer />

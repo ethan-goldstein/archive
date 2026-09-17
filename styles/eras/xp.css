@@ -7,7 +7,7 @@ html:has([data-era="xp"]), html[data-era="xp"] {
   --surface: #ece9d8;
   --surface-fg: #1d1d1b;
   --surface-fg-muted: #5c5a50;
-  --surface-border: #a8a48c;
+  --surface-border: #0d1b3a;
   --accent: #3f9a2a;
   --accent-2: #f2a11a;
   --accent-fg: #ffffff;
@@ -17,18 +17,25 @@ html:has([data-era="xp"]), html[data-era="xp"] {
   --chrome-fg: #ffffff;
   --border: rgba(255, 255, 255, 0.35);
 
-  --radius-era: calc(6px + 3px * var(--era-t, 0));
-  --radius-sm: 3px;
-  --shadow-era: 0 1px 0 rgba(255, 255, 255, 0.5) inset, 0 12px 30px -12px rgba(0, 20, 60, 0.7);
-  --wallpaper:
-    radial-gradient(90% 60% at 50% -10%, rgba(255, 255, 255, 0.35), transparent 60%),
-    linear-gradient(180deg, #5f9ee8 0%, #2c62c4 42%, #1f4e9c 62%, #2f7d2a 100%);
+  /* 240p: square, hard-edged, a handful of colours, motion in steps. */
+  --radius-era: calc(0px + 2px * var(--era-t, 0));
+  --radius-sm: 0px;
+  --surface-border-w: 2px;
+  --shadow-era: 4px 4px 0 rgba(0, 12, 40, 0.55);
+  --btn-shadow: 3px 3px 0 rgba(0, 12, 40, 0.55);
+  --numeral-shadow: 5px 5px 0 rgba(0, 12, 40, 0.5);
+  --wallpaper: linear-gradient(180deg, #2c62c4 0 34%, #255bb6 34% 58%, #1f4e9c 58% 80%, #1a4488 80% 100%);
+  --dur-ui: 0ms;
+  --ease-ui: steps(1, end);
+  --ease-reveal: steps(3, end);
+  --reveal-y: 12px;
+  --reveal-range: 30%;
   --chrome-gradient: linear-gradient(180deg, #4a93ff 0%, #2a7cf5 45%, #0b47c2 100%);
   --numeral-family: var(--font-sans);
   --numeral-weight: 800;
   --numeral-tracking: -0.05em;
   --fx-scanlines: 0.08;
-  --fx-grain: 0.03;
+  --fx-grain: 0.07;
   --fx-vignette: 0.35;
   --fx-gloss: 1;
 }

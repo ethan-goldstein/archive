@@ -1,27 +1,15 @@
 import Link from "next/link";
-import { Icon } from "@/components/ui/Icon";
 
 export default function NotFound() {
   return (
-    <main data-era="xp" className="flex flex-1 items-center justify-center px-4 py-20">
-      <div className="surface w-full max-w-[440px]" role="alertdialog" aria-labelledby="nf-title">
-        <div className="surface-chrome">
-          <Icon name="window" size={14} />
-          <span id="nf-title" className="surface-title font-semibold">Archive</span>
-          <div className="dots" aria-hidden="true"><i /><i /><i /></div>
-        </div>
-        <div className="surface-body flex gap-4">
-          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent-2 text-[#1b1300]">
-            <Icon name="info" size={20} />
-          </span>
-          <div>
-            <p className="m-0 text-[14px] font-semibold">The file you are looking for has been moved or deleted.</p>
-            <p className="m-0 mt-1 text-[13px] text-surface-fg-muted">The archive only covers 2005 through 2026.</p>
-            <div className="mt-4 flex gap-2">
-              <Link href="/year/2005" className="btn-era">Open 2005</Link>
-              <Link href="/timeline" className="btn-ghost text-surface-fg">Timeline</Link>
-            </div>
-          </div>
+    <main data-era="glass" className="flex flex-1 items-center justify-center px-4 py-24">
+      <div className="max-w-[520px] text-center">
+        <p className="label-mono m-0 text-fg-muted">404</p>
+        <h1 className="m-0 mt-3 font-serif text-[clamp(40px,7vw,80px)] leading-[0.95] tracking-[-0.02em]">Nothing is filed here.</h1>
+        <p className="m-0 mt-4 text-[15px] leading-relaxed text-fg-muted">The archive covers 2005 through 2026. This page is not one of them.</p>
+        <div className="mt-8 flex flex-wrap justify-center gap-2">
+          <Link href="/" className="btn-era">All years</Link>
+          <Link href="/timeline" className="btn-ghost">Timeline</Link>
         </div>
       </div>
     </main>

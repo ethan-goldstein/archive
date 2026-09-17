@@ -22,7 +22,7 @@ export function YearScroll({ data }: { data: YearData }) {
       <Chapter id="world" season="fall" className="chapter-season">
         <header className="chapter-head">
           <p className="label-mono m-0">Meanwhile</p>
-          <h2 className="pow m-0 font-display text-[clamp(40px,7vw,96px)] leading-[0.9]">The world that year</h2>
+          <h2 className="season-title season-title-sm">The world that year</h2>
           <p className="m-0 max-w-[52ch] font-serif text-[clamp(18px,2vw,24px)] leading-snug">{data.culture.headline}</p>
         </header>
         <Culture data={data} />

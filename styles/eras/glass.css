@@ -4,7 +4,7 @@ html:has([data-era="glass"]), html[data-era="glass"] {
   --bg-deep: #000000;
   --fg: #fafafa;
   --fg-muted: #9a9aa3;
-  --surface: rgba(255, 255, 255, 0.06);
+  --surface: rgba(14, 14, 18, 0.84);
   --surface-fg: #fafafa;
   --surface-fg-muted: #a3a3ac;
   --surface-border: rgba(255, 255, 255, 0.12);
@@ -17,15 +17,20 @@ html:has([data-era="glass"]), html[data-era="glass"] {
   --chrome-fg: #fafafa;
   --border: rgba(255, 255, 255, 0.12);
 
+  /* 4K: translucent solids with hairlines, layered depth, long soft motion. */
   --radius-era: calc(16px + 6px * var(--era-t, 0));
+  --dur-ui: 450ms;
+  --ease-ui: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-reveal: cubic-bezier(0.16, 1, 0.3, 1);
+  --reveal-y: 44px;
+  --reveal-range: 55%;
   --radius-sm: 8px;
-  --shadow-era: 0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 30px 60px -30px rgba(0, 0, 0, 0.8);
+  --shadow-era: 0 1px 0 rgba(255, 255, 255, 0.07) inset, 0 2px 6px rgba(0, 0, 0, 0.3), 0 40px 80px -40px rgba(0, 0, 0, 0.85);
   --wallpaper:
     radial-gradient(80% 50% at 50% -10%, rgba(124, 183, 255, 0.16), transparent 60%),
     radial-gradient(40% 30% at 90% 90%, rgba(255, 255, 255, 0.05), transparent 60%),
     linear-gradient(180deg, #121214 0%, #0a0a0b 50%, #000000 100%);
   --chrome-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
-  --surface-blur: calc(18px + 10px * var(--era-t, 0));
   --numeral-family: var(--font-serif);
   --numeral-weight: 400;
   --numeral-tracking: -0.03em;

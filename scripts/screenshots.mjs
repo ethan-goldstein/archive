@@ -1,49 +1,33 @@
 /**
- * Visual check: screenshots of every key screen at desktop, phone, and tablet widths.
- * Usage: npm run start (in another terminal), then: node scripts/screenshots.mjs <output-dir>
+ * Visual review of the clean UI: the hub, one year per quality level (title and a season),
+ * the secondary pages, and phones. Usage: BASE=http://localhost:3000 node scripts/screenshots.mjs <dir>
  */
 import { chromium } from "@playwright/test";
-const out = process.argv[2];
-const base = "http://localhost:3000";
-const browser = await chromium.launch();
-const shot = async (page, name, opts = {}) => page.screenshot({ path: `${out}/${name}.png`, ...opts });
+import { mkdirSync } from "node:fs";
+const out = process.argv[2]; mkdirSync(out, { recursive: true });
+const base = process.env.BASE ?? "http://localhost:3000";
+const browser = await chromium.launch({ args: ["--enable-gpu", "--ignore-gpu-blocklist", "--use-angle=metal"] });
+const toChapter = (page, id) => page.evaluate((c) => { const el = document.querySelector(`[data-chapter="${c}"]`); window.scrollTo({ top: el.offsetTop + 40, behavior: "instant" }); }, id);
 
-// Desktop
-const d = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
-let p = await d.newPage();
-await p.goto(`${base}/`); await p.waitForTimeout(800); await shot(p, "01-intro-off");
-await p.keyboard.press("Space"); await p.waitForTimeout(2600); await shot(p, "02-intro-ready");
-await p.getByRole("button", { name: /enter the archive/i }).click(); await p.waitForURL(/year\/2005/); await p.waitForTimeout(900);
-await shot(p, "03-year-2005", { fullPage: true });
-for (const y of [2010, 2015, 2019, 2024]) {
-  await p.goto(`${base}/year/${y}`); await p.waitForTimeout(900); await shot(p, `04-year-${y}`, { fullPage: true });
+const d = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+const p = await d.newPage();
+await p.goto(`${base}/`); await p.waitForTimeout(1200);
+await p.screenshot({ path: `${out}/hub.png` });
+await p.screenshot({ path: `${out}/hub-full.png`, fullPage: true });
+for (const y of [2005, 2010, 2015, 2019, 2024]) {
+  await p.goto(`${base}/year/${y}`); await p.waitForTimeout(2600);
+  await p.screenshot({ path: `${out}/y${y}-title.png` });
+  await toChapter(p, "fall"); await p.waitForTimeout(1500);
+  await p.screenshot({ path: `${out}/y${y}-fall.png` });
+  await p.mouse.wheel(0, 700); await p.waitForTimeout(1200);
+  await p.screenshot({ path: `${out}/y${y}-fall-modules.png` });
 }
-await p.goto(`${base}/year/2012`); await p.waitForTimeout(700);
-await p.keyboard.press("ArrowRight"); await p.waitForTimeout(1200); await shot(p, "05-year-2013-after-arrow");
-await p.keyboard.press("ControlOrMeta+k"); await p.waitForTimeout(400); await p.keyboard.type("minecraft"); await p.waitForTimeout(500); await shot(p, "06-palette");
-await p.keyboard.press("Escape"); await p.waitForTimeout(400);
-await p.getByRole("button", { name: "Music" }).first().click(); await p.waitForTimeout(600); await shot(p, "07-player-drawer-aero");
-await p.keyboard.press("Escape"); await p.waitForTimeout(300);
-await p.goto(`${base}/timeline`); await p.waitForTimeout(900); await shot(p, "08-timeline");
-await p.keyboard.press("End"); await p.waitForTimeout(1500); await shot(p, "09-timeline-2026");
-await p.goto(`${base}/about`); await p.waitForTimeout(700); await shot(p, "10-about", { fullPage: true });
-await p.goto(`${base}/year/2004`); await p.waitForTimeout(500); await shot(p, "11-404");
+for (const r of ["about", "stats", "map", "timeline", "year/1999"]) { await p.goto(`${base}/${r}`); await p.waitForTimeout(1500); await p.screenshot({ path: `${out}/${r.replace("/", "-")}.png` }); }
 await d.close();
 
-// Phone
 const m = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true });
-p = await m.newPage();
-await p.goto(`${base}/`); await p.waitForTimeout(700); await shot(p, "20-m-intro");
-await p.goto(`${base}/year/2005`); await p.waitForTimeout(900); await shot(p, "21-m-2005", { fullPage: true });
-await p.goto(`${base}/year/2016`); await p.waitForTimeout(900); await shot(p, "22-m-2016", { fullPage: true });
-await p.goto(`${base}/year/2023`); await p.waitForTimeout(900); await shot(p, "23-m-2023");
-await p.goto(`${base}/timeline`); await p.waitForTimeout(900); await shot(p, "24-m-timeline");
-await m.close();
-
-// Tablet
-const t = await browser.newContext({ viewport: { width: 768, height: 1024 }, deviceScaleFactor: 1 });
-p = await t.newPage();
-await p.goto(`${base}/year/2019`); await p.waitForTimeout(900); await shot(p, "30-t-2019", { fullPage: true });
-await t.close();
-await browser.close();
+const mp = await m.newPage();
+await mp.goto(`${base}/`); await mp.waitForTimeout(1000); await mp.screenshot({ path: `${out}/m-hub.png` });
+for (const y of [2005, 2024]) { await mp.goto(`${base}/year/${y}`); await mp.waitForTimeout(2400); await mp.screenshot({ path: `${out}/m-y${y}.png` }); await toChapter(mp, "summer"); await mp.waitForTimeout(1400); await mp.screenshot({ path: `${out}/m-y${y}-summer.png` }); }
+await m.close(); await browser.close();
 console.log("done");

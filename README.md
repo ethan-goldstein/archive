@@ -1,11 +1,11 @@
 # Ethan Goldstein — Archive 2005–2026
 
-An interactive digital time capsule: one folder per year from 2005 to 2026, with the interface
-ageing alongside the years (glossy desktop windows → aqua gloss → flat colour → charcoal streaming → frosted glass),
-all of it open inside a '90s browser window on a pixel-cloud desktop. Windows 98 chrome by default, Mac OS 9 from the View menu.
+An interactive digital time capsule: one page per year from 2005 to 2026, each a scroll through its four seasons over a
+Three.js world. The site is clean and modern throughout; what changes with the year is rendering quality, from 240p in 2005
+to 4K in 2026, the way screens actually improved.
 It also ships **Potomac Sandlot**, an original 8-bit backyard baseball game at `/backyard`.
 
-Built with Next.js 16, React 19, TypeScript, Tailwind CSS 4, and Motion. Deployed on Vercel.
+Built with Next.js 16, React 19, TypeScript, Tailwind CSS 4, three.js (react-three-fiber), Lenis and Motion. Deployed to GitHub Pages.
 
 ## Run it
 
@@ -108,17 +108,36 @@ Set `showPlaceholders: false` there to hide every remaining slot on the public s
 `interests`, `onMyScreen`, and `tech` take `{ label, kind, note?, icon?, url? }`. Icon names are listed in `lib/content/schema.ts` (`ICON_NAMES`).
 `capsule` objects (`{ label, icon, personal: true }`) appear in the Time Capsule shelf next to the era's objects.
 
-## The seasons and the 3D world (Pass 3)
+## How the site looks: clean everywhere, quality that grows with the year
 
-Every year page is one long scroll: a title card, then **Winter → Spring → Summer → Fall**, then "The world that year". Behind it a Three.js world (react-three-fiber) with four procedural sets sits side by side: a snowed-in house with warm windows, a low-poly diamond, the pool at dusk, and a porch with a jack-o'-lantern. The camera rides one spline through all of them as you scroll (Lenis), so the year is literally a walk.
+There is no retro costume. One clean design (Geist, Instrument Serif, Geist Mono, a single top nav) runs through every page. What changes with the year is **rendering quality**, the way screens actually improved:
 
-- **Content by season.** `lib/content/seasons.ts` reads the month out of `date` / `takenAt` (`2010-05`, `June 2012`, `Oct 2019`). Dated entries land in their season; undated memories and milestones land in fall; undated photos are spread; music lives in winter; placeholders are dealt round-robin so every chapter shows a slot.
-- **The technology grows up.** `lib/three/profile.ts` gives each era a render profile that slides within the era: 2005 is pixelated and posterized with flat shading; 2009 is glossy with bloom; 2013 is toon-flat pastel; 2017 is PBR with grain and a vignette; 2021+ adds depth of field and chromatic aberration. The same `--era-t` nudges radii and blur in the 2D tokens.
-- **The frame grows up too.** `lib/browser/frame.ts`: Windows 98 (2005–08) → Windows 7 with a tab strip (2009–12) → an iOS 7 app (2013–16) → a streaming app (2017–20) → a frosted window (2021–25) → no chrome, a floating capsule (2026). *View → Grows up with the year / Windows 98 / Mac OS 9* pins it.
-- **The timeline is a road.** `/timeline` puts 22 markers down a straight; the sky cycles through the seasons inside every year you drag past.
-- **Safety nets.** Reduced motion renders a still frame and native scrolling; no WebGL means the era wallpaper shows and nothing else changes; the canvas pauses when the tab is hidden; particle counts scale with the device. Turn *View → Retro effects* off and the 3D layer is skipped entirely.
+| Years | Label | 2D finish | Motion | 3D scene |
+|---|---|---|---|---|
+| 2005–08 | 240p | square panels, 2px hard borders, hard offset shadows, static grain | `steps()`, no easing | pixelated, posterized, flat shading |
+| 2009–12 | 480p | small radius, one soft highlight | 150 ms eases | half resolution, gloss, light bloom |
+| 2013–16 | 720p | flat colour, accent strip | 200 ms | full resolution, pastel toon |
+| 2017–20 | 1080p | charcoal, ambient shadow, fine grain | 300 ms | PBR, grain, vignette |
+| 2021–26 | 4K | translucent solids with hairlines, layered shadows | long soft curves | depth of field, bloom, chromatic aberration |
 
-Visual checks: `BASE=http://localhost:3000 node scripts/season-shots.mjs <dir>` (every chapter of several years, phone, reduced motion) and `node scripts/frame-shots.mjs <dir>` (one year per frame).
+- The tokens live in `styles/eras/*.css`; `--era-t` slides values within an era so 2011 sits between 2009 and 2012. `components/year/Surface.tsx` is the one panel; its finish is all tokens. `lib/three/profile.ts` is the 3D side of the same ladder. `lib/content/quality.ts` holds the labels.
+- **`/` is the overview hub**: all 22 years as cards, each finished at its own year's quality, plus Timeline, Map, Stats, the game, Random and About. No intro, no gate.
+- **Every year page** scrolls title → Winter → Spring → Summer → Fall → "The world that year" over a Three.js world of four procedural sets; the camera rides one spline through them. `lib/content/seasons.ts` files content by month (undated memories land in fall, music in winter, placeholders are spread).
+- **`/timeline`** is a 3D road with 22 markers; the sky cycles through the seasons inside every year you drag past.
+- Pixel fonts and Windows-98 bevels survive only inside the 8-bit game at `/backyard`, which is a deliberate 2005 artifact; those fonts are never preloaded elsewhere.
+
+### Smoothness is a rule, with a measurement
+
+`BASE=http://localhost:3000 node scripts/scroll-perf.mjs` wheel-scrolls a full year and fires rapid year changes at 2005, 2012 and 2024 on a real GPU, and reports frame times, hitches a visitor could see, and layout shift. It should stay flat at ~16.7 ms with zero long frames. The rules that keep it there, each learned from a measured regression:
+
+- No `backdrop-filter`, no full-viewport `mix-blend-mode`, no `background-attachment: fixed`. Panels over the WebGL canvas are translucent **solids**. An e2e test enforces this.
+- A year change never animates the tall article. A viewport-sized wash covers the swap and is held until the new year has painted; the scroll reset goes through Lenis (`lenis.scrollTo(0, { immediate: true })`), never `window.scrollTo`, which Lenis would snap back from.
+- Only four colour tokens transition on an era change. Radius and shadow never transition.
+- 3D: particle geometry is built once and only its draw range moves; the posterize pass is stable per era so the effect chain is never rebuilt inside one; the shadow map exists only in 2021+.
+- Scroll reveals use the CSS scroll timeline (compositor only). Chapter heights are `svh`, not `dvh`.
+- Reduced motion: native scrolling, a still 3D frame, no wash. No WebGL: the era wallpaper shows and nothing else changes. The sparkle button in the nav turns the 3D layer off entirely.
+
+Visual checks: `node scripts/screenshots.mjs <dir>` (hub, one year per quality level, secondary pages, phones) and `node scripts/season-shots.mjs <dir>` (every chapter of several years, phone, reduced motion).
 
 ## Privacy on the public site
 

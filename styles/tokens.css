@@ -48,7 +48,11 @@
   --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
 
   /* Layout */
-  --topbar-h: 64px;
+  --nav-h: 52px;
+  --chrome-h: var(--nav-h);
+  --status-h: 0px;
+  --dur-ui: 200ms;
+  --ease-ui: cubic-bezier(0.25, 1, 0.5, 1);
   --strip-h: 56px;
   --tabbar-h: 64px;
   --player-h: 64px;
@@ -61,6 +65,8 @@
     --surface var(--dur-slow) var(--ease-in-out-quint),
     --accent var(--dur-slow) var(--ease-in-out-quint);
 }
+
+@media (min-width: 768px) { :root { --nav-h: 56px; } }
 
 @media (prefers-reduced-motion: reduce) {
   :root { transition: none; }

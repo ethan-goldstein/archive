@@ -46,7 +46,7 @@ export function PlayerDrawer() {
             role="dialog"
             aria-label="Music player"
             data-lenis-prevent
-            className="surface fixed inset-x-0 bottom-0 z-[70] max-h-[85dvh] overflow-y-auto overscroll-contain rounded-b-none md:inset-auto md:bottom-[calc(var(--player-h)+var(--status-h)+16px)] md:right-6 md:w-[420px] md:rounded-b-[var(--radius-era)]"
+            className="surface fixed inset-x-0 bottom-0 z-[70] max-h-[85dvh] overflow-y-auto overscroll-contain rounded-b-none md:inset-auto md:bottom-[calc(var(--player-h)+16px)] md:right-6 md:w-[420px] md:rounded-b-[var(--radius-era)]"
             initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 40, opacity: 0 }}
@@ -61,7 +61,6 @@ export function PlayerDrawer() {
                 ))}
               </div>
               <button type="button" onClick={() => uiStore.closePlayer()} className="ml-2 opacity-70 hover:opacity-100" aria-label="Close player"><Icon name="close" size={14} /></button>
-              <div className="dots" aria-hidden="true"><i /><i /><i /></div>
             </div>
             <div className="surface-body">
               {tab === "player" ? (

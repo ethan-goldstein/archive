@@ -13,7 +13,6 @@ import { usePrefersReducedMotion } from "@/lib/hooks/useMediaQuery";
 import { playClick } from "@/lib/audio/chime";
 import { uiStore } from "@/lib/ui/uiStore";
 import { BASE_PATH, stripBase } from "@/lib/basePath";
-import { frameStore, frameForYear } from "@/lib/browser/frame";
 import { profileForYear } from "@/lib/three/profile";
 import { getLenis } from "@/lib/scroll/lenis";
 import { scrollStore } from "@/lib/scroll/progress";
@@ -58,7 +57,6 @@ export function YearStage({ initialYear }: { initialYear: number }) {
       const slash = window.location.pathname.endsWith("/") ? "/" : "";
       window.history.pushState({ year: to }, "", `${BASE_PATH}/year/${to}${slash}`);
     }
-    uiStore.setStatus(`Opening ${to}…`, true, 600);
     playClick();
     if (reduced) { commit(); return; }
     if (timer.current) return; // a swap is already scheduled; it will pick up the latest target
@@ -96,14 +94,14 @@ export function YearStage({ initialYear }: { initialYear: number }) {
     return () => cancelAnimationFrame(id);
   }, [year, wash]);
 
-  // The frame, the within-era slide of the 2D tokens and the tab title follow the year.
+  // The within-era slide of the 2D tokens and the tab title follow the year.
   useEffect(() => {
-    frameStore.set(frameForYear(year));
     const p = profileForYear(year);
     const el = document.documentElement;
     el.style.setProperty("--era-t", p.eraT.toFixed(3));
     el.style.setProperty("--tech", p.techLevel.toFixed(3));
     document.title = `${year} · Ethan Goldstein Archive`;
+    try { localStorage.setItem("archive:last-year", String(year)); } catch { /* private mode */ }
   }, [year]);
 
   // Parse the neighbours while idle so a year change never pays for it.

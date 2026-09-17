@@ -69,7 +69,6 @@ function PaletteDialog() {
       <div className="surface-chrome">
         <Icon name="search" size={14} />
         <span className="surface-title font-semibold">Search the archive</span>
-        <div className="dots" aria-hidden="true"><i /><i /><i /></div>
       </div>
       <div className="flex items-center gap-3 border-b border-surface-border px-4 py-3">
         <Icon name="search" size={16} className="opacity-60" />

@@ -11,6 +11,7 @@
   transition: opacity var(--dur-slow) var(--ease-in-out-quint);
 }
 html[data-effects="on"] .fx-layer { opacity: 1; }
+html[data-effects="on"] .fx-layer.fx-grain { opacity: var(--fx-grain); }
 
 .fx-scanlines {
   background: repeating-linear-gradient(

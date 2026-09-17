@@ -8,7 +8,6 @@
 @import "./effects.css";
 @import "./os.css";
 @import "./pixels.css";
-@import "./frames.css";
 
 @theme inline {
   --color-bg: var(--bg);
@@ -46,7 +45,7 @@
 @layer base {
   html {
     color-scheme: dark;
-    background: var(--os-desktop);
+    background: var(--bg-deep);
     overflow-x: clip;
     -webkit-text-size-adjust: 100%;
     /* Lenis owns smooth scrolling; a native smooth behaviour would fight it on focus and anchor jumps. */
@@ -100,124 +99,46 @@
 .page-canvas { position: relative; isolation: isolate; background: var(--bg); color: var(--fg); font-family: var(--font-sans); overflow-x: clip; }
 .page-canvas::before { content: ""; position: fixed; inset: 0; z-index: -1; background: var(--wallpaper); pointer-events: none; }
 
-/* Year numeral: the most-seen element. Chunky pixel lettering; the colour treatment changes with the era. */
+/* Year numeral: one clean type system in every year; weight, tracking and family come from the era. */
 .numeral {
-  font-family: var(--font-pixelify);
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  line-height: 0.9;
-  text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.35);
-  font-variant-numeric: tabular-nums lining-nums;
-  transition: font-weight var(--dur-slow) var(--ease-in-out-quint);
-}
-html:has([data-era="xp"]) .numeral, html[data-era="xp"] .numeral {
-  background: linear-gradient(180deg, #ffffff 0%, #dbe9ff 45%, #9fc4ff 50%, #e9f2ff 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  filter: drop-shadow(0 2px 0 rgba(0, 30, 90, 0.5)) drop-shadow(0 12px 24px rgba(0, 20, 60, 0.5));
-}
-html:has([data-era="aero"]) .numeral, html[data-era="aero"] .numeral {
-  background: linear-gradient(180deg, #ffffff 0%, #cfeeff 48%, #7fd3ff 52%, #ffffff 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  filter: drop-shadow(0 0 24px rgba(90, 214, 255, 0.45));
-}
-html:has([data-era="flat"]) .numeral, html[data-era="flat"] .numeral { color: #fff; }
-html:has([data-era="dark"]) .numeral, html[data-era="dark"] .numeral { color: var(--fg); }
-html:has([data-era="glass"]) .numeral, html[data-era="glass"] .numeral {
+  font-family: var(--numeral-family);
+  font-weight: var(--numeral-weight);
+  letter-spacing: var(--numeral-tracking);
+  line-height: 0.88;
   color: var(--fg);
-  text-shadow: 4px 4px 0 rgba(124, 183, 255, 0.35);
+  text-shadow: var(--numeral-shadow, none);
+  font-variant-numeric: tabular-nums lining-nums;
 }
 
-/* Surface: the only place era chrome lives. */
+/* Surface: a titled panel. Same markup every year; the finish is that year's quality level. */
 .surface {
   position: relative;
   background: var(--surface);
   color: var(--surface-fg);
   border-radius: var(--radius-era);
   box-shadow: var(--shadow-era);
-  border: 1px solid var(--surface-border);
+  border: var(--surface-border-w, 1px) solid var(--surface-border);
   overflow: clip;
   transition: background-color var(--dur-slow), border-color var(--dur-slow);
 }
-.surface-chrome {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  min-height: 34px;
-  padding: 6px 10px 6px 12px;
-  background: var(--chrome-gradient);
-  color: var(--chrome-fg);
-  border-bottom: 1px solid var(--surface-border);
-  user-select: none;
-}
-.surface-chrome .dots { display: flex; gap: 6px; margin-left: auto; }
-.surface-chrome .dots i {
-  width: 12px; height: 12px; border-radius: 50%;
-  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.35));
-  box-shadow: 0 0 0 1px rgba(0,0,0,0.25) inset;
-}
-.surface-body { padding: 18px; }
-@media (min-width: 768px) { .surface-body { padding: 22px; } }
+.surface-chrome { display: flex; align-items: center; gap: 10px; padding: 18px 18px 0; color: var(--surface-fg); }
+.surface-body { padding: 14px 18px 18px; }
+@media (min-width: 768px) { .surface-chrome { padding: 22px 22px 0; } .surface-body { padding: 16px 22px 22px; } }
+.surface-title { font-family: var(--font-sans); font-weight: 600; font-size: 15px; letter-spacing: -0.005em; }
+/* 2009–12: one soft highlight. 2013–16: a flat accent strip. Nothing else is decorated. */
+html:has([data-era="aero"]) .surface::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 38%; background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0)); pointer-events: none; }
+html:has([data-era="flat"]) .surface::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 3px; background: var(--chrome-gradient); }
 
-html:has([data-era="xp"]) .surface, html[data-era="xp"] .surface {
-  border: 1px solid #0b47c2;
-  box-shadow: 0 0 0 2px #2a7cf5 inset, 0 0 0 3px rgba(255,255,255,0.35) inset, var(--shadow-era);
-}
-html:has([data-era="xp"]) .surface-chrome, html[data-era="xp"] .surface-chrome {
-  border-radius: calc(var(--radius-era) - 1px) calc(var(--radius-era) - 1px) 0 0;
-  margin: 2px 2px 0;
-  font-weight: 700;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.45);
-}
-html:has([data-era="xp"]) .surface-chrome .dots i, html[data-era="xp"] .surface-chrome .dots i {
-  border-radius: 3px; width: 18px; height: 16px;
-  background: linear-gradient(180deg, #5da0ff, #1a63e0);
-  box-shadow: 0 0 0 1px #ffffff88 inset, 0 0 0 1px #0b47c2;
-}
-html:has([data-era="xp"]) .surface-chrome .dots i:last-child, html[data-era="xp"] .surface-chrome .dots i:last-child {
-  background: linear-gradient(180deg, #ff8e6e, #d9391a);
-}
-html:has([data-era="aero"]) .surface, html[data-era="aero"] .surface {
-  background: color-mix(in srgb, var(--surface) 92%, transparent);
-}
-html:has([data-era="aero"]) .surface::before, html[data-era="aero"] .surface::before {
-  content: ""; position: absolute; inset: 0 0 auto 0; height: 46%;
-  background: linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0));
-  pointer-events: none;
-}
-html:has([data-era="aero"]) .surface-chrome .dots i, html[data-era="aero"] .surface-chrome .dots i {
-  background: radial-gradient(circle at 35% 30%, #fff, #8fd3ff 40%, #1e6fb8 100%);
-}
-html:has([data-era="flat"]) .surface-chrome, html[data-era="flat"] .surface-chrome {
-  position: relative; background: transparent; border: 0; padding: 20px 22px 0; color: var(--surface-fg);
-}
-html:has([data-era="flat"]) .surface-chrome::before, html[data-era="flat"] .surface-chrome::before {
-  content: ""; position: absolute; inset: 0 0 auto 0; height: 4px; background: var(--chrome-gradient);
-}
-html:has([data-era="flat"]) .surface-chrome .dots, html[data-era="flat"] .surface-chrome .dots { display: none; }
-html:has([data-era="dark"]) .surface, html[data-era="dark"] .surface { border-color: transparent; }
-html:has([data-era="dark"]) .surface-chrome, html[data-era="dark"] .surface-chrome {
-  background: transparent; border: 0; padding: 18px 22px 0;
-}
-html:has([data-era="dark"]) .surface-chrome .dots, html[data-era="dark"] .surface-chrome .dots { display: none; }
-html:has([data-era="glass"]) .surface, html[data-era="glass"] .surface {
-  background: color-mix(in srgb, var(--bg) 86%, transparent);
-}
-html:has([data-era="glass"]) .surface-chrome, html[data-era="glass"] .surface-chrome {
-  background: transparent; border: 0; padding: 20px 22px 0;
-}
-html:has([data-era="glass"]) .surface-chrome .dots, html[data-era="glass"] .surface-chrome .dots { display: none; }
-
-/* Module titles: chunky pixel lettering everywhere; muted in the flat/dark/glass eras */
-.surface-title { font-family: var(--font-pixelify); font-weight: 700; font-size: 16px; letter-spacing: 0.01em; }
-html:has([data-era="flat"]) .surface-title, html[data-era="flat"] .surface-title,
-html:has([data-era="dark"]) .surface-title, html[data-era="dark"] .surface-title,
-html:has([data-era="glass"]) .surface-title, html[data-era="glass"] .surface-title {
-  color: var(--surface-fg); font-size: 17px;
-}
+/* The nav: solid and era-tinted. Never a backdrop blur, because it sits over a live WebGL canvas. */
+.site-nav { background: color-mix(in srgb, var(--bg-deep) 95%, transparent); border-bottom: 1px solid var(--border); color: var(--fg); transition: background-color var(--dur-slow), border-color var(--dur-slow); }
+.site-nav-bottom { border-bottom: 0; border-top: 1px solid var(--border); background: var(--bg-deep); }
+.nav-link { padding: 6px 10px; border-radius: var(--radius-sm); font-size: 13px; color: var(--fg-muted); transition: color var(--dur-ui) var(--ease-ui), background-color var(--dur-ui) var(--ease-ui); }
+.nav-link:hover { color: var(--fg); background: color-mix(in srgb, var(--fg) 8%, transparent); }
+.nav-link-active { color: var(--fg); background: color-mix(in srgb, var(--fg) 10%, transparent); }
+.nav-tool { display: inline-flex; align-items: center; gap: 8px; height: 34px; min-width: 34px; justify-content: center; padding: 0 9px; border-radius: var(--radius-sm); font-size: 13px; color: var(--fg-muted); transition: color var(--dur-ui) var(--ease-ui), background-color var(--dur-ui) var(--ease-ui); }
+.nav-tool:hover { color: var(--fg); background: color-mix(in srgb, var(--fg) 8%, transparent); }
+.nav-tool[aria-pressed="true"] { color: var(--fg); }
+.nav-tool[aria-pressed="false"] { opacity: 0.55; }
 
 /* Buttons with era gloss */
 .btn-era {
@@ -227,14 +148,13 @@ html:has([data-era="glass"]) .surface-title, html[data-era="glass"] .surface-tit
   border-radius: var(--radius-era);
   background: var(--accent);
   color: var(--accent-fg);
-  font-family: var(--font-pixelify);
-  font-weight: 700;
-  font-size: 15px;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: -0.005em;
   border: 1px solid color-mix(in srgb, var(--accent) 60%, black);
-  box-shadow: 0 1px 0 rgba(255,255,255,0.35) inset, 0 8px 20px -10px color-mix(in srgb, var(--glow) 60%, transparent);
-  transition: transform var(--dur-fast) var(--ease-out-quart), box-shadow var(--dur-fast), filter var(--dur-fast);
+  box-shadow: var(--btn-shadow, none);
+  transition: transform var(--dur-ui) var(--ease-ui), filter var(--dur-ui) var(--ease-ui);
   overflow: clip;
 }
 .btn-era::before {
@@ -242,7 +162,7 @@ html:has([data-era="glass"]) .surface-title, html[data-era="glass"] .surface-tit
   background: linear-gradient(180deg, rgba(255,255,255,calc(var(--fx-gloss) * 0.45)), rgba(255,255,255,0));
   pointer-events: none;
 }
-.btn-era:hover { transform: translateY(-1px); filter: brightness(1.06); box-shadow: 0 1px 0 rgba(255,255,255,0.35) inset, 0 12px 26px -10px color-mix(in srgb, var(--glow) 80%, transparent); }
+.btn-era:hover { transform: translateY(-1px); filter: brightness(1.06); }
 .btn-era:active { transform: translateY(0); filter: brightness(0.96); }
 
 .btn-ghost {
@@ -270,8 +190,8 @@ html:has([data-era="glass"]) .surface-title, html[data-era="glass"] .surface-tit
   opacity: 0.9;
 }
 .placeholder-badge {
-  font-family: var(--font-pixel); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
-  padding: 3px 6px 2px; border-radius: 3px;
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 3px 6px; border-radius: var(--radius-sm);
   background: var(--accent-2); color: #1b1300;
 }
 
@@ -285,7 +205,7 @@ html:has([data-era="glass"]) .surface-title, html[data-era="glass"] .surface-tit
   animation: sweep var(--dur-cinematic) var(--ease-out-quart) both;
 }
 
-.wordmark { font-family: var(--font-pixelify); font-weight: 700; letter-spacing: 0.02em; font-size: 14px; text-transform: uppercase; }
+.wordmark { font-family: var(--font-sans); font-weight: 600; letter-spacing: -0.01em; font-size: 15px; }
 
 .scroll-fade-y { mask-image: linear-gradient(180deg, transparent, black 24px, black calc(100% - 24px), transparent); }
 
@@ -311,7 +231,8 @@ html.lenis, html.lenis body { height: auto; }
   .chapter-season { min-height: 100svh; display: flex; flex-direction: column; gap: 28px; }
   .chapter-head { color: #fff; text-shadow: 0 2px 0 rgba(0, 0, 0, 0.45), 0 10px 40px rgba(0, 0, 0, 0.5); display: flex; flex-direction: column; justify-content: flex-end; gap: 10px; min-height: calc(62svh - var(--chrome-h)); padding-block: 4vh 4vh; }
   .chapter-head .label-mono { color: rgba(255, 255, 255, 0.82); }
-  .chapter-head .pow { --pow-shadow: rgba(0, 0, 0, 0.6); }
+  .season-title { font-family: var(--font-serif); font-weight: 400; font-style: italic; letter-spacing: -0.02em; line-height: 0.9; font-size: clamp(64px, 12vw, 160px); margin: 0; }
+  .season-title-sm { font-size: clamp(44px, 7vw, 104px); }
   .chapter-card { background: color-mix(in srgb, var(--bg) 92%, transparent); border: 1px solid var(--border); border-radius: var(--radius-era); padding: clamp(16px, 3vw, 36px); box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.6); }
   .chapter-foot { color: #fff; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5); border-color: rgba(255, 255, 255, 0.25); margin-top: 24px; }
 }
@@ -325,4 +246,61 @@ html.lenis, html.lenis body { height: auto; }
   @keyframes wash-out { from { opacity: 1; } to { opacity: 0; } }
   .strip-underline { transform: scaleX(0); opacity: 0; transition: transform 220ms var(--ease-out-quart), opacity 160ms; }
   [aria-selected="true"] > .strip-underline { transform: scaleX(1); opacity: 1; }
+}
+
+/*
+ * Motion grows up too. Panels and headings reveal as they enter the viewport, driven by the scroll
+ * timeline (compositor only, no JavaScript): three hard steps in 2005, a long soft rise by 2026.
+ */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .chapter .surface, .chapter-head > * {
+      animation: reveal var(--ease-reveal, linear) both;
+      animation-timeline: view();
+      animation-range: entry 0% entry var(--reveal-range, 40%);
+    }
+    @keyframes reveal { from { opacity: 0; transform: translateY(var(--reveal-y, 24px)); } to { opacity: 1; transform: none; } }
+  }
+}
+
+/* ---- The hub: 22 year cards, each finished at its own year's quality ---- */
+@layer components {
+  .yc { display: flex; flex-direction: column; overflow: clip; background: color-mix(in srgb, var(--fg) 5%, transparent); color: var(--fg); border: 1px solid var(--border); }
+  .yc-art { position: relative; display: block; aspect-ratio: 4 / 3; }
+  .yc-body { display: flex; flex-direction: column; gap: 2px; padding: 12px 14px 14px; }
+  .yc-year { font-size: 28px; line-height: 1; font-weight: 600; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
+  .yc-meta { font-size: 12px; color: var(--fg-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .yc-place { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .yc:focus-visible { outline-offset: 2px; }
+
+  /* 240p: banded colour, square, hard shadow, no easing. */
+  .yc-xp { border: 2px solid #0d1b3a; box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.5); }
+  .yc-xp .yc-art { --s: calc(18% + var(--k, 0) * 14%); background: linear-gradient(180deg, var(--c1) 0 var(--s), color-mix(in srgb, var(--c1) 60%, var(--c2)) var(--s) calc(var(--s) * 2), color-mix(in srgb, var(--c1) 25%, var(--c2)) calc(var(--s) * 2) calc(var(--s) * 3), var(--c2) calc(var(--s) * 3) 100%); image-rendering: pixelated; }
+  .yc-xp .yc-art img { image-rendering: pixelated; filter: contrast(1.25) saturate(0.7); }
+  .yc-xp .yc-year { font-weight: 800; }
+  .yc-xp:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.5); }
+  /* 480p: a smooth gradient and one highlight. */
+  .yc-aero { border-radius: 6px; box-shadow: 0 8px 20px -12px rgba(0, 0, 0, 0.7); transition: transform 150ms var(--ease-out-quart); }
+  .yc-aero .yc-art { background: linear-gradient(180deg, rgba(255, 255, 255, 0.18), transparent 45%), linear-gradient(calc(120deg + var(--k, 0) * 100deg), var(--c1), var(--c2)); }
+  .yc-aero:hover { transform: translateY(-3px); }
+  /* 720p: flat colour blocks. */
+  .yc-flat { border-radius: 9px; border-color: transparent; background: #fff; color: #1b2433; transition: transform 200ms var(--ease-out-quart); }
+  .yc-flat .yc-meta, .yc-flat .yc-place { color: #5b6676; }
+  .yc-flat .yc-art { background: linear-gradient(calc(100deg + var(--k, 0) * 120deg), var(--c2) 0 calc(38% + var(--k, 0) * 24%), var(--c3) calc(38% + var(--k, 0) * 24%) 100%); }
+  .yc-flat .yc-year { font-weight: 800; }
+  .yc-flat:hover { transform: translateY(-4px); }
+  /* 1080p: charcoal with a glow. */
+  .yc-dark { border-radius: 13px; border-color: transparent; background: #181818; box-shadow: 0 16px 40px -20px rgba(0, 0, 0, 0.9); transition: transform 300ms var(--ease-out-quart), background-color 300ms; }
+  .yc-dark .yc-art { background: radial-gradient(90% 90% at calc(10% + var(--k, 0) * 80%) 0%, color-mix(in srgb, var(--c2) 55%, transparent), transparent 70%), radial-gradient(70% 70% at 100% 100%, color-mix(in srgb, var(--c3) 40%, transparent), transparent 70%), #101010; }
+  .yc-dark .yc-year { font-weight: 500; }
+  .yc-dark:hover { transform: translateY(-4px); background: #202020; }
+  /* 4K: hairlines, layered light, long soft motion, serif numerals. */
+  .yc-glass { border-radius: 20px; border-color: rgba(255, 255, 255, 0.12); background: rgba(255, 255, 255, 0.04); box-shadow: 0 1px 0 rgba(255, 255, 255, 0.07) inset, 0 40px 80px -40px rgba(0, 0, 0, 0.9); transition: transform 450ms cubic-bezier(0.16, 1, 0.3, 1), border-color 450ms; }
+  .yc-glass .yc-art { background: radial-gradient(120% 90% at calc(var(--k, 0) * 100%) -10%, color-mix(in srgb, var(--c2) 45%, transparent), transparent 60%), radial-gradient(60% 60% at 85% 100%, rgba(255, 255, 255, 0.08), transparent 70%), linear-gradient(180deg, #16161a, #0a0a0b); }
+  .yc-glass .yc-year { font-family: var(--font-serif); font-weight: 400; font-size: 34px; letter-spacing: -0.03em; }
+  .yc-glass:hover { transform: translateY(-6px); border-color: rgba(255, 255, 255, 0.28); }
+
+  .hub-link { display: flex; align-items: center; gap: 14px; padding: 18px 20px; border: 1px solid var(--border); border-radius: var(--radius-era); background: color-mix(in srgb, var(--fg) 4%, transparent); transition: background-color var(--dur-ui) var(--ease-ui), border-color var(--dur-ui) var(--ease-ui); }
+  .hub-link:hover { background: color-mix(in srgb, var(--fg) 8%, transparent); border-color: color-mix(in srgb, var(--fg) 30%, transparent); }
+  @media (prefers-reduced-motion: reduce) { .yc, .hub-link { transition: none; } .yc:hover { transform: none; } }
 }

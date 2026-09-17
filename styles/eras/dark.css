@@ -17,7 +17,11 @@ html:has([data-era="dark"]), html[data-era="dark"] {
   --chrome-fg: #f2f2f2;
   --border: #2a2a2a;
 
-  --radius-era: calc(10px + 4px * var(--era-t, 0));
+  /* 1080p: charcoal, ambient shadow, slower and softer. */
+  --radius-era: calc(12px + 2px * var(--era-t, 0));
+  --dur-ui: 300ms;
+  --reveal-y: 26px;
+  --reveal-range: 42%;
   --radius-sm: 6px;
   --shadow-era: 0 10px 30px -14px rgba(0, 0, 0, 0.9);
   --wallpaper:
@@ -29,7 +33,7 @@ html:has([data-era="dark"]), html[data-era="dark"] {
   --numeral-weight: 500;
   --numeral-tracking: -0.05em;
   --fx-scanlines: 0;
-  --fx-grain: 0.03;
+  --fx-grain: 0.04;
   --fx-vignette: 0.25;
   --fx-gloss: 0;
 }
