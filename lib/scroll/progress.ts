@@ -45,13 +45,18 @@ export const scrollStore = {
   state,
   chapters,
   register(id: string, season: Season, el: HTMLElement) {
-    const existing = chapters.findIndex((c) => c.id === id);
-    const c: Chapter = { id, season, el, top: 0, height: 1 };
-    if (existing >= 0) chapters[existing] = c; else chapters.push(c);
-    chapters.sort((a, b) => a.el.compareDocumentPosition(b.el) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1);
+    // Keyed by element, so an old year's cleanup can never remove the new year's chapter of the same id.
+    const stale = chapters.findIndex((c) => c.id === id);
+    if (stale >= 0) chapters.splice(stale, 1);
+    chapters.push({ id, season, el, top: 0, height: 1 });
+    chapters.sort((a, b) => {
+      if (a.el === b.el) return 0;
+      const pos = a.el.compareDocumentPosition(b.el);
+      return pos & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : pos & Node.DOCUMENT_POSITION_PRECEDING ? 1 : 0;
+    });
     scrollStore.measure();
     return () => {
-      const i = chapters.findIndex((x) => x.id === id);
+      const i = chapters.findIndex((x) => x.el === el);
       if (i >= 0) chapters.splice(i, 1);
     };
   },

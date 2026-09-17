@@ -1,10 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { motion } from "motion/react";
 import { YEARS, ERAS } from "@/lib/content/eras";
 import { useHorizontalWheel } from "@/lib/hooks/useHorizontalWheel";
-import { spring } from "@/lib/motion";
 import { cn } from "@/lib/cn";
 
 interface Props {
@@ -20,17 +18,23 @@ export function YearStrip({ year, onSelect }: Props) {
   const rail = useRef<HTMLDivElement>(null);
   useHorizontalWheel(rail);
 
+  const lastMove = useRef(0);
+
+  // Centre the active year. Smooth only when changes are spaced out: overlapping smooth scrolls on a snap rail jitter.
   useEffect(() => {
     const r = rail.current;
     const el = r?.querySelector<HTMLElement>(`[data-year="${year}"]`);
     if (!el || !r || r.scrollWidth <= r.clientWidth) return;
-    r.scrollTo({ left: el.offsetLeft - r.clientWidth / 2 + el.clientWidth / 2, behavior: "smooth" });
+    const now = performance.now();
+    const rapid = now - lastMove.current < 450;
+    lastMove.current = now;
+    r.scrollTo({ left: el.offsetLeft - r.clientWidth / 2 + el.clientWidth / 2, behavior: rapid ? "auto" : "smooth" });
   }, [year]);
 
   return (
     <div
-      className="sticky top-[var(--chrome-h)] z-30 border-b border-border backdrop-blur-md"
-      style={{ background: "color-mix(in srgb, var(--bg-deep) 62%, transparent)" }}
+      className="sticky top-[var(--chrome-h)] z-30 border-b border-border"
+      style={{ background: "color-mix(in srgb, var(--bg-deep) 94%, transparent)" }}
     >
       <div className="hidden lg:grid lg:grid-cols-[repeat(22,minmax(0,1fr))] lg:px-6" aria-hidden="true">
         {ERAS.map((e) => (
@@ -68,14 +72,7 @@ export function YearStrip({ year, onSelect }: Props) {
               )}
             >
               <span className={cn("font-mono text-[15px] tabular-nums tracking-tight lg:text-[13px]", active && "font-semibold")}>{y}</span>
-              {active ? (
-                <motion.span
-                  layoutId="strip-active"
-                  transition={spring.snappy}
-                  className="absolute inset-x-3 bottom-0 h-[3px] rounded-full bg-accent"
-                  style={{ boxShadow: "0 0 12px var(--glow)" }}
-                />
-              ) : null}
+              <span className="strip-underline absolute inset-x-3 bottom-0 h-[3px] rounded-full bg-accent" aria-hidden="true" />
             </button>
           );
         })}

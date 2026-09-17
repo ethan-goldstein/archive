@@ -54,23 +54,12 @@
   --player-h: 64px;
   --measure: 68ch;
 
+  /* Only the four tokens that carry an era change are interpolated; sixteen inherited registered colours meant a full-document restyle every frame. */
   transition:
     --bg var(--dur-slow) var(--ease-in-out-quint),
-    --bg-deep var(--dur-slow) var(--ease-in-out-quint),
     --fg var(--dur-slow) var(--ease-in-out-quint),
-    --fg-muted var(--dur-slow) var(--ease-in-out-quint),
     --surface var(--dur-slow) var(--ease-in-out-quint),
-    --surface-fg var(--dur-slow) var(--ease-in-out-quint),
-    --surface-fg-muted var(--dur-slow) var(--ease-in-out-quint),
-    --surface-border var(--dur-slow) var(--ease-in-out-quint),
-    --accent var(--dur-slow) var(--ease-in-out-quint),
-    --accent-2 var(--dur-slow) var(--ease-in-out-quint),
-    --accent-fg var(--dur-slow) var(--ease-in-out-quint),
-    --glow var(--dur-slow) var(--ease-in-out-quint),
-    --chrome-a var(--dur-slow) var(--ease-in-out-quint),
-    --chrome-b var(--dur-slow) var(--ease-in-out-quint),
-    --chrome-fg var(--dur-slow) var(--ease-in-out-quint),
-    --border var(--dur-slow) var(--ease-in-out-quint);
+    --accent var(--dur-slow) var(--ease-in-out-quint);
 }
 
 @media (prefers-reduced-motion: reduce) {

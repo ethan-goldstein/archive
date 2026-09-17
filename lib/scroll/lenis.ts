@@ -17,7 +17,9 @@ function listen() {
   listening = true;
   const onScroll = () => scrollStore.update(window.scrollY, performance.now());
   window.addEventListener("scroll", onScroll, { passive: true });
-  const onResize = () => scrollStore.measure();
+  // Coalesce bursts (fonts swapping, images loading, a year swap) into one measure per frame.
+  let queued = 0;
+  const onResize = () => { if (queued) return; queued = requestAnimationFrame(() => { queued = 0; scrollStore.measure(); }); };
   window.addEventListener("resize", onResize);
   if ("ResizeObserver" in window) new ResizeObserver(onResize).observe(document.body);
   scrollStore.measure();
@@ -50,6 +52,7 @@ export function getLenis() { return lenis; }
 
 /** Modals and menus stop the page underneath from scrolling. */
 export function setScrollPaused(paused: boolean) {
-  if (!lenis) return;
+  if (typeof document === "undefined") return;
+  if (!lenis) { document.documentElement.style.overflow = paused ? "hidden" : ""; return; }
   if (paused) lenis.stop(); else lenis.start();
 }

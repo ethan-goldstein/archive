@@ -31,7 +31,11 @@ export function SeasonWorld() {
     scene.fog = fog;
     gl.toneMapping = profile.material === "pbr" || profile.material === "cinematic" ? THREE.ACESFilmicToneMapping : THREE.NoToneMapping;
     gl.toneMappingExposure = profile.material === "cinematic" ? 1.1 : 1;
-    gl.shadowMap.enabled = profile.shadows;
+    if (gl.shadowMap.enabled !== profile.shadows) {
+      gl.shadowMap.enabled = profile.shadows;
+      // three only picks up a shadow-map toggle on materials that are recompiled.
+      scene.traverse((o) => { const m = (o as THREE.Mesh).material; if (m && !Array.isArray(m)) m.needsUpdate = true; });
+    }
     return () => { scene.fog = null; };
   }, [get, profile]);
 
@@ -55,7 +59,7 @@ export function SeasonWorld() {
       <Sky bands={profile.posterize ? 5 : 0} />
       <ambientLight ref={ambient} intensity={profile.material === "pastel" ? 1.4 : 0.9} />
       <hemisphereLight args={["#cfd8ff", "#3a2a1a", 0.35]} />
-      <directionalLight ref={sun} intensity={profile.material === "pastel" ? 1.2 : 1.8} castShadow={profile.shadows} shadow-mapSize={[1024, 1024]} shadow-camera-near={1} shadow-camera-far={120} shadow-camera-left={-40} shadow-camera-right={40} shadow-camera-top={40} shadow-camera-bottom={-40} />
+      <directionalLight ref={sun} intensity={profile.material === "pastel" ? 1.2 : 1.8} castShadow={profile.shadows} shadow-mapSize={[512, 512]} shadow-camera-near={1} shadow-camera-far={120} shadow-camera-left={-40} shadow-camera-right={40} shadow-camera-top={40} shadow-camera-bottom={-40} />
       <group ref={(g) => { sets.current.winter = g; }} position={[SET_X.winter, 0, 0]}><Winter /></group>
       <group ref={(g) => { sets.current.spring = g; }} position={[SET_X.spring, 0, 0]}><Spring /></group>
       <group ref={(g) => { sets.current.summer = g; }} position={[SET_X.summer, 0, 0]}><Summer /></group>

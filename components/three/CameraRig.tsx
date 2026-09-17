@@ -21,6 +21,9 @@ const PATH: Record<string, Key[]> = {
 /** Scratch vectors, module level so the frame loop never allocates and never mutates render values. */
 const scratch = { pos: new THREE.Vector3(), look: new THREE.Vector3(), targetPos: new THREE.Vector3(), targetLook: new THREE.Vector3(), started: false, zooming: false };
 
+/** A year swap resets the scroll to the top; snap instead of flying the camera back across four sets. */
+export function snapCamera() { scratch.started = false; scratch.zooming = false; }
+
 const ORDER = ["title", "winter", "spring", "summer", "fall", "world"] as const;
 const SET_OF: Record<(typeof ORDER)[number], number> = { title: SET_X.winter, winter: SET_X.winter, spring: SET_X.spring, summer: SET_X.summer, fall: SET_X.fall, world: SET_X.fall };
 

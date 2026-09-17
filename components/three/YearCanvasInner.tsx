@@ -45,7 +45,7 @@ export default function YearCanvasInner({ year }: { year: number }) {
   return (
     <div className="h-full w-full" data-three={profile.era} aria-hidden="true">
       <Canvas
-        dpr={profile.pixelSize > 0 ? 1 : [1, 1.5]}
+        dpr={profile.pixelSize > 0 ? 1 : profile.bloom > 0 || profile.dof ? [1, 1.25] : [1, 1.5]}
         frameloop={reduced ? "demand" : visible ? "always" : "never"}
         gl={{ antialias: false, powerPreference: "high-performance", alpha: false, stencil: false }}
         camera={{ fov: 46, near: 0.5, far: 260, position: [-34, 20, 44] }}

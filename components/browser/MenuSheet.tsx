@@ -19,7 +19,8 @@ export function MenuSheet() {
           <motion.div
             role="dialog"
             aria-label="Menu"
-            className="os-window bevel-out fixed inset-x-0 bottom-0 z-[76] max-h-[80dvh] overflow-y-auto rounded-b-none pb-[env(safe-area-inset-bottom)]"
+            data-lenis-prevent
+            className="os-window bevel-out fixed inset-x-0 bottom-0 z-[76] max-h-[80dvh] overflow-y-auto overscroll-contain rounded-b-none pb-[env(safe-area-inset-bottom)]"
             initial={{ y: 60, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 60, opacity: 0 }} transition={spring.drawer}
           >
             <div className="os-title flex h-8 items-center gap-2 px-3">

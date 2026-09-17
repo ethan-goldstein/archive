@@ -29,7 +29,7 @@ export function CommandPalette() {
   return (
     <AnimatePresence>
       {paletteOpen ? (
-        <motion.div className="fixed inset-0 z-[90] flex items-start justify-center bg-black/50 p-4 pt-[12vh] backdrop-blur-sm" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: dur.fast }} onClick={() => uiStore.closePalette()}>
+        <motion.div className="fixed inset-0 z-[90] flex items-start justify-center bg-black/65 p-4 pt-[12vh]" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: dur.fast }} onClick={() => uiStore.closePalette()}>
           <PaletteDialog />
         </motion.div>
       ) : null}
@@ -85,7 +85,7 @@ function PaletteDialog() {
         />
         <Kbd>esc</Kbd>
       </div>
-      <div className="max-h-[52vh] overflow-y-auto text-surface-fg">
+      <div data-lenis-prevent className="max-h-[52vh] overflow-y-auto overscroll-contain text-surface-fg">
         <SearchResults results={results} activeId={results[active]?.id} onPick={pick} onHover={(e) => setActive(results.findIndex((r) => r.id === e.id))} query={query} />
       </div>
       <div className="label-mono flex items-center justify-between border-t border-surface-border px-4 py-2 text-surface-fg-muted">

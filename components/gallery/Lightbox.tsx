@@ -47,7 +47,7 @@ export function Lightbox() {
           role="dialog"
           aria-modal="true"
           aria-label={`Photo ${s.index + 1} of ${s.photos.length}: ${photo.alt}`}
-          className="fixed inset-0 z-[80] flex flex-col bg-black/92 backdrop-blur-sm"
+          className="fixed inset-0 z-[80] flex flex-col bg-black/95"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

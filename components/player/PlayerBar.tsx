@@ -27,7 +27,7 @@ export function PlayerBar() {
           exit={{ y: 80 }}
           transition={spring.drawer}
         >
-          <div className="mx-auto flex h-[var(--player-h)] max-w-[1400px] items-center gap-3 border-t border-border px-3 backdrop-blur-md md:px-6" style={{ background: "color-mix(in srgb, var(--bg-deep) 85%, transparent)" }}>
+          <div className="mx-auto flex h-[var(--player-h)] max-w-[1400px] items-center gap-3 border-t border-border px-3 md:px-6" style={{ background: "color-mix(in srgb, var(--bg-deep) 96%, transparent)" }}>
             {p.backend === "youtube" ? <YouTubeHost /> : null}
             <button type="button" onClick={() => uiStore.togglePlayer()} className="flex min-w-0 flex-1 items-center gap-3 text-left" aria-label="Open music player">
               {p.backend !== "youtube" ? <Artwork track={track} size={40} /> : null}

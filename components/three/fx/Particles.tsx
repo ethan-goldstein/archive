@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { useScene } from "../SceneContext";
@@ -55,6 +55,9 @@ const fragment = /* glsl */ `
   }
 `;
 
+/** The largest particle multiplier any render profile reaches (glass era, late). */
+const MAX_MULTIPLIER = 1.25;
+
 /** Mulberry32: a tiny pure RNG so the same particle field is built on every render. */
 function rng(seed: number) {
   let a = seed >>> 0;
@@ -69,10 +72,18 @@ function rng(seed: number) {
 
 export function Particles({ count, colors, area, speed = 1, sway = 0.6, size = 1, blink = false, soft }: Props) {
   const { profile, reduced, budget } = useScene();
-  const n = Math.max(40, Math.round(count * profile.particles * budget));
+  // Built once at the largest count any year can ask for; each year only moves the draw range.
+  const max = Math.max(40, Math.round(count * MAX_MULTIPLIER * budget));
+  const n = Math.min(max, Math.max(40, Math.round(count * profile.particles * budget)));
   const ref = useRef<THREE.ShaderMaterial>(null);
+  const points = useRef<THREE.Points>(null);
+  const [ax, ay, az] = area;
+  const paletteKey = colors.join(",");
 
   const geometry = useMemo(() => {
+    const n = max;
+    const area = [ax, ay, az];
+    const colors = paletteKey.split(",");
     const g = new THREE.BufferGeometry();
     const pos = new Float32Array(n * 3), seed = new Float32Array(n), sz = new Float32Array(n), col = new Float32Array(n * 3);
     const palette = colors.map((c) => new THREE.Color(c));
@@ -91,20 +102,25 @@ export function Particles({ count, colors, area, speed = 1, sway = 0.6, size = 1
     g.setAttribute("aSize", new THREE.BufferAttribute(sz, 1));
     g.setAttribute("aColor", new THREE.BufferAttribute(col, 3));
     return g;
-  }, [n, colors, area]);
+  }, [max, ax, ay, az, paletteKey]);
 
+  // r3f only disposes what it created from JSX; a geometry passed as a prop is ours to free.
+  useEffect(() => () => geometry.dispose(), [geometry]);
+  useEffect(() => { points.current?.geometry.setDrawRange(0, n); }, [n, geometry]);
+
+  const softSprite = (soft ?? profile.pixelSize === 0) ? 1 : 0;
   const uniforms = useMemo(() => ({
     uTime: { value: 0 }, uSpeed: { value: speed }, uSway: { value: sway }, uSize: { value: size },
-    uBlink: { value: blink ? 1 : 0 }, uArea: { value: new THREE.Vector3(...area) },
-    uSoft: { value: (soft ?? profile.pixelSize === 0) ? 1 : 0 },
-  }), [speed, sway, size, blink, area, soft, profile.pixelSize]);
+    uBlink: { value: blink ? 1 : 0 }, uArea: { value: new THREE.Vector3(ax, ay, az) },
+    uSoft: { value: softSprite },
+  }), [speed, sway, size, blink, ax, ay, az, softSprite]);
 
   useFrame((s) => {
     if (ref.current && !reduced) ref.current.uniforms.uTime.value = s.clock.elapsedTime;
   });
 
   return (
-    <points geometry={geometry} frustumCulled={false}>
+    <points ref={points} geometry={geometry} frustumCulled={false}>
       <shaderMaterial ref={ref} vertexShader={vertex} fragmentShader={fragment} uniforms={uniforms} transparent depthWrite={false} />
     </points>
   );
