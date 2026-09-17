@@ -7,8 +7,8 @@ import type { PersonalYearInput } from "@/lib/content/schema";
  */
 export const personal2023: PersonalYearInput = {
   year: 2023,
-  location: "South Carolina",
-  intro: "Graduated Wootton and moved to South Carolina for college.",
+  location: "Columbia, South Carolina",
+  intro: "Graduated Wootton and moved to Columbia for the University of South Carolina.",
   memories: [
     placeholder("A first-semester memory.", "memory", "2023-memory-1"),
   ],
@@ -18,7 +18,7 @@ export const personal2023: PersonalYearInput = {
   interests: [placeholder("What you were into in 2023.", "item", "2023-interest-1")],
   onMyScreen: [placeholder("What you watched or played on repeat in 2023.", "item", "2023-screen-1")],
   tech: [placeholder("A device or app you used in 2023.", "item", "2023-tech-1")],
-  milestones: [{"id": "2023-grad", "title": "Graduated from Wootton High School", "kind": "achievement", "date": "2023-06", "body": "Class of 2023.", "tags": ["school"]}, {"id": "2023-college", "title": "Moved to South Carolina for college", "kind": "move", "date": "2023-08", "body": "2023 to 2027. School and city to confirm.", "tags": ["college", "move"]}],
+  milestones: [{"id": "2023-grad", "title": "Graduated from Wootton High School", "kind": "achievement", "date": "2023-06", "body": "Class of 2023.", "tags": ["school"]}, {"id": "2023-college", "title": "Started at the University of South Carolina", "kind": "school", "date": "2023-08", "body": "Columbia, South Carolina. Class of 2027.", "tags": ["college", "move"]}],
   capsule: [],
   links: [],
   tags: [],

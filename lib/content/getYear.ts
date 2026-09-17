@@ -47,14 +47,15 @@ function withGeneratedMedia(personal: PersonalYearInput): PersonalYearInput {
   };
 }
 
-interface GeneratedTrack { id: string; title: string; artist: string; album?: string; plays?: number; season?: "winter" | "spring" | "summer" | "fall"; source?: { type: "apple"; url: string } }
+interface GeneratedTrack { id: string; title: string; artist: string; album?: string; plays?: number; replayRank?: number; season?: "winter" | "spring" | "summer" | "fall"; source?: { type: "apple"; url: string } }
 const music = generatedMusic as Record<string, GeneratedTrack[]>;
 
 /** Tracks read from the Music app by `npm run music`. Hand-written tracks come first; the placeholder goes once real ones exist. */
 function withGeneratedMusic(personal: PersonalYearInput): PersonalYearInput {
   const g = music[String(personal.year)];
   if (!g?.length) return personal;
-  const tracks = g.map((t) => ({ ...t, personal: true, note: t.plays ? `${t.plays} plays` : undefined, tags: [] }));
+  const tracks = g.map((t) => ({ ...t, personal: true, // A Replay rank speaks for itself; lifetime counters reset when a song is re-added, so they would contradict it.
+    note: t.replayRank ? `Replay #${t.replayRank}` : t.plays ? `${t.plays} plays` : undefined, tags: [] }));
   return { ...personal, music: [...(personal.music ?? []).filter((t) => !isPlaceholder(t)), ...tracks] };
 }
 

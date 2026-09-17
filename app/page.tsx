@@ -14,7 +14,7 @@ import type { IconName, Photo } from "@/lib/content/schema";
 
 const LINKS: { href: string; title: string; body: string; icon: IconName }[] = [
   { href: "/timeline", title: "Timeline", body: "Drag through 22 years on one road.", icon: "clock" },
-  { href: "/map", title: "Memory map", body: "Olney, Cold Spring, Wootton, South Carolina.", icon: "globe" },
+  { href: "/map", title: "Memory map", body: "Olney, Cold Spring, Wootton, Columbia.", icon: "globe" },
   { href: "/stats", title: "Life in data", body: "What the archive holds, counted.", icon: "star" },
   { href: "/backyard", title: "Potomac Sandlot", body: "An 8-bit backyard baseball game.", icon: "ball" },
   { href: "/random", title: "Random memory", body: "Open the archive somewhere unexpected.", icon: "shuffle" },

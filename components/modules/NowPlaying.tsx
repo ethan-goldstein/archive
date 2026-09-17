@@ -77,10 +77,11 @@ export function NowPlaying({ data, season }: { data: YearData; season?: keyof ty
   const { real, placeholders } = partition<Track>(data.personal.music);
   const charts = season ? [] : data.culture.music;
   const fromLibrary = real.some((t) => t.plays !== undefined);
+  const isReplay = real.some((t) => t.replayRank !== undefined);
 
   return (
     <Surface id={season ? `music-${season}` : "music"} title={season ? SEASON_TITLE[season] : "Now Playing"} icon="music" aside={season ? "from my playlists" : `${data.year}`}>
-      <GroupLabel>{season ? "Most played" : fromLibrary ? `Most played, of what I added in ${data.year}` : "My tracks"}</GroupLabel>
+      <GroupLabel>{season ? "Most played" : isReplay ? `Apple Music Replay ${data.year}, my real top ten` : fromLibrary ? `Most played, of what I added in ${data.year}` : "My tracks"}</GroupLabel>
       <div className="mb-4 divide-y divide-surface-border">
         {data.personal.music.map((t, i) =>
           isPlaceholder(t) ? (

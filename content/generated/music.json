@@ -16,7 +16,7 @@
    "title": "The Way Life Goes (feat. Oh Wonder)",
    "artist": "Lil Uzi Vert",
    "album": "Luv Is Rage 2",
-   "plays": 243,
+   "plays": 11,
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=The%20Way%20Life%20Goes%20(feat.%20Oh%20Wonder)%20Lil%20Uzi%20Vert"
@@ -38,7 +38,7 @@
    "title": "X",
    "artist": "Lil Uzi Vert",
    "album": "Luv Is Rage 2",
-   "plays": 192,
+   "plays": 7,
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=X%20Lil%20Uzi%20Vert"
@@ -49,7 +49,7 @@
    "title": "Trophies (feat. Drake)",
    "artist": "Young Money",
    "album": "Rise of an Empire",
-   "plays": 183,
+   "plays": 6,
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Trophies%20(feat.%20Drake)%20Young%20Money"
@@ -60,7 +60,7 @@
    "title": "Pretty Mami",
    "artist": "Lil Uzi Vert",
    "album": "Luv Is Rage 2",
-   "plays": 177,
+   "plays": 15,
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Pretty%20Mami%20Lil%20Uzi%20Vert"
@@ -82,7 +82,7 @@
    "title": "way back",
    "artist": "Travis Scott",
    "album": "Birds In The Trap Sing McKnight",
-   "plays": 175,
+   "plays": 2,
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=way%20back%20Travis%20Scott"
@@ -93,12 +93,12 @@
    "title": "Dark Queen",
    "artist": "Lil Uzi Vert",
    "album": "Luv Is Rage 2",
-   "plays": 171,
-   "season": "fall",
+   "plays": 7,
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Dark%20Queen%20Lil%20Uzi%20Vert"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2017-no-type-rae-sremmurd",
@@ -106,11 +106,11 @@
    "artist": "Rae Sremmurd",
    "album": "SremmLife",
    "plays": 166,
-   "season": "fall",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=No%20Type%20Rae%20Sremmurd"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2017-drowning-feat-kodak-black-a-boogie-wit-da-hoodie",
@@ -118,11 +118,11 @@
    "artist": "A Boogie wit da Hoodie",
    "album": "The Bigger Artist",
    "plays": 162,
-   "season": "fall",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Drowning%20(feat.%20Kodak%20Black)%20A%20Boogie%20wit%20da%20Hoodie"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2017-codeine-dreaming-feat-lil-wayne-kodak-black",
@@ -130,23 +130,23 @@
    "artist": "Kodak Black",
    "album": "Project Baby 2: All Grown Up (Deluxe)",
    "plays": 159,
-   "season": "fall",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Codeine%20Dreaming%20(feat.%20Lil%20Wayne)%20Kodak%20Black"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2017-swimming-pools-drank-extended-version-kendrick-l",
    "title": "Swimming Pools (Drank) [Extended Version]",
    "artist": "Kendrick Lamar",
    "album": "good kid, m.A.A.d city (Deluxe Version)",
-   "plays": 154,
-   "season": "fall",
+   "plays": 10,
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Swimming%20Pools%20(Drank)%20%5BExtended%20Version%5D%20Kendrick%20Lamar"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2017-unforgettable-feat-swae-lee-french-montana",
@@ -154,11 +154,11 @@
    "artist": "French Montana",
    "album": "Jungle Rules",
    "plays": 91,
-   "season": "summer",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Unforgettable%20(feat.%20Swae%20Lee)%20French%20Montana"
-   }
+   },
+   "season": "summer"
   }
  ],
  "2018": [
@@ -189,7 +189,7 @@
    "title": "10 Freaky Girls (feat. 21 Savage)",
    "artist": "Metro Boomin",
    "album": "NOT ALL HEROES WEAR CAPES",
-   "plays": 341,
+   "plays": 6,
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=10%20Freaky%20Girls%20(feat.%2021%20Savage)%20Metro%20Boomin"
@@ -244,7 +244,7 @@
    "title": "20 Min",
    "artist": "Lil Uzi Vert",
    "album": "Luv Is Rage 2 (Deluxe)",
-   "plays": 217,
+   "plays": 3,
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=20%20Min%20Lil%20Uzi%20Vert"
@@ -255,24 +255,24 @@
    "title": "Pull Up",
    "artist": "Lil Mosey",
    "album": "Northsbest",
-   "plays": 204,
-   "season": "fall",
+   "plays": 38,
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Pull%20Up%20Lil%20Mosey"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2018-life-goes-on-feat-gunna-lil-uzi-vert-lil-baby",
    "title": "Life Goes On (feat. Gunna & Lil Uzi Vert)",
    "artist": "Lil Baby",
    "album": "Harder Than Ever",
-   "plays": 199,
-   "season": "fall",
+   "plays": 5,
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Life%20Goes%20On%20(feat.%20Gunna%20%26%20Lil%20Uzi%20Vert)%20Lil%20Baby"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2018-champion-feat-travis-scott-nav",
@@ -280,11 +280,11 @@
    "artist": "NAV",
    "album": "RECKLESS",
    "plays": 182,
-   "season": "fall",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Champion%20(feat.%20Travis%20Scott)%20NAV"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2018-stop-trying-to-be-god-travis-scott",
@@ -292,11 +292,11 @@
    "artist": "Travis Scott",
    "album": "ASTROWORLD",
    "plays": 173,
-   "season": "fall",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=STOP%20TRYING%20TO%20BE%20GOD%20Travis%20Scott"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2018-different-feat-yung-bans-future-juice-wrld",
@@ -304,11 +304,11 @@
    "artist": "Future & Juice WRLD",
    "album": "Future & Juice WRLD Present... WRLD ON DRUGS",
    "plays": 172,
-   "season": "fall",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Different%20(feat.%20Yung%20Bans)%20Future%20%26%20Juice%20WRLD"
-   }
+   },
+   "season": "fall"
   }
  ],
  "2019": [
@@ -317,7 +317,7 @@
    "title": "Leaked",
    "artist": "Lil Tjay",
    "album": "True 2 Myself",
-   "plays": 328,
+   "plays": 104,
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Leaked%20Lil%20Tjay"
@@ -328,7 +328,7 @@
    "title": "YOSEMITE",
    "artist": "Travis Scott",
    "album": "ASTROWORLD",
-   "plays": 216,
+   "plays": 7,
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=YOSEMITE%20Travis%20Scott"
@@ -406,11 +406,11 @@
    "artist": "Meek Mill",
    "album": "Dreams Worth More Than Money",
    "plays": 152,
-   "season": "fall",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Jump%20Out%20the%20Face%20(feat.%20Future)%20Meek%20Mill"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2019-coordinate-travis-scott",
@@ -418,11 +418,11 @@
    "artist": "Travis Scott",
    "album": "Birds In The Trap Sing McKnight",
    "plays": 133,
-   "season": "fall",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=coordinate%20Travis%20Scott"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2019-nightmares-feat-lil-skies-yung-pinch",
@@ -430,11 +430,11 @@
    "artist": "Yung Pinch",
    "album": "Nightmares (feat. Lil Skies) - Single",
    "plays": 127,
-   "season": "fall",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Nightmares%20(feat.%20Lil%20Skies)%20Yung%20Pinch"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2019-project-dreams-marshmello-roddy-ricch",
@@ -442,11 +442,11 @@
    "artist": "Marshmello & Roddy Ricch",
    "album": "Project Dreams - Single",
    "plays": 120,
-   "season": "fall",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Project%20Dreams%20Marshmello%20%26%20Roddy%20Ricch"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2019-ain-t-livin-right-feat-gunna-future-juice-wrld",
@@ -454,11 +454,11 @@
    "artist": "Future & Juice WRLD",
    "album": "Future & Juice WRLD Present... WRLD ON DRUGS",
    "plays": 116,
-   "season": "fall",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Ain't%20Livin%20Right%20(feat.%20Gunna)%20Future%20%26%20Juice%20WRLD"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2019-love-scars-3-trippie-redd",
@@ -466,11 +466,11 @@
    "artist": "Trippie Redd",
    "album": "A Love Letter To You 3",
    "plays": 106,
-   "season": "summer",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Love%20Scars%203%20Trippie%20Redd"
-   }
+   },
+   "season": "summer"
   },
   {
    "id": "2019-jungle-drake",
@@ -478,11 +478,11 @@
    "artist": "Drake",
    "album": "If You're Reading This It's Too Late",
    "plays": 80,
-   "season": "summer",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Jungle%20Drake"
-   }
+   },
+   "season": "summer"
   },
   {
    "id": "2019-charlie-horse-nate-good",
@@ -490,11 +490,11 @@
    "artist": "Nate Good",
    "album": "Charlie Horse - Single",
    "plays": 64,
-   "season": "summer",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Charlie%20Horse%20Nate%20Good"
-   }
+   },
+   "season": "summer"
   }
  ],
  "2020": [
@@ -591,12 +591,12 @@
    "title": "Low Life (feat. The Weeknd)",
    "artist": "Future",
    "album": "EVOL",
-   "plays": 164,
-   "season": "fall",
+   "plays": 7,
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Low%20Life%20(feat.%20The%20Weeknd)%20Future"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2020-tiimmy-turner-desiigner",
@@ -604,11 +604,11 @@
    "artist": "Desiigner",
    "album": "Tiimmy Turner - Single",
    "plays": 161,
-   "season": "fall",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Tiimmy%20Turner%20Desiigner"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2020-ball-w-o-you-21-savage",
@@ -616,11 +616,11 @@
    "artist": "21 Savage",
    "album": "i am > i was",
    "plays": 160,
-   "season": "fall",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=ball%20w%2Fo%20you%2021%20Savage"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2020-without-me-eminem",
@@ -628,11 +628,11 @@
    "artist": "Eminem",
    "album": "The Eminem Show",
    "plays": 158,
-   "season": "fall",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Without%20Me%20Eminem"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2020-thinkin-bout-you-frank-ocean",
@@ -640,11 +640,11 @@
    "artist": "Frank Ocean",
    "album": "channel ORANGE",
    "plays": 144,
-   "season": "fall",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Thinkin%20Bout%20You%20Frank%20Ocean"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2020-taking-a-walk-trippie-redd",
@@ -652,11 +652,11 @@
    "artist": "Trippie Redd",
    "album": "LIFE'S A TRIP",
    "plays": 121,
-   "season": "summer",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Taking%20A%20Walk%20Trippie%20Redd"
-   }
+   },
+   "season": "summer"
   },
   {
    "id": "2020-drops-of-jupiter-tell-me-train",
@@ -664,11 +664,11 @@
    "artist": "Train",
    "album": "Drops of Jupiter",
    "plays": 17,
-   "season": "summer",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Drops%20of%20Jupiter%20(Tell%20Me)%20Train"
-   }
+   },
+   "season": "summer"
   }
  ],
  "2021": [
@@ -710,7 +710,7 @@
    "title": "Pipe Down",
    "artist": "Drake",
    "album": "Certified Lover Boy",
-   "plays": 149,
+   "plays": 13,
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Pipe%20Down%20Drake"
@@ -765,12 +765,12 @@
    "title": "Waves",
    "artist": "Kanye West",
    "album": "The Life of Pablo",
-   "plays": 136,
-   "season": "fall",
+   "plays": 3,
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Waves%20Kanye%20West"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2021-best-i-ever-had-drake",
@@ -778,11 +778,11 @@
    "artist": "Drake",
    "album": "So Far Gone",
    "plays": 132,
-   "season": "fall",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Best%20I%20Ever%20Had%20Drake"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2021-dope-new-gospel-feat-nivea-lil-wayne",
@@ -790,11 +790,11 @@
    "artist": "Lil Wayne",
    "album": "Tha Carter V (Deluxe)",
    "plays": 124,
-   "season": "fall",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Dope%20New%20Gospel%20(feat.%20Nivea)%20Lil%20Wayne"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2021-erase-your-social-lil-uzi-vert",
@@ -802,11 +802,11 @@
    "artist": "Lil Uzi Vert",
    "album": "The Perfect LUV Tape",
    "plays": 122,
-   "season": "fall",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Erase%20Your%20Social%20Lil%20Uzi%20Vert"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2021-crossfaded-don-toliver",
@@ -814,23 +814,23 @@
    "artist": "Don Toliver",
    "album": "Life of a DON",
    "plays": 120,
-   "season": "fall",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Crossfaded%20Don%20Toliver"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2021-slide-feat-frank-ocean-migos-calvin-harris",
    "title": "Slide (feat. Frank Ocean & Migos)",
    "artist": "Calvin Harris",
    "album": "Funk Wav Bounces, Vol. 1",
-   "plays": 88,
-   "season": "summer",
+   "plays": 10,
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Slide%20(feat.%20Frank%20Ocean%20%26%20Migos)%20Calvin%20Harris"
-   }
+   },
+   "season": "summer"
   },
   {
    "id": "2021-euphoria-feat-kaash-paige-travis-scott-don-toliv",
@@ -838,11 +838,11 @@
    "artist": "Don Toliver",
    "album": "Heaven Or Hell",
    "plays": 53,
-   "season": "summer",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Euphoria%20(feat.%20Kaash%20Paige%20%26%20Travis%20Scott)%20Don%20Toliver"
-   }
+   },
+   "season": "summer"
   },
   {
    "id": "2021-please-don-t-go-mike-posner",
@@ -850,11 +850,11 @@
    "artist": "Mike Posner",
    "album": "31 Minutes to Takeoff",
    "plays": 38,
-   "season": "summer",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Please%20Don't%20Go%20Mike%20Posner"
-   }
+   },
+   "season": "summer"
   },
   {
    "id": "2021-mrs-officer-feat-bobby-v-kidd-kidd-lil-wayne",
@@ -862,11 +862,11 @@
    "artist": "Lil Wayne",
    "album": "Tha Carter III",
    "plays": 32,
-   "season": "summer",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Mrs.%20Officer%20(feat.%20Bobby%20V%20%26%20Kidd%20Kidd)%20Lil%20Wayne"
-   }
+   },
+   "season": "summer"
   },
   {
    "id": "2021-sun-is-shining-remastered-2013-bob-marley-the-wa",
@@ -874,11 +874,11 @@
    "artist": "Bob Marley & The Wailers",
    "album": "Kaya (Remastered 2013)",
    "plays": 24,
-   "season": "summer",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Sun%20Is%20Shining%20(Remastered%202013)%20Bob%20Marley%20%26%20The%20Wailers"
-   }
+   },
+   "season": "summer"
   }
  ],
  "2022": [
@@ -887,7 +887,7 @@
    "title": "Niagara Falls (Foot or 2)",
    "artist": "Metro Boomin, Travis Scott & 21 Savage",
    "album": "HEROES & VILLAINS",
-   "plays": 393,
+   "plays": 12,
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Niagara%20Falls%20(Foot%20or%202)%20Metro%20Boomin%2C%20Travis%20Scott%20%26%2021%20Savage"
@@ -909,7 +909,7 @@
    "title": "Trance",
    "artist": "Metro Boomin, Travis Scott & Young Thug",
    "album": "HEROES & VILLAINS",
-   "plays": 243,
+   "plays": 7,
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Trance%20Metro%20Boomin%2C%20Travis%20Scott%20%26%20Young%20Thug"
@@ -931,7 +931,7 @@
    "title": "Fancy (feat. T.I. & Swizz Beatz)",
    "artist": "Drake",
    "album": "Thank Me Later",
-   "plays": 189,
+   "plays": 8,
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Fancy%20(feat.%20T.I.%20%26%20Swizz%20Beatz)%20Drake"
@@ -975,12 +975,12 @@
    "title": "thought i was playing",
    "artist": "Gunna & 21 Savage",
    "album": "DRIP SEASON 4EVER",
-   "plays": 149,
-   "season": "fall",
+   "plays": 8,
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=thought%20i%20was%20playing%20Gunna%20%26%2021%20Savage"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2022-south-to-west-gunna",
@@ -988,11 +988,11 @@
    "artist": "Gunna",
    "album": "DRIP SEASON 4EVER",
    "plays": 148,
-   "season": "fall",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=south%20to%20west%20Gunna"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2022-treacherous-twins-drake-21-savage",
@@ -1000,11 +1000,11 @@
    "artist": "Drake & 21 Savage",
    "album": "Her Loss",
    "plays": 146,
-   "season": "fall",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Treacherous%20Twins%20Drake%20%26%2021%20Savage"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2022-myself-nav",
@@ -1012,23 +1012,23 @@
    "artist": "NAV",
    "album": "NAV",
    "plays": 142,
-   "season": "fall",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Myself%20NAV"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2022-too-many-nights-feat-don-toliver-metro-boomin-fu",
    "title": "Too Many Nights (feat. Don Toliver)",
    "artist": "Metro Boomin & Future",
    "album": "HEROES & VILLAINS",
-   "plays": 141,
-   "season": "fall",
+   "plays": 7,
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Too%20Many%20Nights%20(feat.%20Don%20Toliver)%20Metro%20Boomin%20%26%20Future"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2022-u-are-my-high-dj-snake-future",
@@ -1036,11 +1036,11 @@
    "artist": "DJ Snake & Future",
    "album": "U Are My High - Single",
    "plays": 117,
-   "season": "summer",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=U%20Are%20My%20High%20DJ%20Snake%20%26%20Future"
-   }
+   },
+   "season": "summer"
   },
   {
    "id": "2022-massive-drake",
@@ -1048,11 +1048,11 @@
    "artist": "Drake",
    "album": "Honestly, Nevermind",
    "plays": 101,
-   "season": "summer",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Massive%20Drake"
-   }
+   },
+   "season": "summer"
   },
   {
    "id": "2022-pink-white-frank-ocean",
@@ -1060,11 +1060,11 @@
    "artist": "Frank Ocean",
    "album": "Blonde",
    "plays": 57,
-   "season": "summer",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Pink%20%2B%20White%20Frank%20Ocean"
-   }
+   },
+   "season": "summer"
   },
   {
    "id": "2022-the-thrill-feat-empire-of-the-sun-wiz-khalifa",
@@ -1072,11 +1072,11 @@
    "artist": "Wiz Khalifa",
    "album": "Walking On A Dream (Reimagined)",
    "plays": 50,
-   "season": "summer",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=The%20Thrill%20(feat.%20Empire%20Of%20The%20Sun)%20Wiz%20Khalifa"
-   }
+   },
+   "season": "summer"
   },
   {
    "id": "2022-love-kid-cudi",
@@ -1084,24 +1084,37 @@
    "artist": "Kid Cudi",
    "album": "The Boy Who Flew To The Moon, Vol. 1",
    "plays": 32,
-   "season": "summer",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=love.%20Kid%20Cudi"
-   }
+   },
+   "season": "summer"
   }
  ],
  "2023": [
   {
-   "id": "2023-tried-our-best-drake",
-   "title": "Tried Our Best",
-   "artist": "Drake",
-   "album": "For All The Dogs",
-   "plays": 345,
+   "id": "2023-trance-metro-boomin-travis-scott-young-thug",
+   "title": "Trance",
+   "artist": "Metro Boomin, Travis Scott & Young Thug",
+   "album": "HEROES & VILLAINS",
+   "plays": 7,
    "source": {
     "type": "apple",
-    "url": "https://music.apple.com/us/search?term=Tried%20Our%20Best%20Drake"
-   }
+    "url": "https://music.apple.com/us/search?term=Trance%20Metro%20Boomin%2C%20Travis%20Scott%20%26%20Young%20Thug"
+   },
+   "replayRank": 1
+  },
+  {
+   "id": "2023-niagara-falls-foot-or-2-metro-boomin-travis-scot",
+   "title": "Niagara Falls (Foot or 2)",
+   "artist": "Metro Boomin, Travis Scott & 21 Savage",
+   "album": "HEROES & VILLAINS",
+   "plays": 12,
+   "source": {
+    "type": "apple",
+    "url": "https://music.apple.com/us/search?term=Niagara%20Falls%20(Foot%20or%202)%20Metro%20Boomin%2C%20Travis%20Scott%20%26%2021%20Savage"
+   },
+   "replayRank": 2
   },
   {
    "id": "2023-embarrassed-feat-travis-scott-don-toliver",
@@ -1112,7 +1125,104 @@
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Embarrassed%20(feat.%20Travis%20Scott)%20Don%20Toliver"
-   }
+   },
+   "replayRank": 3
+  },
+  {
+   "id": "2023-sauce-it-up-lil-uzi-vert",
+   "title": "Sauce It Up",
+   "artist": "Lil Uzi Vert",
+   "album": "Luv Is Rage 2",
+   "plays": 304,
+   "source": {
+    "type": "apple",
+    "url": "https://music.apple.com/us/search?term=Sauce%20It%20Up%20Lil%20Uzi%20Vert"
+   },
+   "replayRank": 4
+  },
+  {
+   "id": "2023-headlines-drake",
+   "title": "Headlines",
+   "artist": "Drake",
+   "album": "Take Care (Deluxe Version)",
+   "plays": 182,
+   "source": {
+    "type": "apple",
+    "url": "https://music.apple.com/us/search?term=Headlines%20Drake"
+   },
+   "replayRank": 5
+  },
+  {
+   "id": "2023-sdp-interlude-travis-scott",
+   "title": "sdp interlude",
+   "artist": "Travis Scott",
+   "album": "Birds In The Trap Sing McKnight",
+   "plays": 225,
+   "source": {
+    "type": "apple",
+    "url": "https://music.apple.com/us/search?term=sdp%20interlude%20Travis%20Scott"
+   },
+   "replayRank": 6
+  },
+  {
+   "id": "2023-came-and-saw-feat-rowdy-rebel-young-stoner-life-",
+   "title": "Came and Saw (feat. Rowdy Rebel)",
+   "artist": "Young Stoner Life & Young Thug",
+   "album": "Slime Language 2",
+   "plays": 128,
+   "source": {
+    "type": "apple",
+    "url": "https://music.apple.com/us/search?term=Came%20and%20Saw%20(feat.%20Rowdy%20Rebel)%20Young%20Stoner%20Life%20%26%20Young%20Thug"
+   },
+   "replayRank": 7
+  },
+  {
+   "id": "2023-too-many-nights-feat-don-toliver-metro-boomin-fu",
+   "title": "Too Many Nights (feat. Don Toliver)",
+   "artist": "Metro Boomin & Future",
+   "album": "HEROES & VILLAINS",
+   "plays": 7,
+   "source": {
+    "type": "apple",
+    "url": "https://music.apple.com/us/search?term=Too%20Many%20Nights%20(feat.%20Don%20Toliver)%20Metro%20Boomin%20%26%20Future"
+   },
+   "replayRank": 8
+  },
+  {
+   "id": "2023-spin-bout-u-drake-21-savage",
+   "title": "Spin Bout U",
+   "artist": "Drake & 21 Savage",
+   "album": "Her Loss",
+   "plays": 155,
+   "source": {
+    "type": "apple",
+    "url": "https://music.apple.com/us/search?term=Spin%20Bout%20U%20Drake%20%26%2021%20Savage"
+   },
+   "replayRank": 9
+  },
+  {
+   "id": "2023-two-birds-one-stone-drake",
+   "title": "Two Birds, One Stone",
+   "artist": "Drake",
+   "album": "Two Birds, One Stone - Single",
+   "plays": 82,
+   "source": {
+    "type": "apple",
+    "url": "https://music.apple.com/us/search?term=Two%20Birds%2C%20One%20Stone%20Drake"
+   },
+   "replayRank": 10
+  },
+  {
+   "id": "2023-tried-our-best-drake",
+   "title": "Tried Our Best",
+   "artist": "Drake",
+   "album": "For All The Dogs",
+   "plays": 345,
+   "source": {
+    "type": "apple",
+    "url": "https://music.apple.com/us/search?term=Tried%20Our%20Best%20Drake"
+   },
+   "season": "fall"
   },
   {
    "id": "2023-i-know-travis-scott",
@@ -1123,7 +1233,8 @@
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=I%20KNOW%20%3F%20Travis%20Scott"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2023-flooded-the-face-lil-uzi-vert",
@@ -1134,7 +1245,8 @@
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Flooded%20The%20Face%20Lil%20Uzi%20Vert"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2023-high-you-are-branchez-remix-what-so-not",
@@ -1145,7 +1257,8 @@
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=High%20You%20Are%20(Branchez%20Remix)%20What%20So%20Not"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2023-hell-shell-young-nudy",
@@ -1156,77 +1269,8 @@
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Hell%20Shell%20Young%20Nudy"
-   }
-  },
-  {
-   "id": "2023-oh-u-went-feat-drake-young-thug",
-   "title": "Oh U Went (feat. Drake)",
-   "artist": "Young Thug",
-   "album": "BUSINESS IS BUSINESS",
-   "plays": 122,
-   "source": {
-    "type": "apple",
-    "url": "https://music.apple.com/us/search?term=Oh%20U%20Went%20(feat.%20Drake)%20Young%20Thug"
-   }
-  },
-  {
-   "id": "2023-hvn-on-earth-lil-tecca-kodak-black",
-   "title": "HVN ON EARTH",
-   "artist": "Lil Tecca & Kodak Black",
-   "album": "TEC",
-   "plays": 119,
-   "source": {
-    "type": "apple",
-    "url": "https://music.apple.com/us/search?term=HVN%20ON%20EARTH%20Lil%20Tecca%20%26%20Kodak%20Black"
-   }
-  },
-  {
-   "id": "2023-baby-girl-disco-lines",
-   "title": "Baby Girl",
-   "artist": "Disco Lines",
-   "album": "Baby Girl - Single",
-   "plays": 118,
-   "season": "fall",
-   "source": {
-    "type": "apple",
-    "url": "https://music.apple.com/us/search?term=Baby%20Girl%20Disco%20Lines"
-   }
-  },
-  {
-   "id": "2023-search-rescue-drake",
-   "title": "Search & Rescue",
-   "artist": "Drake",
-   "album": "Search & Rescue - Single",
-   "plays": 117,
-   "season": "fall",
-   "source": {
-    "type": "apple",
-    "url": "https://music.apple.com/us/search?term=Search%20%26%20Rescue%20Drake"
-   }
-  },
-  {
-   "id": "2023-telekinesis-feat-sza-future-travis-scott",
-   "title": "TELEKINESIS (feat. SZA & Future)",
-   "artist": "Travis Scott",
-   "album": "UTOPIA",
-   "plays": 115,
-   "season": "fall",
-   "source": {
-    "type": "apple",
-    "url": "https://music.apple.com/us/search?term=TELEKINESIS%20(feat.%20SZA%20%26%20Future)%20Travis%20Scott"
-   }
-  },
-  {
-   "id": "2023-solo-steppin-crete-boy-lil-yachty",
-   "title": "SOLO STEPPIN CRETE BOY",
-   "artist": "Lil Yachty",
-   "album": "Slide - Single",
-   "plays": 114,
-   "season": "fall",
-   "source": {
-    "type": "apple",
-    "url": "https://music.apple.com/us/search?term=SOLO%20STEPPIN%20CRETE%20BOY%20Lil%20Yachty"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2023-billie-jean-michael-jackson",
@@ -1234,11 +1278,11 @@
    "artist": "Michael Jackson",
    "album": "Thriller",
    "plays": 112,
-   "season": "fall",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Billie%20Jean%20Michael%20Jackson"
-   }
+   },
+   "season": "summer"
   },
   {
    "id": "2023-come-thru-drake",
@@ -1246,11 +1290,11 @@
    "artist": "Drake",
    "album": "Nothing Was the Same (Deluxe)",
    "plays": 59,
-   "season": "summer",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Come%20Thru%20Drake"
-   }
+   },
+   "season": "summer"
   },
   {
    "id": "2023-return-of-the-mack-mark-morrison",
@@ -1258,11 +1302,11 @@
    "artist": "Mark Morrison",
    "album": "Return of the Mack",
    "plays": 42,
-   "season": "summer",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Return%20of%20the%20Mack%20Mark%20Morrison"
-   }
+   },
+   "season": "summer"
   },
   {
    "id": "2023-drew-a-picasso-drake",
@@ -1270,11 +1314,11 @@
    "artist": "Drake",
    "album": "For All The Dogs",
    "plays": 39,
-   "season": "summer",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Drew%20A%20Picasso%20Drake"
-   }
+   },
+   "season": "summer"
   },
   {
    "id": "2023-she-knows-feat-juicy-j-ne-yo",
@@ -1282,23 +1326,11 @@
    "artist": "Ne-Yo",
    "album": "Non-Fiction (Deluxe)",
    "plays": 17,
-   "season": "summer",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=She%20Knows%20(feat.%20Juicy%20J)%20Ne-Yo"
-   }
-  },
-  {
-   "id": "2023-welcome-to-jamrock-damian-jr-gong-marley",
-   "title": "Welcome to Jamrock",
-   "artist": "Damian \"Jr. Gong\" Marley",
-   "album": "Welcome to Jamrock",
-   "plays": 16,
-   "season": "summer",
-   "source": {
-    "type": "apple",
-    "url": "https://music.apple.com/us/search?term=Welcome%20to%20Jamrock%20Damian%20%22Jr.%20Gong%22%20Marley"
-   }
+   },
+   "season": "summer"
   }
  ],
  "2024": [
@@ -1396,11 +1428,11 @@
    "artist": "Famous Dex",
    "album": "Dex Meets Dexter",
    "plays": 88,
-   "season": "fall",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=PICK%20IT%20UP%20(feat.%20A%24AP%20Rocky)%20Famous%20Dex"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2024-aston-martin-music-feat-drake-chrisette-michele-",
@@ -1408,11 +1440,11 @@
    "artist": "Rick Ross",
    "album": "Teflon Don",
    "plays": 84,
-   "season": "fall",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Aston%20Martin%20Music%20(feat.%20Drake%20%26%20Chrisette%20Michele)%20Rick%20Ross"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2024-dolly-lil-uzi-vert",
@@ -1420,11 +1452,11 @@
    "artist": "Lil Uzi Vert",
    "album": "Dolly",
    "plays": 83,
-   "season": "fall",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Dolly%20Lil%20Uzi%20Vert"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2024-lot-of-me-lil-tecca",
@@ -1432,11 +1464,11 @@
    "artist": "Lil Tecca",
    "album": "We Love You Tecca 2",
    "plays": 82,
-   "season": "fall",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=LOT%20OF%20ME%20Lil%20Tecca"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2024-cinderella-future-metro-boomin-travis-scott",
@@ -1444,11 +1476,11 @@
    "artist": "Future, Metro Boomin & Travis Scott",
    "album": "WE DON'T TRUST YOU",
    "plays": 77,
-   "season": "fall",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Cinderella%20Future%2C%20Metro%20Boomin%20%26%20Travis%20Scott"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2024-dead-to-me-kali-uchis",
@@ -1456,11 +1488,11 @@
    "artist": "Kali Uchis",
    "album": "Isolation",
    "plays": 70,
-   "season": "summer",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Dead%20To%20Me%20Kali%20Uchis"
-   }
+   },
+   "season": "summer"
   },
   {
    "id": "2024-latch-disclosure-sam-smith",
@@ -1468,11 +1500,11 @@
    "artist": "Disclosure & Sam Smith",
    "album": "Settle (Deluxe)",
    "plays": 56,
-   "season": "summer",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Latch%20Disclosure%20%26%20Sam%20Smith"
-   }
+   },
+   "season": "summer"
   },
   {
    "id": "2024-feels-like-summer-childish-gambino",
@@ -1480,11 +1512,11 @@
    "artist": "Childish Gambino",
    "album": "Summer Pack - Single",
    "plays": 53,
-   "season": "summer",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Feels%20Like%20Summer%20Childish%20Gambino"
-   }
+   },
+   "season": "summer"
   },
   {
    "id": "2024-open-arms-feat-travis-scott-sza",
@@ -1492,11 +1524,11 @@
    "artist": "SZA",
    "album": "SOS",
    "plays": 50,
-   "season": "summer",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Open%20Arms%20(feat.%20Travis%20Scott)%20SZA"
-   }
+   },
+   "season": "summer"
   },
   {
    "id": "2024-best-interest-tyler-the-creator",
@@ -1504,11 +1536,11 @@
    "artist": "Tyler, The Creator",
    "album": "BEST INTEREST - Single",
    "plays": 49,
-   "season": "summer",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=BEST%20INTEREST%20Tyler%2C%20The%20Creator"
-   }
+   },
+   "season": "summer"
   }
  ],
  "2025": [
@@ -1606,11 +1638,11 @@
    "artist": "Trippie Redd",
    "album": "LIFE'S A TRIP",
    "plays": 55,
-   "season": "fall",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=UKA%20UKA%20Trippie%20Redd"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2025-which-one-drake-central-cee",
@@ -1618,11 +1650,11 @@
    "artist": "Drake & Central Cee",
    "album": "Which One - Single",
    "plays": 54,
-   "season": "fall",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Which%20One%20Drake%20%26%20Central%20Cee"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2025-wheels-fall-off-feat-kanye-west-ty-dolla-ign",
@@ -1630,11 +1662,11 @@
    "artist": "Ty Dolla $ign",
    "album": "Wheels Fall Off (feat. Kanye West) - Single",
    "plays": 54,
-   "season": "fall",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Wheels%20Fall%20Off%20(feat.%20Kanye%20West)%20Ty%20Dolla%20%24ign"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2025-when-he-s-gone-partynextdoor-drake",
@@ -1642,11 +1674,11 @@
    "artist": "PARTYNEXTDOOR & Drake",
    "album": "$ome $exy $ongs 4 U",
    "plays": 51,
-   "season": "fall",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=WHEN%20HE'S%20GONE%20PARTYNEXTDOOR%20%26%20Drake"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2025-losses-drake",
@@ -1654,11 +1686,11 @@
    "artist": "Drake",
    "album": "Dark Lane Demo Tapes",
    "plays": 50,
-   "season": "fall",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Losses%20Drake"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2025-africa-toto",
@@ -1666,11 +1698,11 @@
    "artist": "Toto",
    "album": "Toto IV",
    "plays": 24,
-   "season": "summer",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Africa%20Toto"
-   }
+   },
+   "season": "summer"
   },
   {
    "id": "2025-tadow-masego",
@@ -1678,11 +1710,11 @@
    "artist": "Masego",
    "album": "Lady Lady",
    "plays": 21,
-   "season": "summer",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Tadow%20Masego"
-   }
+   },
+   "season": "summer"
   },
   {
    "id": "2025-warm-dre-es",
@@ -1690,11 +1722,11 @@
    "artist": "Dre'es",
    "album": "Warm - Single",
    "plays": 15,
-   "season": "summer",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Warm%20Dre'es"
-   }
+   },
+   "season": "summer"
   },
   {
    "id": "2025-calabria-2008-feat-natasja-enur",
@@ -1702,11 +1734,11 @@
    "artist": "Enur",
    "album": "Raggatronic",
    "plays": 5,
-   "season": "summer",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Calabria%202008%20(feat.%20Natasja)%20Enur"
-   }
+   },
+   "season": "summer"
   },
   {
    "id": "2025-what-goes-around-comes-around-interlude-justin-t",
@@ -1714,11 +1746,11 @@
    "artist": "Justin Timberlake",
    "album": "FutureSex/LoveSounds (Deluxe Edition)",
    "plays": 5,
-   "season": "summer",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=What%20Goes%20Around...%2F...Comes%20Around%20(Interlude)%20Justin%20Timberlake"
-   }
+   },
+   "season": "summer"
   }
  ],
  "2026": [
@@ -1816,23 +1848,23 @@
    "artist": "Westside Gunn",
    "album": "Pray for Paris",
    "plays": 24,
-   "season": "fall",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=%24500%20Ounces%20(feat.%20Freddie%20Gibbs%20%26%20Roc%20Marciano)%20Westside%20Gunn"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2026-good-days-sza",
    "title": "Good Days",
    "artist": "SZA",
    "album": "Good Days - Single",
-   "plays": 12,
-   "season": "fall",
+   "plays": 45,
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Good%20Days%20SZA"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2026-meaningful-love-instrumental-silo-steven-cranber",
@@ -1840,11 +1872,11 @@
    "artist": "Silo & Steven Cranberry",
    "album": "meaningful love - Single",
    "plays": 11,
-   "season": "fall",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=meaningful%20love%20(Instrumental)%20Silo%20%26%20Steven%20Cranberry"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2026-gass-feat-travis-scott-nemzzz",
@@ -1852,11 +1884,11 @@
    "artist": "Nemzzz",
    "album": "LOCKED IN",
    "plays": 10,
-   "season": "fall",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=GASS%20(feat.%20Travis%20Scott)%20Nemzzz"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2026-stereo-love-edward-maya-vika-jigulina",
@@ -1864,11 +1896,11 @@
    "artist": "Edward Maya & Vika Jigulina",
    "album": "Stereo Love - EP",
    "plays": 9,
-   "season": "fall",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Stereo%20Love%20Edward%20Maya%20%26%20Vika%20Jigulina"
-   }
+   },
+   "season": "fall"
   },
   {
    "id": "2026-lean-into-the-sunshine-sparrow-barbossa-young-sa",
@@ -1876,11 +1908,11 @@
    "artist": "Sparrow & Barbossa, Young Saab & Sparrow (CH)",
    "album": "Lean into the Sunshine - Single",
    "plays": 47,
-   "season": "summer",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=Lean%20into%20the%20Sunshine%20Sparrow%20%26%20Barbossa%2C%20Young%20Saab%20%26%20Sparrow%20(CH)"
-   }
+   },
+   "season": "summer"
   },
   {
    "id": "2026-white-keys-dominic-fike",
@@ -1888,11 +1920,11 @@
    "artist": "Dominic Fike",
    "album": "White Keys - Single",
    "plays": 42,
-   "season": "summer",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=White%20Keys%20Dominic%20Fike"
-   }
+   },
+   "season": "summer"
   },
   {
    "id": "2026-la-vida-feat-kaala-shaw-radio-edit-dbasser-peter",
@@ -1900,11 +1932,11 @@
    "artist": "dbasser, Peter Guzman & Jose Alves",
    "album": "La Vida (feat. Kaala Shaw) - Single",
    "plays": 40,
-   "season": "summer",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=La%20Vida%20(feat.%20Kaala%20Shaw)%20%5BRadio%20Edit%5D%20dbasser%2C%20Peter%20Guzman%20%26%20Jose%20Alves"
-   }
+   },
+   "season": "summer"
   },
   {
    "id": "2026-when-the-lights-are-low-the-paragons",
@@ -1912,11 +1944,11 @@
    "artist": "The Paragons",
    "album": "On the Beach With the Paragons",
    "plays": 37,
-   "season": "summer",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=When%20the%20Lights%20Are%20Low%20The%20Paragons"
-   }
+   },
+   "season": "summer"
   },
   {
    "id": "2026-the-raft-album-fat-freddy-s-drop",
@@ -1924,11 +1956,11 @@
    "artist": "Fat Freddy's Drop",
    "album": "The Raft",
    "plays": 36,
-   "season": "summer",
    "source": {
     "type": "apple",
     "url": "https://music.apple.com/us/search?term=The%20Raft%20(Album)%20Fat%20Freddy's%20Drop"
-   }
+   },
+   "season": "summer"
   }
  ]
 }

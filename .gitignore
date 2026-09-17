@@ -49,3 +49,4 @@ next-env.d.ts
 
 # local photo staging: reviewed by Ethan before anything is published
 .staging-photos/
+.staging-music/

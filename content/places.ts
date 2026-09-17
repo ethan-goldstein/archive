@@ -24,12 +24,12 @@ export const places: Place[] = [
   { id: "cold-spring-es", label: "Cold Spring Elementary School", short: "Cold Spring ES", lat: 39.047, lng: -77.187, from: 2010, to: 2016, kind: "school", note: "Kindergarten through 5th grade." },
   { id: "cabin-john-ms", label: "Cabin John Middle School", short: "Cabin John MS", lat: 39.038, lng: -77.145, from: 2016, to: 2019, kind: "school", note: "6th through 8th." },
   { id: "wootton-hs", label: "Wootton High School", short: "Wootton", lat: 39.061, lng: -77.18, from: 2019, to: 2023, kind: "school", note: "Class of 2023. Baseball." },
-  { id: "south-carolina", label: "College, South Carolina", short: "South Carolina", lat: 33.99, lng: -81.03, from: 2023, to: 2027, kind: "school", note: "2023 to 2027. City and school to confirm." },
+  { id: "usc", label: "University of South Carolina, Columbia", short: "USC, Columbia", lat: 33.994, lng: -81.03, from: 2023, to: 2027, kind: "school", note: "2023 to 2027." },
 ];
 
 /** EDIT: turn these into real entries above. */
 export const placePlaceholders: { hint: string; kind: PlaceKind }[] = [
-  { hint: "The Baseball Zone (Chris's dad's place): where is it? Add the town and it becomes a pin.", kind: "other" },
+  { hint: "The Baseball Zone (Chris's dad's place, where I was a manager 2021 to 2024): add the town and it becomes a pin.", kind: "other" },
   { hint: "The synagogue where you did preschool.", kind: "school" },
   { hint: "A trip you still think about.", kind: "trip" },
   { hint: "Where family lives and you spent holidays.", kind: "family" },

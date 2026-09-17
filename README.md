@@ -141,7 +141,7 @@ Visual checks: `node scripts/screenshots.mjs <dir>` (hub, one year per quality l
 
 ## Music from your library
 
-`npm run music` (macOS) reads the Music app read-only and writes `content/generated/music.json`, which every year page merges in. Apple Music Replay lists are not stored in the library, so the site shows the honest proxy and labels it: the most played songs among those **added** that year, plus picks from your own seasonal playlists for the summer and fall chapters (edit `FALL_PLAYLISTS` / `SUMMER_PLAYLISTS` in `scripts/music.mjs`). Play counts are lifetime counts. Each track links to an Apple Music search. Hand-written tracks in `content/personal/<year>.ts` always come first.
+`npm run music` (macOS) reads the Music app read-only and writes `content/generated/music.json`, which every year page merges in. It also recovers **deleted playlists** from the library backups macOS keeps in `~/Music/Music/Previous Libraries.localized/`; a recovered `Replay <year>` playlist becomes that year's real top ten, in rank order (2023 so far). Apple Music Replay lists are not stored in the library, so the site shows the honest proxy and labels it: the most played songs among those **added** that year, plus picks from your own seasonal playlists for the summer and fall chapters (edit `FALL_PLAYLISTS` / `SUMMER_PLAYLISTS` in `scripts/music.mjs`). Play counts are lifetime counts. Each track links to an Apple Music search. Hand-written tracks in `content/personal/<year>.ts` always come first.
 
 Photos are never pulled in automatically. `.staging-photos/` is a gitignored scratch area for choosing them; only files you put in `public/photos/<year>/` and run through `npm run photos` reach the site.
 

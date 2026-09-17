@@ -18,7 +18,7 @@ export const personal2021: PersonalYearInput = {
   interests: [{"label": "Baseball", "kind": "sport", "icon": "ball"}, {"label": "Working at The Baseball Zone", "kind": "hobby", "icon": "trophy"}],
   onMyScreen: [placeholder("What you watched or played on repeat in 2021.", "item", "2021-screen-1")],
   tech: [placeholder("A device or app you used in 2021.", "item", "2021-tech-1")],
-  milestones: [{"id": "2021-job", "title": "Worked at The Baseball Zone", "kind": "other", "date": "High school (years to confirm)", "tags": ["baseball", "work"]}],
+  milestones: [{"id": "2021-job", "title": "Started as a manager at The Baseball Zone", "kind": "achievement", "date": "2021", "body": "Ran the front desk, scheduling and daily finances, and kept the HitTrax systems working. Stayed until 2024.", "tags": ["baseball", "work"]}],
   capsule: [],
   links: [],
   tags: [],

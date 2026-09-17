@@ -7,8 +7,8 @@ import type { PersonalYearInput } from "@/lib/content/schema";
  */
 export const personal2024: PersonalYearInput = {
   year: 2024,
-  location: "South Carolina",
-  intro: "College sophomore.",
+  location: "Columbia, South Carolina",
+  intro: "Sophomore year at South Carolina. Last year at The Baseball Zone back home.",
   memories: [
     placeholder("A sophomore-year memory.", "memory", "2024-memory-1"),
   ],

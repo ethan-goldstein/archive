@@ -126,6 +126,8 @@ export const TrackSchema = z.object({
   note: z.string().optional(),
   /** Lifetime play count from the Music app, when the track came from `npm run music`. */
   plays: z.number().int().nonnegative().optional(),
+  /** Position in that year's real Apple Music Replay, when the playlist was recovered from a library backup. */
+  replayRank: z.number().int().positive().optional(),
   /** Files the track under a season's chapter; without it, music lives in winter. */
   season: z.enum(["winter", "spring", "summer", "fall"]).optional(),
   tags: Tags,
