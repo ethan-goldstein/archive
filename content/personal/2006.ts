@@ -10,7 +10,7 @@ export const personal2006: PersonalYearInput = {
   location: "Olney, Maryland",
   intro: "Olney, age one. Everything cool in the house was already Jeremy's.",
   memories: [
-    {"id": "siblings", "title": "Older siblings", "body": "Jeremy is five years older, Kyra three and a half. I thought my brother was the coolest person alive and wanted to be him.", "tags": ["family", "jeremy", "kyra"]},
+    {"id": "2006-siblings", "title": "Older siblings", "body": "Jeremy is five years older, Kyra three and a half. I thought my brother was the coolest person alive and wanted to be him.", "tags": ["family", "jeremy", "kyra"]},
     placeholder("A story from when you were one, as your family tells it.", "memory", "2006-memory-2"),
   ],
   photos: [placeholder("A family photo from 2006. Drop files in public/photos/2006/ and run npm run photos.", "photo", "2006-photo-1")],

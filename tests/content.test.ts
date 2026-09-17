@@ -18,9 +18,13 @@ describe("content", () => {
     expect(getYear(2006).mode).toBe("fragment");
   });
 
-  it("keeps 2005 birthplace as a real fact and the rest as placeholders", () => {
-    expect(getYear(2005).location).toBe("Potomac, Maryland");
-    expect(isPlaceholder(getYear(2006).location)).toBe(true);
+  it("keeps every year's location as a real fact with no house numbers", () => {
+    expect(getYear(2005).location).toBe("Olney, Maryland");
+    expect(getYear(2014).location).toBe("Paddock Lane, Cold Spring, Potomac");
+    for (const y of years) {
+      expect(isPlaceholder(y.location)).toBe(false);
+      expect(String(y.location)).not.toMatch(/\d{3,}/);
+    }
   });
 
   it("never marks cultural tracks as personal", () => {

@@ -10,7 +10,7 @@ export const personal2011: PersonalYearInput = {
   location: "Wooden Bridge Road, Cold Spring, Potomac",
   intro: "First grade.",
   memories: [
-    {"id": "siblings", "title": "Older siblings", "body": "Jeremy is five years older, Kyra three and a half. I thought my brother was the coolest person alive and wanted to be him.", "tags": ["family", "jeremy", "kyra"]},
+    {"id": "2011-siblings", "title": "Older siblings", "body": "Jeremy is five years older, Kyra three and a half. I thought my brother was the coolest person alive and wanted to be him.", "tags": ["family", "jeremy", "kyra"]},
     placeholder("A first-grade memory.", "memory", "2011-memory-2"),
   ],
   photos: [placeholder("A photo from 2011. Drop files in public/photos/2011/ and run npm run photos.", "photo", "2011-photo-1")],
