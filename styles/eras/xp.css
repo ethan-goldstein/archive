@@ -17,7 +17,7 @@ html:has([data-era="xp"]), html[data-era="xp"] {
   --chrome-fg: #ffffff;
   --border: rgba(255, 255, 255, 0.35);
 
-  --radius-era: 8px;
+  --radius-era: calc(6px + 3px * var(--era-t, 0));
   --radius-sm: 3px;
   --shadow-era: 0 1px 0 rgba(255, 255, 255, 0.5) inset, 0 12px 30px -12px rgba(0, 20, 60, 0.7);
   --wallpaper:

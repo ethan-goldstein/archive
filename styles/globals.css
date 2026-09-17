@@ -8,6 +8,7 @@
 @import "./effects.css";
 @import "./os.css";
 @import "./pixels.css";
+@import "./frames.css";
 
 @theme inline {
   --color-bg: var(--bg);

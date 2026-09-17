@@ -19,7 +19,7 @@ const PATH: Record<string, Key[]> = {
   world: [[[12, 6, 10], [0, 3, -8]], [[18, 14, 14], [-4, 10, -30]], [[22, 26, 22], [-12, 24, -60]]],
 };
 /** Scratch vectors, module level so the frame loop never allocates and never mutates render values. */
-const scratch = { pos: new THREE.Vector3(), look: new THREE.Vector3(), targetPos: new THREE.Vector3(), targetLook: new THREE.Vector3(), started: false };
+const scratch = { pos: new THREE.Vector3(), look: new THREE.Vector3(), targetPos: new THREE.Vector3(), targetLook: new THREE.Vector3(), started: false, zooming: false };
 
 const ORDER = ["title", "winter", "spring", "summer", "fall", "world"] as const;
 const SET_OF: Record<(typeof ORDER)[number], number> = { title: SET_X.winter, winter: SET_X.winter, spring: SET_X.spring, summer: SET_X.summer, fall: SET_X.fall, world: SET_X.fall };
@@ -46,6 +46,19 @@ export function CameraRig() {
     window.addEventListener("pointermove", onMove, { passive: true });
     return () => window.removeEventListener("pointermove", onMove);
   }, []);
+
+  // Coming from the boot screen: start far out and glide in, instead of a hard cut.
+  useEffect(() => {
+    try {
+      if (sessionStorage.getItem("archive:zoom") === "1") {
+        sessionStorage.removeItem("archive:zoom");
+        scratch.pos.set(-70 + SET_X.winter, 46, 120);
+        scratch.look.set(0, 2, -6);
+        scratch.started = !reduced;
+        scratch.zooming = !reduced;
+      }
+    } catch { /* ignore */ }
+  }, [reduced]);
 
   useEffect(() => {
     if (!reduced) return;
@@ -74,7 +87,8 @@ export function CameraRig() {
       const swayX = pointer.current.x * 0.8, swayY = -pointer.current.y * 0.4;
       targetPos.x += swayX; targetPos.y += swayY;
     }
-    const k = reduced || !scratch.started ? 1 : 1 - Math.exp(-dt * 6);
+    const k = reduced || !scratch.started ? 1 : 1 - Math.exp(-Math.min(dt, 0.05) * (scratch.zooming ? 2.2 : 6));
+    if (scratch.zooming && pos.distanceTo(targetPos) < 0.5) scratch.zooming = false;
     scratch.started = true;
     pos.lerp(targetPos, k);
     look.lerp(targetLook, k);

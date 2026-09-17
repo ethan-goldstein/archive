@@ -19,19 +19,18 @@ export function useSettings() {
     toggleSound: () => set({ sound: !settings.sound }),
     toggleEffects: () => set({ effects: !settings.effects }),
     setOs: (os: OsSkin) => set({ os }),
-    toggleOs: () => set({ os: settings.os === "win" ? "mac" : "win" }),
+    toggleOs: () => set({ os: settings.os === "auto" ? "win" : settings.os === "win" ? "mac" : "auto" }),
   };
 }
 
 /** Mirrors settings onto <html> (for CSS effects) and mutes the player when sound is off. */
 export function SettingsSync() {
-  const { sound, effects, os } = useSettings();
+  const { sound, effects } = useSettings();
   useEffect(() => {
     const el = document.documentElement;
     el.dataset.effects = effects ? "on" : "off";
     el.dataset.sound = sound ? "on" : "off";
-    el.dataset.os = os;
     playerStore.setMuted(!sound);
-  }, [sound, effects, os]);
+  }, [sound, effects]);
   return null;
 }

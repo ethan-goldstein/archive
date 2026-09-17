@@ -14,6 +14,9 @@ import { playClick } from "@/lib/audio/chime";
 import { useKeyboard } from "@/lib/hooks/useKeyboard";
 import type { Photo } from "@/lib/content/schema";
 import { asset } from "@/lib/basePath";
+import { TimelineRoad } from "./TimelineRoad";
+import { timelineStore } from "@/lib/scroll/timelineStore";
+import { frameStore, frameForYear } from "@/lib/browser/frame";
 
 const stops = ERAS.map((e) => (e.from + e.to) / 2);
 const pick = (k: keyof (typeof ERAS)[number]["palette"]) => ERAS.map((e) => e.palette[k]);
@@ -57,6 +60,7 @@ export function Scrubber({ initialYear = FIRST_YEAR }: { initialYear?: number })
   }, [width]);
 
   useMotionValueEvent(yearMV, "change", (v) => {
+    timelineStore.year = Math.min(LAST_YEAR, Math.max(FIRST_YEAR, v));
     const r = clampYear(v);
     setYear((cur) => {
       if (r !== cur) playClick();
@@ -86,18 +90,24 @@ export function Scrubber({ initialYear = FIRST_YEAR }: { initialYear?: number })
   const era = eraForYear(year);
   const photos = data.personal.photos;
 
+  useEffect(() => { frameStore.set(frameForYear(year)); }, [year]);
+
   return (
     <EraProvider era={era.id}>
       <motion.main
         data-era={era.id}
-        className="flex flex-1 flex-col px-4 pb-[calc(var(--tabbar-h)+24px)] pt-6 md:px-8 md:pb-12 md:pt-10"
+        className="relative flex flex-1 flex-col px-4 pb-[calc(var(--tabbar-h)+24px)] pt-6 md:px-8 md:pb-12 md:pt-10"
         style={{ ["--bg" as string]: bg, ["--fg" as string]: fg, ["--accent" as string]: accent, ["--accent-2" as string]: accent2, ["--glow" as string]: glow }}
       >
-        <div className="mx-auto flex w-full max-w-[1200px] flex-1 flex-col justify-center gap-8">
+        <div className="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
+          <div className="sticky top-0 h-dvh w-full overflow-hidden"><TimelineRoad year={year} /></div>
+          <div className="absolute inset-x-0 bottom-0 h-1/2 bg-[linear-gradient(180deg,transparent,color-mix(in_srgb,var(--bg)_85%,transparent))]" />
+        </div>
+        <div className="relative z-[1] mx-auto flex w-full max-w-[1200px] flex-1 flex-col justify-center gap-8">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-12 md:items-end">
             <div className="md:col-span-7">
               <p className="label-mono m-0 mb-2 text-fg-muted">Life scrubber · drag, or use ← →</p>
-              <p className="numeral m-0 text-[clamp(120px,26vw,280px)]" aria-live="polite">{year}</p>
+              <p className="numeral chapter-head m-0 !p-0 text-[clamp(120px,26vw,280px)]" style={{ minHeight: 0 }} aria-live="polite">{year}</p>
             </div>
             <dl className="m-0 grid grid-cols-2 gap-4 md:col-span-5 md:grid-cols-1 md:pb-6">
               <div><dt className="label-mono text-fg-muted">Age</dt><dd className="m-0 text-[clamp(18px,3vw,28px)] font-medium">{year === FIRST_YEAR ? "Born" : ageInYear(year)}</dd></div>

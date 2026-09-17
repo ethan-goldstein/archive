@@ -108,6 +108,18 @@ Set `showPlaceholders: false` there to hide every remaining slot on the public s
 `interests`, `onMyScreen`, and `tech` take `{ label, kind, note?, icon?, url? }`. Icon names are listed in `lib/content/schema.ts` (`ICON_NAMES`).
 `capsule` objects (`{ label, icon, personal: true }`) appear in the Time Capsule shelf next to the era's objects.
 
+## The seasons and the 3D world (Pass 3)
+
+Every year page is one long scroll: a title card, then **Winter → Spring → Summer → Fall**, then "The world that year". Behind it a Three.js world (react-three-fiber) with four procedural sets sits side by side: a snowed-in house with warm windows, a low-poly diamond, the pool at dusk, and a porch with a jack-o'-lantern. The camera rides one spline through all of them as you scroll (Lenis), so the year is literally a walk.
+
+- **Content by season.** `lib/content/seasons.ts` reads the month out of `date` / `takenAt` (`2010-05`, `June 2012`, `Oct 2019`). Dated entries land in their season; undated memories and milestones land in fall; undated photos are spread; music lives in winter; placeholders are dealt round-robin so every chapter shows a slot.
+- **The technology grows up.** `lib/three/profile.ts` gives each era a render profile that slides within the era: 2005 is pixelated and posterized with flat shading; 2009 is glossy with bloom; 2013 is toon-flat pastel; 2017 is PBR with grain and a vignette; 2021+ adds depth of field and chromatic aberration. The same `--era-t` nudges radii and blur in the 2D tokens.
+- **The frame grows up too.** `lib/browser/frame.ts`: Windows 98 (2005–08) → Windows 7 with a tab strip (2009–12) → an iOS 7 app (2013–16) → a streaming app (2017–20) → a frosted window (2021–25) → no chrome, a floating capsule (2026). *View → Grows up with the year / Windows 98 / Mac OS 9* pins it.
+- **The timeline is a road.** `/timeline` puts 22 markers down a straight; the sky cycles through the seasons inside every year you drag past.
+- **Safety nets.** Reduced motion renders a still frame and native scrolling; no WebGL means the era wallpaper shows and nothing else changes; the canvas pauses when the tab is hidden; particle counts scale with the device. Turn *View → Retro effects* off and the 3D layer is skipped entirely.
+
+Visual checks: `BASE=http://localhost:3000 node scripts/season-shots.mjs <dir>` (every chapter of several years, phone, reduced motion) and `node scripts/frame-shots.mjs <dir>` (one year per frame).
+
 ## Privacy on the public site
 
 Two rules keep the archive shareable without giving away too much:

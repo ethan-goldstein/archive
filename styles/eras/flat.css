@@ -17,7 +17,7 @@ html:has([data-era="flat"]), html[data-era="flat"] {
   --chrome-fg: #ffffff;
   --border: rgba(255, 255, 255, 0.18);
 
-  --radius-era: 4px;
+  --radius-era: calc(4px + 4px * var(--era-t, 0));
   --radius-sm: 3px;
   --shadow-era: 0 1px 2px rgba(0, 0, 0, 0.18), 0 8px 24px -12px rgba(0, 0, 0, 0.35);
   --wallpaper:

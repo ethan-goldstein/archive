@@ -12,6 +12,8 @@ import { useKeyboard } from "@/lib/hooks/useKeyboard";
 import { playClick } from "@/lib/audio/chime";
 import { uiStore } from "@/lib/ui/uiStore";
 import { BASE_PATH, stripBase } from "@/lib/basePath";
+import { frameStore, frameForYear } from "@/lib/browser/frame";
+import { profileForYear } from "@/lib/three/profile";
 
 /**
  * Owns the current year. Year changes happen in place: pushState + AnimatePresence,
@@ -54,6 +56,15 @@ export function YearStage({ initialYear }: { initialYear: number }) {
     window.addEventListener("popstate", onPop);
     return () => window.removeEventListener("popstate", onPop);
   }, [go]);
+
+  // The frame and the within-era slide of the 2D tokens follow the year.
+  useEffect(() => {
+    frameStore.set(frameForYear(year));
+    const p = profileForYear(year);
+    const el = document.documentElement;
+    el.style.setProperty("--era-t", p.eraT.toFixed(3));
+    el.style.setProperty("--tech", p.techLevel.toFixed(3));
+  }, [year]);
 
   // Title + a light sweep when the era changes.
   useEffect(() => {

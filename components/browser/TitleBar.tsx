@@ -3,7 +3,7 @@
 import { usePath } from "@/lib/hooks/usePath";
 import { Icon } from "@/components/ui/Icon";
 import { titleForPath } from "@/lib/browser/title";
-import { useSettings } from "@/lib/settings/SettingsContext";
+import { useFrameId } from "@/lib/hooks/useFrameId";
 import { uiStore } from "@/lib/ui/uiStore";
 import { cn } from "@/lib/cn";
 
@@ -11,9 +11,9 @@ interface Props { onMinimize: () => void; onClose: () => void }
 
 export function TitleBar({ onMinimize, onClose }: Props) {
   const pathname = usePath();
-  const { os } = useSettings();
+  const { buttons } = useFrameId();
   const title = titleForPath(pathname);
-  const mac = os === "mac";
+  const mac = buttons === "left";
 
   return (
     <div className={cn("os-title flex h-8 items-center gap-2 px-2 md:h-7", mac && "justify-between")}>

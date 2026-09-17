@@ -16,7 +16,7 @@ export interface MenuContext {
   openPlayer: () => void;
   sound: boolean; toggleSound: () => void;
   effects: boolean; toggleEffects: () => void;
-  os: "win" | "mac"; setOs: (os: "win" | "mac") => void;
+  os: "auto" | "win" | "mac"; setOs: (os: "auto" | "win" | "mac") => void;
   toast: (title: string, body?: string) => void;
   confirmExit: () => void;
   copyLink: () => void;
@@ -51,6 +51,7 @@ export function buildMenus(c: MenuContext): MenuDef[] {
         { type: "check", label: "Sound", checked: c.sound, onSelect: c.toggleSound },
         { type: "check", label: "Retro effects", checked: c.effects, onSelect: c.toggleEffects },
         { type: "sep" },
+        { type: "radio", label: "Grows up with the year", checked: c.os === "auto", onSelect: () => c.setOs("auto") },
         { type: "radio", label: "Windows 98", checked: c.os === "win", onSelect: () => c.setOs("win") },
         { type: "radio", label: "Mac OS 9", checked: c.os === "mac", onSelect: () => c.setOs("mac") },
       ],

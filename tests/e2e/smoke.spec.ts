@@ -84,10 +84,14 @@ test.describe("browser frame", () => {
     await expect(page.getByRole("menu", { name: "View" })).toBeVisible();
     await page.keyboard.press("Escape");
     await expect(page.getByRole("menu", { name: "View" })).toHaveCount(0);
+    await expect(page.locator("html")).toHaveAttribute("data-frame", "aero");
+    await page.getByRole("button", { name: /Auto UI/ }).click();
+    await expect(page.locator("html")).toHaveAttribute("data-frame", "xp");
+    await expect(page.locator("html")).toHaveAttribute("data-os", "win");
     await page.getByRole("button", { name: /Win 98/ }).click();
     await expect(page.locator("html")).toHaveAttribute("data-os", "mac");
     await page.getByRole("button", { name: /Mac OS/ }).click();
-    await expect(page.locator("html")).toHaveAttribute("data-os", "win");
+    await expect(page.locator("html")).toHaveAttribute("data-frame", "aero");
   });
 
   test("the address bar navigates to a typed year", async ({ page }) => {
@@ -128,7 +132,7 @@ test.describe("backyard baseball", () => {
 test.describe("memory map", () => {
   test("pins Potomac and links to 2005", async ({ page }) => {
     await page.goto("/map");
-    await expect(page.getByRole("img", { name: /Potomac, Maryland/ })).toBeVisible();
+    await expect(page.getByRole("img", { name: /Shady Grove Hospital/ })).toBeVisible();
     await page.getByRole("link", { name: "2005" }).first().click();
     await expect(page).toHaveURL(/\/year\/2005$/);
   });
@@ -150,5 +154,51 @@ test.describe("draggable windows", () => {
     await page.mouse.up();
     const after = await win.boundingBox();
     expect(Math.abs(after!.x - before!.x)).toBeGreaterThan(50);
+  });
+});
+
+test.describe("seasons and frames", () => {
+  test("a year scrolls through its chapters in order and the frame follows the era", async ({ page }) => {
+    await page.goto("/year/2015");
+    const ids = await page.locator("[data-chapter]").evaluateAll((els) => els.map((e) => (e as HTMLElement).dataset.chapter));
+    expect(ids).toEqual(["title", "winter", "spring", "summer", "fall", "world"]);
+    await expect(page.getByRole("heading", { level: 2, name: "Winter" })).toBeAttached();
+    await expect(page.getByRole("heading", { level: 2, name: "Fall" })).toBeAttached();
+    await expect(page.locator("html")).toHaveAttribute("data-frame", "flat");
+    await page.keyboard.press("ArrowRight");
+    await page.keyboard.press("ArrowRight");
+    await expect(page).toHaveURL(/\/year\/2017$/);
+    await expect(page.locator("html")).toHaveAttribute("data-frame", "dark");
+    await noHorizontalOverflow(page);
+  });
+
+  test("2026 drops the window chrome for the spatial capsule", async ({ page }) => {
+    await page.goto("/year/2026");
+    await expect(page.locator("html")).toHaveAttribute("data-frame", "spatial");
+    await expect(page.locator(".os-window .os-title")).toBeHidden();
+    await expect(page.getByRole("textbox", { name: "Address" })).toBeVisible();
+    await noHorizontalOverflow(page);
+  });
+
+  test("the 3D layer mounts behind the year and the page still works without it", async ({ page }) => {
+    await page.goto("/year/2010");
+    await page.waitForLoadState("networkidle");
+    const canvases = await page.locator("main canvas").count();
+    // Headless GPUs vary; with WebGL there is exactly one canvas, without it the wallpaper shows and nothing breaks.
+    expect(canvases).toBeLessThanOrEqual(1);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("2010");
+    const world = page.getByRole("heading", { level: 2, name: "The world that year" });
+    await world.scrollIntoViewIfNeeded();
+    await expect(world).toBeInViewport();
+  });
+});
+
+test.describe("reduced motion", () => {
+  test.use({ contextOptions: { reducedMotion: "reduce" } });
+  test("a year page renders its chapters without smooth scrolling", async ({ page }) => {
+    await page.goto("/year/2019");
+    await expect(page.locator("html")).not.toHaveClass(/lenis/);
+    await expect(page.getByRole("heading", { level: 2, name: "Summer" })).toBeAttached();
+    await noHorizontalOverflow(page);
   });
 });

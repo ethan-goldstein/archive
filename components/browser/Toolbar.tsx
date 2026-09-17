@@ -33,10 +33,11 @@ export function Toolbar() {
       <Tool icon="clock" label="Timeline" onClick={() => router.push("/timeline")} />
       <Tool icon="ball" label="Play" onClick={() => router.push("/backyard")} />
       <Tool icon="music" label="Music" onClick={() => uiStore.togglePlayer()} />
+      <span className="os-tool-menu hidden"><Tool icon="folder" label="Menu" onClick={() => uiStore.openMenuSheet()} /></span>
       <span className="ml-auto flex items-center">
         <Tool icon={sound ? "volume" : "mute"} label={sound ? "Sound" : "Muted"} onClick={toggleSound} pressed={sound} />
         <Tool icon="crt" label="Effects" onClick={toggleEffects} pressed={effects} />
-        <Tool icon={os === "win" ? "window" : "desktop"} label={os === "win" ? "Win 98" : "Mac OS"} onClick={toggleOs} />
+        <Tool icon={os === "mac" ? "desktop" : os === "win" ? "window" : "sparkle"} label={os === "auto" ? "Auto UI" : os === "win" ? "Win 98" : "Mac OS"} onClick={toggleOs} />
       </span>
     </div>
   );

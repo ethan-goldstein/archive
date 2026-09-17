@@ -4,7 +4,8 @@
  */
 import { site } from "@/content/site";
 
-export type OsSkin = "win" | "mac";
+/** auto = the frame evolves with the year; win / mac pin the classic Windows 98 or Mac OS 9 look. */
+export type OsSkin = "auto" | "win" | "mac";
 export interface Settings {
   sound: boolean;
   effects: boolean;
@@ -13,7 +14,7 @@ export interface Settings {
 }
 
 const KEY = "archive:settings";
-const defaults: Settings = { sound: site.soundDefault, effects: site.effectsDefault, entered: false, os: "win" };
+const defaults: Settings = { sound: site.soundDefault, effects: site.effectsDefault, entered: false, os: "auto" };
 
 let state: Settings = defaults;
 let loaded = false;
