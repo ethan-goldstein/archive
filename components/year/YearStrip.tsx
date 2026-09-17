@@ -45,7 +45,7 @@ export function YearStrip({ year, onSelect }: Props) {
       </div>
       <div
         ref={rail}
-        className="rail rail-snap flex h-[var(--strip-h)] items-stretch px-[calc(50%-40px)] lg:grid lg:h-10 lg:grid-cols-[repeat(22,minmax(0,1fr))] lg:px-6"
+        data-lenis-prevent className="rail rail-snap flex h-[var(--strip-h)] items-stretch px-[calc(50%-40px)] lg:grid lg:h-10 lg:grid-cols-[repeat(22,minmax(0,1fr))] lg:px-6"
         role="tablist"
         aria-label="Years"
       >

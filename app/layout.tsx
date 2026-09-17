@@ -7,6 +7,7 @@ import { BottomTabs } from "@/components/shell/BottomTabs";
 import { Toaster } from "@/components/shell/Toaster";
 import { Screensaver } from "@/components/shell/Screensaver";
 import { Konami } from "@/components/shell/Konami";
+import { ScrollProvider } from "@/components/shell/ScrollProvider";
 import { Desktop } from "@/components/browser/Desktop";
 import { BrowserWindow } from "@/components/browser/BrowserWindow";
 import { MenuSheet } from "@/components/browser/MenuSheet";
@@ -62,6 +63,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Toaster />
           <Screensaver />
           <Konami />
+          <ScrollProvider />
           <EffectsLayer />
         </Providers>
       </body>

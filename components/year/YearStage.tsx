@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence } from "motion/react";
 import { YearStrip } from "./YearStrip";
 import { YearView } from "./YearView";
+import { YearCanvas } from "@/components/three/YearCanvas";
 import { EraProvider } from "@/lib/era/EraContext";
 import { getYear } from "@/lib/content/getYear";
 import { FIRST_YEAR, LAST_YEAR, clampYear, eraForYear, parseYearParam } from "@/lib/content/eras";
@@ -41,6 +42,7 @@ export function YearStage({ initialYear }: { initialYear: number }) {
     }
     uiStore.setStatus(`Opening ${target}…`, true, 600);
     playClick();
+    window.scrollTo({ top: 0, behavior: "instant" });
   }, []);
 
   // Back / forward.
@@ -84,6 +86,9 @@ export function YearStage({ initialYear }: { initialYear: number }) {
   return (
     <EraProvider era={era}>
       <main data-era={era} className="relative flex flex-1 flex-col">
+        <div className="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
+          <div className="sticky top-0 h-dvh w-full overflow-hidden"><YearCanvas year={year} /></div>
+        </div>
         <YearStrip year={year} onSelect={go} />
         {sweepKey > 0 ? <div key={sweepKey} className="era-sweep" aria-hidden="true" /> : null}
         <AnimatePresence mode="wait" initial={false}>

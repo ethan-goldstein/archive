@@ -296,3 +296,22 @@ html:has([data-era="glass"]) .surface-title, html[data-era="glass"] .surface-tit
 .player-range::-moz-range-thumb { width: 14px; height: 14px; border: 0; border-radius: 50%; background: #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.3); cursor: pointer; }
 .player-range:disabled { opacity: .4; }
 }
+
+/* ---- Pass 3: the seasonal scroll journey ---- */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+@layer components {
+  .chapter { position: relative; padding-top: 12vh; padding-bottom: 12vh; }
+  .chapter-title { min-height: calc(100dvh - var(--chrome-h)); display: flex; flex-direction: column; justify-content: flex-end; padding-top: 6vh; }
+  .chapter-season { min-height: 100dvh; display: flex; flex-direction: column; gap: 28px; }
+  .chapter-head { color: #fff; text-shadow: 0 2px 0 rgba(0, 0, 0, 0.45), 0 10px 40px rgba(0, 0, 0, 0.5); display: flex; flex-direction: column; justify-content: flex-end; gap: 10px; min-height: calc(62dvh - var(--chrome-h)); padding-block: 4vh 4vh; }
+  .chapter-head .label-mono { color: rgba(255, 255, 255, 0.82); }
+  .chapter-head .pow { --pow-shadow: rgba(0, 0, 0, 0.6); }
+  .chapter-card { background: color-mix(in srgb, var(--bg) 84%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid var(--border); border-radius: var(--radius); padding: clamp(16px, 3vw, 36px); box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.6); }
+  .chapter-foot { color: #fff; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5); border-color: rgba(255, 255, 255, 0.25); margin-top: 24px; }
+  html:has([data-era="xp"]) .chapter-card, html:has([data-era="aero"]) .chapter-card { backdrop-filter: none; -webkit-backdrop-filter: none; background: var(--bg-elevated, var(--bg)); }
+  @media (prefers-reduced-motion: reduce) { .chapter-card { backdrop-filter: none; -webkit-backdrop-filter: none; } }
+}
