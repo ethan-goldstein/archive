@@ -14,6 +14,7 @@ export const profile = {
     { name: "Jeremy", relation: "brother", born: "2000-04-25", note: "Five years older. I thought he was the coolest person alive and wanted to be him." },
     { name: "Kyra", relation: "sister", born: "2001-07-02", note: "Three and a half years older." },
     { name: "Fenway", relation: "first dog", born: undefined, note: "The Wooden Bridge Road dog. Passed in 2013, when I was in 3rd grade." },
+    { name: "Parker", relation: "dog", born: undefined, note: "The goldendoodle. EDIT: add the year Parker arrived and he joins the 3D winter scene from then on." },
   ],
 
   /** Moods the archive leans into. Fall first, always. */
